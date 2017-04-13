@@ -1,12 +1,13 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, StatusBar } from 'react-native';
 
 // create a component
 class MerchantScene extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar barStyle="dark-content" />  
                 <Text>MerchantScene</Text>
             </View>
         );

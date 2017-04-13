@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { View, Text, StyleSheet, Platform, StatusBar } from 'react-native';
 import { Router, Scene, Actions, Schema } from 'react-native-router-flux';
 
 import color from './ui/color'
@@ -8,16 +8,18 @@ import color from './ui/color'
 import system from './common/system'
 import TabBarItem from './ui/TabBarItem'
 
-import HomeScene from './scene/home/HomeScene'
-import OnsiteScene from './scene/onsite/OnsiteScene'
-import MerchantScene from './scene/merchant/MerchantScene'
-import MineScene from './scene/mine/MineScene'
+import HomeScene from './scene/Home/HomeScene'
+import OnsiteScene from './scene/Onsite/OnsiteScene'
+import MerchantScene from './scene/Merchant/MerchantScene'
+import MineScene from './scene/Mine/MineScene'
 
 import WebScene from './ui/WebScene'
+import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
 
 // create a component
 class RootScene extends Component {
     render() {
+        StatusBar.setBarStyle('dark-content', true)
         return (
             <Router
                 titleStyle={styles.navigationBarTitle}
@@ -47,6 +49,9 @@ class RootScene extends Component {
                         selectedImage={require('./img/tabbar/icon_tabbar_homepage_selected@2x.png')}
 
                         icon={TabBarItem}
+
+                        navigationBarStyle={{ backgroundColor: color.theme }}
+                        titleStyle={{ color: 'white' }}
                     />
 
                     <Scene
@@ -55,7 +60,6 @@ class RootScene extends Component {
                         title='上门'
                         image={require('./img/tabbar/icon_tabbar_onsite@2x.png')}
                         selectedImage={require('./img/tabbar/icon_tabbar_onsite_selected@2x.png')}
-
 
                         icon={TabBarItem}
                     />
@@ -66,7 +70,6 @@ class RootScene extends Component {
                         image={require('./img/tabbar/icon_tabbar_merchant_normal@2x.png')}
                         selectedImage={require('./img/tabbar/icon_tabbar_merchant_selected@2x.png')}
 
-
                         icon={TabBarItem}
                     />
                     <Scene
@@ -76,12 +79,13 @@ class RootScene extends Component {
                         image={require('./img/tabbar/icon_tabbar_mine@2x.png')}
                         selectedImage={require('./img/tabbar/icon_tabbar_mine_selected@2x.png')}
 
-
                         icon={TabBarItem}
                     />
                 </Scene>
 
                 <Scene key='web' component={WebScene} title='加载中' hideTabBar clone />
+                <Scene key='groupPurchase' component={GroupPurchaseScene} title='团购详情' hideTabBar clone />
+
 
             </Router>
         );
@@ -131,13 +135,13 @@ const styles = StyleSheet.create({
     },
 
     navigationBarStyle: {
-        backgroundColor: color.theme
+        backgroundColor: 'white'
     },
     navigationBarTitle: {
-        color: 'white'
+        color: '#333333'
     },
     navigationBarButtonIcon: {
-        tintColor: 'white'
+        tintColor: '#333333'
     },
 });
 

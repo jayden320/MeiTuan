@@ -15,6 +15,7 @@ class WebScene extends Component {
                     style={styles.webView}
                     source={{ uri: this.props.url }}
                     onLoadEnd={(e) => this.onLoadEnd(e)}
+                    scalesPageToFit={true}
                 />
             </View>
         );

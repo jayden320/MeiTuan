@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, Button, TouchableOpacity, ListView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import SeparatorView from '../../ui/SeparatorView'
+import SpacingView from '../../ui/SpacingView'
 import RefreshListView, { RefreshState } from '../../ui/RefreshListView'
 import { Heading1, Heading2 } from '../../ui/Text'
 import color from '../../ui/color'
@@ -11,7 +11,7 @@ import api from '../../api'
 
 import HomeMenuView from './HomeMenuView'
 import HomeGridView from './HomeGridView'
-import RecommandCell from './RecommandCell'
+import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
 // create a component
 class HomeScene extends Component {
@@ -24,32 +24,29 @@ class HomeScene extends Component {
             discounts: [],
             dataSource: ds.cloneWithRows([]),
         }
+        
     }
-
+    
     componentDidMount() {
         this.refs.listView.startHeaderRefreshing();
     }
 
     requestData() {
         this.requestDiscount()
-        this.requestRecommand()
-    }
-
-    onSelectRow(rowData) {
-
+        this.requestRecommend()
     }
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.container}>  
                 <RefreshListView
                     ref='listView'
                     dataSource={this.state.dataSource}
                     renderHeader={() => this.renderHeader()}
                     renderRow={(rowData) =>
-                        <RecommandCell
+                        <GroupPurchaseCell
                             info={rowData}
-                            onPress={() => this.selectRow(rowData)}
+                            onPress={() => Actions.groupPurchase({ info: rowData })}
                         />
                     }
                     onHeaderRefresh={() => this.requestData()}
@@ -63,13 +60,13 @@ class HomeScene extends Component {
             <View>
                 <HomeMenuView menuInfos={this.loadMenuInfos()} onMenuSelected={(index) => this.onMenuSelected(index)} />
 
-                <SeparatorView />
+                <SpacingView />
 
                 <HomeGridView infos={this.state.discounts} onGridSelected={(index) => this.onGridSelected(index)} />
 
-                <SeparatorView />
+                <SpacingView />
 
-                <View style={styles.recommandHeader}>
+                <View style={styles.recommendHeader}>
                     <Heading1>猜你喜欢</Heading1>
                 </View>
             </View>
@@ -85,24 +82,26 @@ class HomeScene extends Component {
             Actions.web({ url: url })
             // alert(url)
         }
-        //    NSString *str = @"╭(╯^╰)╮";
-        //     NSNumber *num = [[NSNumber alloc] initWithLong:1];
-        //     if ([discount.type isEqualToValue: num]) {
-        //         str = discount.tplurl;
-        //         NSRange rang = [str rangeOfString:@"http"];
-        //         str = [str substringFromIndex:rang.location];
-        //         NSLog(@"%@",str);
-        //     }
-
     }
 
-    requestRecommand() {
-        fetch(api.recommand)
+    requestRecommend() {
+        fetch(api.recommend)
             .then((response) => response.json())
             .then((json) => {
                 console.log(JSON.stringify(json));
+
+                let dataList = json.data.map((info) => {
+                    return {
+                        id: info.id,
+                        imageUrl: info.squareimgurl,
+                        title: info.mname,
+                        subtitle: `[${info.range}]${info.title}`,
+                        price: info.price
+                    }
+                })
+
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(json.data)
+                    dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })
                 this.refs.listView.endRefreshing(RefreshState.NoMoreData)
             })
@@ -129,27 +128,7 @@ class HomeScene extends Component {
 
 
     loadMenuInfos() {
-        return [
-            { title: '美食', icon: require('./img/icon_homepage_foodCategory.png') },
-            { title: '电影', icon: require('./img/icon_homepage_movieCategory.png') },
-            { title: '酒店', icon: require('./img/icon_homepage_hotelCategory.png') },
-            { title: 'KTV', icon: require('./img/icon_homepage_KTVCategory.png') },
-            { title: '优惠买单', icon: require('./img/icon_homepage_foodCategory.png') },
-            { title: '周边游', icon: require('./img/icon_homepage_foodCategory.png') },
-            { title: '预定早餐', icon: require('./img/icon_homepage_foodCategory.png') },
-
-            { title: '美食1', icon: require('./img/icon_homepage_foodCategory.png') },
-            { title: '电影1', icon: require('./img/icon_homepage_movieCategory.png') },
-            { title: '酒店1', icon: require('./img/icon_homepage_hotelCategory.png') },
-            { title: 'KTV1', icon: require('./img/icon_homepage_KTVCategory.png') },
-            { title: '优惠买单1', icon: require('./img/icon_homepage_foodCategory.png') },
-            { title: '周边游1', icon: require('./img/icon_homepage_foodCategory.png') },
-            { title: '预定早餐1', icon: require('./img/icon_homepage_foodCategory.png') },
-
-            { title: '美食2', icon: require('./img/icon_homepage_foodCategory.png') },
-            { title: '电影2', icon: require('./img/icon_homepage_movieCategory.png') },
-            { title: '酒店2', icon: require('./img/icon_homepage_hotelCategory.png') },
-        ]
+        return api.menuInfo
     }
 }
 
@@ -158,8 +137,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    recommandHeader: {
-        height: 30,
+    recommendHeader: {
+        height: 35,
         justifyContent: 'center',
         borderWidth: 1,
         borderColor: color.border,

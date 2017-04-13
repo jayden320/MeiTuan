@@ -1,2 +1,4 @@
-# react-native-qiu-shi-bai-ke
-React Native 糗事百科客户端
+# MeiTuan
+纯react native版，高仿美团客户端，完美兼容iOS、Android
+
+开发中...

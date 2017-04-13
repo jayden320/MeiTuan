@@ -5,6 +5,11 @@ import ReactNative, { StyleSheet, Dimensions, Text } from 'react-native';
 
 import color from './color'
 
+export function HeadingBig({ style, ...props }) {
+    return <Text style={[styles.h0, style]} {...props} />
+}
+
+
 export function Heading1({ style, ...props }) {
     return <Text style={[styles.h1, style]} {...props} />
 }
@@ -24,6 +29,10 @@ export function Tip({ style, ...props }) {
 
 
 const styles = StyleSheet.create({
+    h0: {
+        fontSize: 45,
+        color: color.theme,
+    },
     h1: {
         fontSize: 16,
         color: '#222222',
