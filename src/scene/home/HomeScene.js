@@ -21,6 +21,36 @@ import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
 // create a component
 class HomeScene extends Component {
+    static renderRightButton = () => {
+        return (
+            <NavigationItem
+                icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
+                onPress={() => {
+
+                }}
+            />
+        );
+    }
+    static renderTitle = () => {
+        return (
+            <TouchableOpacity style={styles.searchBar}>
+                <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
+                <Paragraph>一点点</Paragraph>
+            </TouchableOpacity>
+        );
+    }
+    static renderLeftButton = () => {
+        return (
+            <NavigationItem
+                title='福州'
+                titleStyle={{ color: 'white' }}
+                onPress={() => {
+
+                }}
+            />
+        );
+    }
+
     constructor(props) {
         super(props)
 
@@ -34,37 +64,6 @@ class HomeScene extends Component {
     }
 
     componentDidMount() {
-        let rightButton = (
-            <NavigationItem
-                icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
-                onPress={() => {
-
-                }}
-            />
-        )
-
-        let titleView = (
-            <TouchableOpacity style={styles.searchBar}>
-                <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
-                <Paragraph>一点点</Paragraph>
-            </TouchableOpacity>
-        )
-
-        let leftButton = (
-            <NavigationItem
-                title='福州'
-                titleStyle={{ color: 'white' }}
-                onPress={() => {
-
-                }}
-            />
-        )
-        Actions.refresh({
-            renderRightButton: () => rightButton,
-            renderTitle: () => titleView,
-            renderLeftButton: () => leftButton
-        })
-
         this.refs.listView.startHeaderRefreshing();
     }
 

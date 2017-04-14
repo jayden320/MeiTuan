@@ -19,21 +19,17 @@ import MerchantListScene from './MerchantListScene'
 // create a component
 class MerchantScene extends Component {
     
-    constructor(props) {
-        super(props)
-
-    }
-
-    componentWillMount() {
-
-        let titleView = (
+    static renderTitle = () => {
+        return (
             <TouchableOpacity style={styles.searchBar}>
                 <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
                 <Paragraph>找附近的吃喝玩乐</Paragraph>
             </TouchableOpacity>
-        )
+        );
+    }
 
-        let leftButton = (
+    static renderLeftButton = () => {
+        return (
             <NavigationItem
                 icon={require('../../img/Merchant/icon_food_merchant_address@2x@2x.png')}
                 iconStyle={{width: 13,height:16, marginTop: 7}}
@@ -42,12 +38,15 @@ class MerchantScene extends Component {
 
                 }}
             />
-        )
-        Actions.refresh({
-            renderTitle: () => titleView,
-            renderLeftButton: () => leftButton
-        })
+        );
+    }
 
+    constructor(props) {
+        super(props)
+
+    }
+
+    componentWillMount() {
         // this.refs.listView.startHeaderRefreshing();
     }
 
