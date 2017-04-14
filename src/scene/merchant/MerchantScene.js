@@ -32,7 +32,7 @@ class MerchantScene extends Component {
         return (
             <NavigationItem
                 icon={require('../../img/Merchant/icon_food_merchant_address@2x@2x.png')}
-                iconStyle={{width: 13,height:16, marginTop: 7}}
+                iconStyle={{width: 13,height:16, marginTop: 1}}
                 title=' 福州 鼓楼'
                 onPress={() => {
 

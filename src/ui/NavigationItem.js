@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 15,
-        marginBottom: 12,
+        marginBottom: 15,
         color: '#333333'
     }
 });
