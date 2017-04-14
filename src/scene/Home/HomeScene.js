@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import SpacingView from '../../ui/SpacingView'
@@ -82,7 +82,10 @@ class HomeScene extends Component {
                     renderRow={(rowData) =>
                         <GroupPurchaseCell
                             info={rowData}
-                            onPress={() => Actions.groupPurchase({ info: rowData })}
+                            onPress={() => {
+                                StatusBar.setBarStyle('default', false)
+                                Actions.groupPurchase({ info: rowData })
+                            }}
                         />
                     }
                     onHeaderRefresh={() => this.requestData()}
@@ -113,6 +116,8 @@ class HomeScene extends Component {
         let discount = this.state.discounts[index]
 
         if (discount.type == 1) {
+            StatusBar.setBarStyle('default', false)
+            
             let location = discount.tplurl.indexOf('http')
             let url = discount.tplurl.slice(location)
             Actions.web({ url: url })

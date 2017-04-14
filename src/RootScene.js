@@ -19,13 +19,28 @@ import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
 // create a component
 class RootScene extends Component {
     render() {
-        StatusBar.setBarStyle('dark-content', true)
         return (
             <Router
                 titleStyle={styles.navigationBarTitle}
                 barButtonIconStyle={styles.navigationBarButtonIcon}
                 navigationBarStyle={styles.navigationBarStyle}
                 getSceneStyle={this.sceneStyle}
+
+                onSelect={el => {
+                    const { sceneKey, statusBarStyle } = el.props
+                    if (statusBarStyle) {
+                        StatusBar.setBarStyle(statusBarStyle, false)
+                    } else {
+                        StatusBar.setBarStyle('default', false)
+                    }
+                    Actions[sceneKey]()
+                }}
+                onBack={(el) => {
+                    if (el.sceneKey == 'home') {
+                        StatusBar.setBarStyle('light-content', false)
+                    }
+                    Actions.pop()
+                }}
             >
 
                 <Scene
@@ -40,6 +55,7 @@ class RootScene extends Component {
 
                 // tabBarSelectedImageStyle={styles.tabBarSelectedImage}
                 // tabBarUnselectedImageStyle={styles.tabBarUnselectedImage}
+
                 >
                     <Scene
                         key='home'
@@ -52,6 +68,8 @@ class RootScene extends Component {
 
                         navigationBarStyle={{ backgroundColor: color.theme }}
                         titleStyle={{ color: 'white' }}
+                        statusBarStyle='light-content'
+
                     />
 
                     <Scene
