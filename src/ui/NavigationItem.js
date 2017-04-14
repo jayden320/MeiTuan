@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         marginBottom: 18,
     },
     title: {
-        fontSize: 17,
+        fontSize: 15,
         marginBottom: 12,
         color: '#333333'
     }

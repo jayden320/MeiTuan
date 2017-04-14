@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         margin: 5,
     },
     tabBarText: {
-        fontSize: 17,
+        fontSize: 15,
         marginTop: 13,
     },
     tabBarUnderline: {
