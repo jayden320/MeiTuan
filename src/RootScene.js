@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         color: '#333333'
     },
     navigationBarButtonIcon: {
-        tintColor: '#333333'
+        tintColor: color.theme
     },
 });
 

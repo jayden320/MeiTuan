@@ -1,13 +1,19 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, Button, TouchableOpacity, ListView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import SpacingView from '../../ui/SpacingView'
 import RefreshListView, { RefreshState } from '../../ui/RefreshListView'
-import { Heading1, Heading2 } from '../../ui/Text'
+import { Heading1, Heading2, Paragraph } from '../../ui/Text'
 import color from '../../ui/color'
+import NavigationItem from '../../ui/NavigationItem'
+import SearchBar from '../../ui/SearchBar'
+import Button from '../../ui/Button'
+
+import screen from '../../common/screen'
 import api from '../../api'
+
 
 import HomeMenuView from './HomeMenuView'
 import HomeGridView from './HomeGridView'
@@ -24,10 +30,41 @@ class HomeScene extends Component {
             discounts: [],
             dataSource: ds.cloneWithRows([]),
         }
-        
+
     }
-    
+
     componentDidMount() {
+        let rightButton = (
+            <NavigationItem
+                icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
+                onPress={() => {
+
+                }}
+            />
+        )
+
+        let titleView = (
+            <TouchableOpacity style={styles.searchBar}>
+                <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
+                <Paragraph>一点点</Paragraph>
+            </TouchableOpacity>
+        )
+
+        let leftButton = (
+            <NavigationItem
+                title='福州'
+                titleStyle={{ color: 'white' }}
+                onPress={() => {
+
+                }}
+            />
+        )
+        Actions.refresh({
+            renderRightButton: () => rightButton,
+            renderTitle: () => titleView,
+            renderLeftButton: () => leftButton
+        })
+
         this.refs.listView.startHeaderRefreshing();
     }
 
@@ -38,7 +75,7 @@ class HomeScene extends Component {
 
     render() {
         return (
-            <View style={styles.container}>  
+            <View style={styles.container}>
                 <RefreshListView
                     ref='listView'
                     dataSource={this.state.dataSource}
@@ -145,6 +182,22 @@ const styles = StyleSheet.create({
         paddingVertical: 8,
         paddingLeft: 20,
         backgroundColor: 'white'
+    },
+    searchBar: {
+        width: screen.width * 0.7,
+        height: 30,
+        borderRadius: 19,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        alignSelf: 'center',
+        marginTop: 25,
+    },
+    searchIcon: {
+        width: 23,
+        height: 23,
+        margin: 5,
     }
 });
 

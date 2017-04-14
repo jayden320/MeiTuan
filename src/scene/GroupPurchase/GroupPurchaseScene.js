@@ -13,6 +13,7 @@ import api, { recommendUrlWithId, groupPurchaseDetailWithId } from '../../api'
 import FlexEndView from '../../ui/FlexEndView'
 import Button from '../../ui/Button'
 import GroupPurchaseCell from './GroupPurchaseCell'
+import NavigationItem from '../../ui/NavigationItem'
 
 // create a component
 class GroupPurchaseScene extends Component {
@@ -31,6 +32,20 @@ class GroupPurchaseScene extends Component {
     }
 
     componentDidMount() {
+
+        let rightButton = (
+            <NavigationItem
+                icon={require('../../img/Public/icon_navigationItem_share@2x.png')}
+                onPress={() => {
+
+                }}
+            />
+        )
+
+        Actions.refresh({
+            renderRightButton: () => rightButton,
+        })
+
         this.refs.listView.startHeaderRefreshing();
     }
 
