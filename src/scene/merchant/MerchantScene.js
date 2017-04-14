@@ -35,7 +35,9 @@ class MerchantScene extends Component {
 
         let leftButton = (
             <NavigationItem
-                title='福州 鼓楼'
+                icon={require('../../img/Merchant/icon_food_merchant_address@2x@2x.png')}
+                iconStyle={{width: 13,height:16, marginTop: 7}}
+                title=' 福州 鼓楼'
                 onPress={() => {
 
                 }}
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     searchBar: {
-        width: screen.width * 0.7,
+        width: screen.width * 0.65,
         height: 30,
         borderRadius: 19,
         flexDirection: 'row',

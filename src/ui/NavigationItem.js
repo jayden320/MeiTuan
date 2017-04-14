@@ -8,7 +8,7 @@ class NavigationItem extends Component {
         let icon = this.props.icon &&
             <Image style={[styles.icon, this.props.iconStyle]} source={this.props.icon} />
 
-        let title = this.props.title && !icon &&
+        let title = this.props.title &&
             <Text style={[styles.title, this.props.titleStyle]}>{this.props.title}</Text>
         return (
             <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
@@ -22,6 +22,7 @@ class NavigationItem extends Component {
 // define your styles
 const styles = StyleSheet.create({
     container: {
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         height: 40,
