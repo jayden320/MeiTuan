@@ -60,7 +60,6 @@ class HomeScene extends Component {
             discounts: [],
             dataSource: ds.cloneWithRows([]),
         }
-
     }
 
     componentDidMount() {
@@ -106,7 +105,7 @@ class HomeScene extends Component {
                 <SpacingView />
 
                 <View style={styles.recommendHeader}>
-                    <Heading1>猜你喜欢</Heading1>
+                    <Heading2>猜你喜欢</Heading2>
                 </View>
             </View>
         )
@@ -117,7 +116,7 @@ class HomeScene extends Component {
 
         if (discount.type == 1) {
             StatusBar.setBarStyle('default', false)
-            
+
             let location = discount.tplurl.indexOf('http')
             let url = discount.tplurl.slice(location)
             Actions.web({ url: url })
@@ -199,8 +198,8 @@ const styles = StyleSheet.create({
         marginTop: 25,
     },
     searchIcon: {
-        width: 23,
-        height: 23,
+        width: 20,
+        height: 20,
         margin: 5,
     }
 });

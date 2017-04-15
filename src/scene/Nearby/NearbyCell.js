@@ -4,9 +4,9 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Heading1, Heading2, Paragraph } from '../../ui/Text'
 import screen from '../../common/screen'
 import color from '../../ui/color'
-
+        
 // create a component
-class GroupPurchaseCell extends Component {
+class NearbyCell extends Component {
     render() {
         let { info } = this.props
         let imageUrl = info.imageUrl.replace('w.h', '160.0')
@@ -16,10 +16,9 @@ class GroupPurchaseCell extends Component {
 
                 <View style={styles.rightContainer}>
                     <Heading1>{info.title}</Heading1>
-                    <View>
-                    </View>
-                    <Paragraph numberOfLines={0} style={{ marginTop: 8 }}>{info.subtitle}</Paragraph>
-                    <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+
+                    <Paragraph numberOfLines={0} style={{marginTop: 8}}>{info.subtitle}</Paragraph>
+                    <View style={{flex:1, justifyContent: 'flex-end'}}>
                         <Heading1 style={styles.price}>{info.price}元</Heading1>
                     </View>
 
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     rightContainer: {
-        flex: 1,
+        flex:1,
         paddingLeft: 20,
         paddingRight: 10,
     },
@@ -54,4 +53,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default GroupPurchaseCell;
+export default NearbyCell;

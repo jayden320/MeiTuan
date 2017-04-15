@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
         height: 40,
     },
     icon: {
-        width: 30,
-        height: 30,
+        width: 27,
+        height: 27,
         marginBottom: 18,
     },
     title: {

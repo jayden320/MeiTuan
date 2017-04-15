@@ -10,7 +10,7 @@ import TabBarItem from './ui/TabBarItem'
 
 import HomeScene from './scene/Home/HomeScene'
 import OnsiteScene from './scene/Onsite/OnsiteScene'
-import MerchantScene from './scene/Merchant/MerchantScene'
+import NearbyScene from './scene/Nearby/NearbyScene'
 import MineScene from './scene/Mine/MineScene'
 
 import WebScene from './ui/WebScene'
@@ -21,10 +21,12 @@ class RootScene extends Component {
     render() {
         return (
             <Router
+                ref='router'
                 titleStyle={styles.navigationBarTitle}
                 barButtonIconStyle={styles.navigationBarButtonIcon}
                 navigationBarStyle={styles.navigationBarStyle}
                 getSceneStyle={this.sceneStyle}
+                panHandlers={null}
 
                 onSelect={el => {
                     const { sceneKey, statusBarStyle } = el.props
@@ -36,7 +38,8 @@ class RootScene extends Component {
                     Actions[sceneKey]()
                 }}
                 onBack={(el) => {
-                    if (el.sceneKey == 'home') {
+                    //  alert(JSON.stringify(this.refs.router.children))
+                    if (el.sceneKey == 'home' && el.children.length == 2) {
                         StatusBar.setBarStyle('light-content', false)
                     }
                     Actions.pop()
@@ -83,8 +86,8 @@ class RootScene extends Component {
                     />
                     <Scene
                         key='merchant'
-                        component={MerchantScene}
-                        title='商家'
+                        component={NearbyScene}
+                        title='附近'
                         image={require('./img/tabbar/icon_tabbar_merchant_normal@2x.png')}
                         selectedImage={require('./img/tabbar/icon_tabbar_merchant_selected@2x.png')}
 

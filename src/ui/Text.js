@@ -30,11 +30,11 @@ export function Tip({ style, ...props }) {
 
 const styles = StyleSheet.create({
     h0: {
-        fontSize: 45,
+        fontSize: 40,
         color: color.theme,
     },
     h1: {
-        fontSize: 16,
+        fontSize: 15,
         color: '#222222',
     },
     h2: {
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
         color: '#222222',
     },
     p: {
-        fontSize: 14,
+        fontSize: 13,
         color: '#777777',
     },
     tip: {
-        fontSize: 14,
+        fontSize: 13,
         color: '#999999'
     }
 });

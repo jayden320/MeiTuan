@@ -109,7 +109,7 @@ class GroupPurchaseScene extends Component {
                 <SpacingView />
 
                 <View style={styles.tipHeader}>
-                    <Heading1>看了本团购的用户还看了</Heading1>
+                    <Heading2>看了本团购的用户还看了</Heading2>
                 </View>
             </View>
         )
@@ -170,8 +170,8 @@ const styles = StyleSheet.create({
     },
     buyButton: {
         backgroundColor: '#fc9e28',
-        width: 100,
-        height: 40,
+        width: 94,
+        height: 36,
         borderRadius: 7,
     },
     tagContainer: {

@@ -14,10 +14,10 @@ import Button from '../../ui/Button'
 
 import screen from '../../common/screen'
 import api from '../../api'
-import MerchantListScene from './MerchantListScene'
+import NearbyListScene from './NearbyListScene'
 
 // create a component
-class MerchantScene extends Component {
+class NearbyScene extends Component {
     
     static renderTitle = () => {
         return (
@@ -52,9 +52,16 @@ class MerchantScene extends Component {
 
     render() {
         let titles = ['享美食', '住酒店', '爱玩乐', '全部']
+        let types = [
+            ['热门', '面包甜点', '小吃快餐', '川菜', '日本料理', '韩国料理', '台湾菜', '东北菜'],
+            ['热门', '商务出行', '公寓民宿', '情侣专享', '高星特惠', '成人情趣'],
+            ['热门', 'KTV', '足疗按摩', '洗浴汗蒸', '大宝剑', '电影院', '美发', '美甲'],
+            []
+        ]
+
         let storyListViews = [];
         for (let i = 0; i < titles.length; i++) {
-            let storyListView = <MerchantListScene tabLabel={titles[i]} key={i} />
+            let storyListView = <NearbyListScene tabLabel={titles[i]} key={i} types={types[i]}/>
             storyListViews.push(storyListView)
         }
 
@@ -96,7 +103,7 @@ const styles = StyleSheet.create({
         margin: 5,
     },
     tabBarText: {
-        fontSize: 15,
+        fontSize: 14,
         marginTop: 13,
     },
     tabBarUnderline: {
@@ -105,4 +112,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default MerchantScene;
+export default NearbyScene;

@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     },
     cancelText: {
         color: '#4683ca',
-        fontSize: 15,
+        fontSize: 14,
     },
     input: {
         flex: 1,
