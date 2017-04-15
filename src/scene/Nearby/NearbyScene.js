@@ -67,6 +67,7 @@ class NearbyScene extends Component {
 
         return (
             <ScrollableTabView
+                style={styles.container}
                 tabBarBackgroundColor='white'
                 tabBarActiveTextColor='#FE566D'
                 tabBarInactiveTextColor='#555555'
@@ -84,6 +85,7 @@ class NearbyScene extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:color.background
     },
     searchBar: {
         width: screen.width * 0.65,

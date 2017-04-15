@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     },
     h1: {
         fontSize: 15,
+        fontWeight: 'bold',
         color: '#222222',
     },
     h2: {

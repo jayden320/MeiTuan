@@ -101,6 +101,9 @@ class RootScene extends Component {
                         selectedImage={require('./img/tabbar/icon_tabbar_mine_selected@2x.png')}
 
                         icon={TabBarItem}
+
+                        hideNavBar
+                        statusBarStyle='light-content'
                     />
                 </Scene>
 
@@ -116,7 +119,7 @@ class RootScene extends Component {
     sceneStyle = (props, computedProps) => {
         const style = {
             flex: 1,
-            backgroundColor: '#f7f7f7',
+            backgroundColor: color.theme,
             // backgroundColor: '#ffffff',
             shadowColor: null,
             shadowOffset: null,
@@ -135,10 +138,10 @@ class RootScene extends Component {
 // define your styles
 const styles = StyleSheet.create({
     tabBar: {
-        backgroundColor: '#f4f4f4',
+        backgroundColor: '#ffffff',
     },
     tabBarSelectedItem: {
-        backgroundColor: '#f4f4f4',
+        backgroundColor: '#ffffff',
     },
 
     tabBarSelectedTitle: {
