@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity ,ScrollView} from 'react-native';
 
 import RefreshListView, { RefreshState } from '../../ui/RefreshListView'
 import { Heading1, Heading2, Paragraph } from '../../ui/Text'
@@ -8,12 +8,14 @@ import screen from '../../common/screen'
 import color from '../../ui/color'
 import SpacingView from '../../ui/SpacingView'
 
+import MineCell from './MineCell'
+
 // create a component
 class MineScene extends Component {
     render() {
         return (
-            <View style={styles.container}>
-                <View style={{ marginBottom: 20 }}>
+            <ScrollView style={styles.container}>
+                <View style={styles.header}>
                     <View style={styles.topContainer}>
                         <TouchableOpacity>
                             <Image style={[styles.icon, { marginRight: 15 }]} source={require('../../img/Mine/icon_navigationItem_set_white@2x.png')} />
@@ -39,12 +41,28 @@ class MineScene extends Component {
 
                 <SpacingView />
 
-                <View style={{ flex: 1, backgroundColor: 'white', }}>
+                <View style={{ flex: 1 }}>
+                    <MineCell title='我的钱包' subtitle='办信用卡' />
+                    <MineCell title='余额' subtitle='￥95872385' />
+                    <MineCell title='抵用券' subtitle='63' />
+                    <MineCell title='会员卡' subtitle='2' />
 
+                    <SpacingView />
+
+                    <MineCell title='好友去哪' />
+                    <MineCell title='我的评价' />
+                    <MineCell title='我的收藏' />
+                    <MineCell title='会员中心' subtitle='v15' />
+                    <MineCell title='积分商城' subtitle='好礼已上线' />
+
+                    <SpacingView />
+
+                    <MineCell title='客服中心' />
+                    <MineCell title='关于美团' subtitle='我要合作' />
                 </View>
 
 
-            </View>
+            </ScrollView>
         );
     }
 }
@@ -53,10 +71,11 @@ class MineScene extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.backgroundColor,
+        backgroundColor: color.background,
     },
     header: {
-
+        backgroundColor: color.theme,
+        paddingBottom: 20 
     },
     topContainer: {
         flexDirection: 'row',
