@@ -25,7 +25,7 @@ class MineScene extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.userContainer}>
-                        <Image style={styles.avatar} source={require('../../img/Mine/icon_mine_default_portrait@2x.png')} />
+                        <Image style={styles.avatar} source={require('../../img/Mine/avatar@2x.png')} />
 
                         <View>
                             <View style={{ flexDirection: 'row' }}>
@@ -96,6 +96,9 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         marginRight: 10,
+        borderRadius: 25,
+        borderWidth: 2,
+        borderColor: '#51D3C6'
     }
 });
 
