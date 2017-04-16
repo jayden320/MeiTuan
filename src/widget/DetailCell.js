@@ -33,7 +33,7 @@ class DetailCell extends Component {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        backgroundColor: 'white',
     },
     content: {
         height: 44,
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingLeft: 15,
         paddingRight: 10,
-        backgroundColor: 'white',
     },
     icon: {
         width: 25,

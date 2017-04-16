@@ -31,7 +31,7 @@ class MineScene extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
+            <View style={{ flex: 1, backgroundColor: color.background }}>
                 <View style={{ position: 'absolute', width: screen.width, height: screen.height / 2, backgroundColor: color.theme }} />
                 <ScrollView
                     refreshControl={
@@ -114,6 +114,9 @@ class MineScene extends Component {
                             image={require('../../img/Mine/icon_mine_aboutmeituan@2x.png')}
                             title='关于美团'
                             subtitle='我要合作' />
+
+                        <SpacingView />
+
                     </View>
 
 
