@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import SpacingView from '../../ui/SpacingView'
-import RefreshListView, { RefreshState } from '../../ui/RefreshListView'
-import { Heading1, Heading2, Paragraph } from '../../ui/Text'
-import color from '../../ui/color'
-import NavigationItem from '../../ui/NavigationItem'
-import SearchBar from '../../ui/SearchBar'
-import Button from '../../ui/Button'
+import SpacingView from '../../widget/SpacingView'
+import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
+import { Heading1, Heading2, Paragraph } from '../../widget/Text'
+import color from '../../widget/color'
+import NavigationItem from '../../widget/NavigationItem'
+import SearchBar from '../../widget/SearchBar'
+import Button from '../../widget/Button'
 
 import screen from '../../common/screen'
 import api from '../../api'

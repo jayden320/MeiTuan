@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import SpacingView from '../../ui/SpacingView'
-import RefreshListView, { RefreshState } from '../../ui/RefreshListView'
-import { Heading1, Heading2, Paragraph, HeadingBig } from '../../ui/Text'
-import color from '../../ui/color'
-import Separator from '../../ui/Separator'
+import SpacingView from '../../widget/SpacingView'
+import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
+import { Heading1, Heading2, Paragraph, HeadingBig } from '../../widget/Text'
+import color from '../../widget/color'
+import Separator from '../../widget/Separator'
 import screen from '../../common/screen'
 import api, { recommendUrlWithId, groupPurchaseDetailWithId } from '../../api'
-import FlexEndView from '../../ui/FlexEndView'
-import Button from '../../ui/Button'
+import FlexEndView from '../../widget/FlexEndView'
+import Button from '../../widget/Button'
 import GroupPurchaseCell from './GroupPurchaseCell'
-import NavigationItem from '../../ui/NavigationItem'
+import NavigationItem from '../../widget/NavigationItem'
 
 // create a component
 class GroupPurchaseScene extends Component {

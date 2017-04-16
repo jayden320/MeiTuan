@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Platform, StatusBar } from 'react-native';
 import { Router, Scene, Actions, Schema } from 'react-native-router-flux';
 
-import color from './ui/color'
+import color from './widget/color'
 
 import system from './common/system'
-import TabBarItem from './ui/TabBarItem'
+import TabBarItem from './widget/TabBarItem'
 
 import HomeScene from './scene/Home/HomeScene'
-import OnsiteScene from './scene/Onsite/OnsiteScene'
+import OrderScene from './scene/Order/OrderScene'
 import NearbyScene from './scene/Nearby/NearbyScene'
 import MineScene from './scene/Mine/MineScene'
 
-import WebScene from './ui/WebScene'
+import WebScene from './widget/WebScene'
 import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
 
 // create a component
@@ -74,22 +74,21 @@ class RootScene extends Component {
                         statusBarStyle='light-content'
 
                     />
-
-                    <Scene
-                        key='onsite'
-                        component={OnsiteScene}
-                        title='上门'
-                        image={require('./img/tabbar/icon_tabbar_onsite@2x.png')}
-                        selectedImage={require('./img/tabbar/icon_tabbar_onsite_selected@2x.png')}
-
-                        icon={TabBarItem}
-                    />
                     <Scene
                         key='merchant'
                         component={NearbyScene}
                         title='附近'
                         image={require('./img/tabbar/icon_tabbar_merchant_normal@2x.png')}
                         selectedImage={require('./img/tabbar/icon_tabbar_merchant_selected@2x.png')}
+
+                        icon={TabBarItem}
+                    />
+                    <Scene
+                        key='order'
+                        component={OrderScene}
+                        title='订单'
+                        image={require('./img/tabbar/icon_tabbar_onsite@2x.png')}
+                        selectedImage={require('./img/tabbar/icon_tabbar_onsite_selected@2x.png')}
 
                         icon={TabBarItem}
                     />

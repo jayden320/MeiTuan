@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import color from '../../ui/color'
+import color from '../../widget/color'
 import HomeGridItem from './HomeGridItem'
 
 // create a component

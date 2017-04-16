@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-import {Heading2} from '../../ui/Text'
+import {Heading2} from '../../widget/Text'
 import screen from '../../common/screen'
 
 // create a component

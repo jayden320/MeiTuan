@@ -1,9 +1,9 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Heading1, Heading2, Paragraph } from '../../ui/Text'
+import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import screen from '../../common/screen'
-import color from '../../ui/color'
+import color from '../../widget/color'
 
 // create a component
 class NearbyHeaderView extends Component {
