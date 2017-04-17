@@ -4,6 +4,10 @@ MeiTuan App Write In latest React-Native(0.43)
 
 **Support: Android 4.1 (API 16)+   IOS(8.0+)**
 
+## See more details:
+
+[简书](http://www.jianshu.com/p/9211f42d5c25)
+
 ## Screenshot For iOS
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_0.png">
