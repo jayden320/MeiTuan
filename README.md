@@ -54,6 +54,11 @@ In a separate terminal window run:
   $ react-native start
   ```
 
+## Dependency
+
+* [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
+* [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
+
 ## Contact
 
 If you have any suggestions, please contact me by 

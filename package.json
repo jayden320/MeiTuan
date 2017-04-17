@@ -9,15 +9,8 @@
   "dependencies": {
     "react": "~15.4.1",
     "react-native": "0.42.3",
-    "react-native-image-picker": "^0.26.2",
     "react-native-router-flux": "^3.38.0",
     "react-native-scrollable-tab-view": "^0.6.3",
-    "react-native-star-rating": "^1.0.7",
-    "react-native-vector-icons": "^4.0.1",
-    "react-redux": "^5.0.3",
-    "redux": "^3.6.0",
-    "redux-logger": "^3.0.1",
-    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
