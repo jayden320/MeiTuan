@@ -6,7 +6,7 @@ MeiTuan App Write In latest React-Native(0.43)
 
 ## See more details:
 
-[简书](http://www.jianshu.com/p/9211f42d5c25)
+[中文说明-简书](http://www.jianshu.com/p/9211f42d5c25)
 
 ## Screenshot For iOS
 
