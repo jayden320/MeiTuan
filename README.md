@@ -1,20 +1,24 @@
-# MeiTuan(ReactNative版 高仿美团客户端)
+# 美团客户端
 
 MeiTuan App Write In latest React-Native(0.43)
 
 **Support: Android 4.1 (API 16)+   IOS(8.0+)**
 
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_0.png">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_1.png">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_2.png">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_3.png">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_4.png">
+## Screenshot For iOS
 
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_0.png">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_1.png">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_2.png">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_3.png">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_4.png">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_0.png" width="320">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_1.png" width="320">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_2.png" width="320">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_3.png" width="320">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_4.png" width="320">
+
+## Screenshot For Android
+
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_0.png" width="220">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_1.png" width="220">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_2.png" width="220">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_3.png" width="220">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_4.png" width="220">
 
 ## Setup
 
