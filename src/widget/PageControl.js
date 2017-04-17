@@ -1,12 +1,18 @@
-var React = require('react');
-var ReactNative = require('react-native');
-var assign = require('object-assign');
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan
+ */
 
-var { StyleSheet, View, TouchableWithoutFeedback } = ReactNative;
 
-var PageControl = React.createClass({
+import React, { Component } from 'react';
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import assign from 'object-assign';
 
-    propTypes: {
+class PageControl extends Component {
+
+    static propTypes = {
         numberOfPages: React.PropTypes.number.isRequired,
         currentPage: React.PropTypes.number,
         hidesForSinglePage: React.PropTypes.bool,
@@ -16,27 +22,25 @@ var PageControl = React.createClass({
         indicatorStyle: View.propTypes.style,
         currentIndicatorStyle: View.propTypes.style,
         onPageIndicatorPress: React.PropTypes.func
-    },
+    }
 
-    getDefaultProps: function () {
-        return {
-            numberOfPages: 0,
-            currentPage: 0,
-            hidesForSinglePage: false,
-            pageIndicatorTintColor: 'gray',
-            currentPageIndicatorTintColor: 'white',
-            indicatorSize: {width: 8, height: 8},
-            indicatorStyle: {},
-            currentIndicatorStyle: {},
-            onPageIndicatorPress: function() {}
-        };
-    },
+    static defaultProps = {
+        numberOfPages: 0,
+        currentPage: 0,
+        hidesForSinglePage: false,
+        pageIndicatorTintColor: 'gray',
+        currentPageIndicatorTintColor: 'white',
+        indicatorSize: { width: 8, height: 8 },
+        indicatorStyle: {},
+        currentIndicatorStyle: {},
+        onPageIndicatorPress: function () { }
+    }
 
-    onPageIndicatorPress: function(idx) {
+    onPageIndicatorPress(idx) {
         this.props.onPageIndicatorPress(idx);
-    },
+    }
 
-    render: function () {
+    render() {
         var { style, ...props } = this.props;
 
         var defaultStyle = {
@@ -65,17 +69,17 @@ var PageControl = React.createClass({
         }
 
         return (
-          this.props.hidesForSinglePage && pages.length <= 1 ? null : <View style={[styles.container, defaultStyle, style]}>
-              {pages.map((el, i) => <TouchableWithoutFeedback key={i} onPress={this.onPageIndicatorPress.bind(this, i)}>
-                    <View style={i == this.props.currentPage ? currentIndicatorStyle: indicatorStyle} />
+            this.props.hidesForSinglePage && pages.length <= 1 ? null : <View style={[styles.container, defaultStyle, style]}>
+                {pages.map((el, i) => <TouchableWithoutFeedback key={i} onPress={this.onPageIndicatorPress.bind(this, i)}>
+                    <View style={i == this.props.currentPage ? currentIndicatorStyle : indicatorStyle} />
                 </TouchableWithoutFeedback>
-              )}
-          </View>
-        );
+                )}
+            </View>
+        )
     }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         backgroundColor: 'transparent',
         alignItems: 'center',
@@ -84,4 +88,4 @@ var styles = StyleSheet.create({
     }
 });
 
-module.exports = PageControl;
+export default PageControl;

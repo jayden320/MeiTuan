@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan
+ */
 
 import config from '../Config'
 import { urlByAppendingParams } from './CommonFunc'

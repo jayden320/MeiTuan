@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan
+ */
+
 
 export default {
     theme: '#06C1AE',

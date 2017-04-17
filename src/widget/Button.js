@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan
+ */
+
 //import liraries
 import React, { Component, PropTypes } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';

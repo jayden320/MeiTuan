@@ -1,4 +1,9 @@
-
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan
+ */
 
 import React from 'react';
 import ReactNative, { StyleSheet, Dimensions, Text } from 'react-native';

@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan
+ */
+
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native';
@@ -10,7 +17,6 @@ import color from '../../widget/color'
 import Separator from '../../widget/Separator'
 import screen from '../../common/screen'
 import api, { recommendUrlWithId, groupPurchaseDetailWithId } from '../../api'
-import FlexEndView from '../../widget/FlexEndView'
 import Button from '../../widget/Button'
 import GroupPurchaseCell from './GroupPurchaseCell'
 import NavigationItem from '../../widget/NavigationItem'
@@ -83,14 +89,9 @@ class GroupPurchaseScene extends Component {
                         <Heading1 style={{ color: color.theme }}>￥</Heading1>
                         <HeadingBig style={{ marginBottom: -8 }}>{info.price}</HeadingBig>
                         <Paragraph style={{ marginLeft: 10 }}>门市价：￥{(info.price * 1.1).toFixed(0)}</Paragraph>
-
-                        <FlexEndView style={{ flexDirection: 'row' }}>
-                            <Button
-                                title='立即抢购'
-                                style={{ color: 'white', fontSize: 18 }}
-                                containerStyle={styles.buyButton}
-                            />
-                        </FlexEndView>
+                        <View style={{ flex: 1 }} />
+                        <Button title='立即抢购' style={{ color: 'white', fontSize: 18 }} containerStyle={styles.buyButton}
+                        />
                     </View>
                 </View>
 
@@ -100,10 +101,8 @@ class GroupPurchaseScene extends Component {
                     <View style={styles.tagContainer}>
                         <Image style={{ width: 20, height: 20 }} source={require('../../img/Home/icon_deal_anytime_refund.png')} />
                         <Paragraph style={{ color: '#89B24F' }}>  随时退</Paragraph>
-
-                        <FlexEndView style={{ flexDirection: 'row', }}>
-                            <Paragraph>已售{1234}</Paragraph>
-                        </FlexEndView>
+                        <View style={{ flex: 1 }} />
+                        <Paragraph>已售{1234}</Paragraph>
                     </View>
 
                 </View>

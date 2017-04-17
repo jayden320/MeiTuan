@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan
+ */
+
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native';
@@ -32,7 +39,7 @@ class NearbyScene extends Component {
     static renderLeftButton = () => {
         return (
             <NavigationItem
-                icon={require('../../img/Merchant/icon_food_merchant_address@2x@2x.png')}
+                icon={require('../../img/Public/icon_food_merchant_address@2x@2x.png')}
                 iconStyle={{width: 13,height:16, marginTop: 1}}
                 title=' 福州 鼓楼'
                 onPress={() => {
