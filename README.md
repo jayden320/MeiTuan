@@ -7,13 +7,19 @@ MeiTuan App Write In latest React-Native(0.43)
 ## Screenshot For iOS
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_0.png">
+
+
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_1.png">
+
+
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_2.png">
 
 ## Screenshot For Android
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_0.png">
+
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_1.png">
+
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_2.png">
 
 ## Setup
@@ -50,10 +56,9 @@ In a separate terminal window run:
 
 ## Contact
 
-If you have any suggestions please feel free to contact me by QQ
-67111677
+If you have any suggestions, please contact me by 
+QQ:67111677
 
 ## At last
 
 please give me a star  :)
-I will update the program, when I have time
