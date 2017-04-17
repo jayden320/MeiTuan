@@ -6,19 +6,15 @@ MeiTuan App Write In latest React-Native(0.43)
 
 ## Screenshot For iOS
 
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_0.png" alt="ScreenShot0" title="ScreenShot0">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_1.png" alt="ScreenShot1" title="ScreenShot1">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_2.png" alt="ScreenShot2" title="ScreenShot2">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_3.png" alt="ScreenShot3" title="ScreenShot3">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_4.png" alt="ScreenShot4" title="ScreenShot4">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_0.png">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_1.png">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_2.png">
 
 ## Screenshot For Android
 
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_0.png" width="220">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_1.png" width="220">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_2.png" width="220">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_3.png" width="220">
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_4.png" width="220">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_0.png">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_1.png">
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_2.png">
 
 ## Setup
 
