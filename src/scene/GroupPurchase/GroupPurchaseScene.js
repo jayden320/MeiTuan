@@ -25,7 +25,7 @@ class GroupPurchaseScene extends Component {
 
         this.state = {
             info: {
-                
+
             },
             dataSource: ds.cloneWithRows([]),
         }
@@ -46,7 +46,9 @@ class GroupPurchaseScene extends Component {
             renderRightButton: () => rightButton,
         })
 
-        this.refs.listView.startHeaderRefreshing();
+        setTimeout(() => {
+            this.refs.listView.startHeaderRefreshing();
+        }, 250);
     }
 
     render() {
@@ -71,12 +73,12 @@ class GroupPurchaseScene extends Component {
 
     renderHeader() {
         let info = this.props.info
-        
+
         return (
             <View>
                 <View>
-                    <Image style={styles.banner} source={{uri: info.imageUrl.replace('w.h', '480.0')}}/>
-                  
+                    <Image style={styles.banner} source={{ uri: info.imageUrl.replace('w.h', '480.0') }} />
+
                     <View style={styles.topContainer}>
                         <Heading1 style={{ color: color.theme }}>￥</Heading1>
                         <HeadingBig style={{ marginBottom: -8 }}>{info.price}</HeadingBig>
@@ -143,7 +145,9 @@ class GroupPurchaseScene extends Component {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })
-                this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                setTimeout(() => {
+                    this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                }, 500);
             })
             .catch((error) => {
                 this.refs.listView.endRefreshing(RefreshState.Failure)

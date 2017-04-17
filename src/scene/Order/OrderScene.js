@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar, Image,ListView, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
-
+import { Actions } from 'react-native-router-flux';
 import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import screen from '../../common/screen'
@@ -52,7 +52,9 @@ class OrderScene extends Component {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })
-                this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                setTimeout(() => {
+                    this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                }, 500);
             })
             .catch((error) => {
                 this.refs.listView.endRefreshing(RefreshState.Failure)

@@ -12,6 +12,7 @@ import SearchBar from '../../widget/SearchBar'
 import Button from '../../widget/Button'
 
 import screen from '../../common/screen'
+import system from '../../common/system'
 import api from '../../api'
 
 
@@ -120,7 +121,6 @@ class HomeScene extends Component {
             let location = discount.tplurl.indexOf('http')
             let url = discount.tplurl.slice(location)
             Actions.web({ url: url })
-            // alert(url)
         }
     }
 
@@ -143,7 +143,9 @@ class HomeScene extends Component {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })
-                this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                setTimeout(() => {
+                    this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                }, 500);
             })
             .catch((error) => {
                 this.refs.listView.endRefreshing(RefreshState.Failure)
@@ -196,7 +198,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
         alignSelf: 'center',
-        marginTop: 25,
+        marginTop: system.isIOS ? 25 : 13,
     },
     searchIcon: {
         width: 20,

@@ -13,6 +13,7 @@ import SearchBar from '../../widget/SearchBar'
 import Button from '../../widget/Button'
 
 import screen from '../../common/screen'
+import system from '../../common/system'
 import api from '../../api'
 import NearbyListScene from './NearbyListScene'
 
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#eeeeee',
         alignSelf: 'flex-end',
-        marginTop: 25,
+        marginTop: system.isIOS ? 25 : 13,
         marginRight: 20,
     },
     searchIcon: {

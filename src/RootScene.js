@@ -16,6 +16,20 @@ import MineScene from './scene/Mine/MineScene'
 import WebScene from './widget/WebScene'
 import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
 
+const Dimensions = require('Dimensions');
+const animate = props => {
+    const { position, scene } = props;
+    const SCREEN_WIDTH = Dimensions.get("window").width;
+
+    const index = scene.index;
+    const inputRange = [index - 1, index + 1];
+    const outputRange = [SCREEN_WIDTH, -SCREEN_WIDTH];
+
+    const translateX = position.interpolate({ inputRange, outputRange });
+    return { transform: [{ translateX }] };
+}
+
+
 // create a component
 class RootScene extends Component {
     render() {
@@ -27,6 +41,7 @@ class RootScene extends Component {
                 navigationBarStyle={styles.navigationBarStyle}
                 getSceneStyle={this.sceneStyle}
                 panHandlers={null}
+                animationStyle={animate}
 
                 onSelect={el => {
                     const { sceneKey, statusBarStyle } = el.props
@@ -38,7 +53,6 @@ class RootScene extends Component {
                     Actions[sceneKey]()
                 }}
                 onBack={(el) => {
-                    //  alert(JSON.stringify(this.refs.router.children))
                     if (el.sceneKey == 'home' && el.children.length == 2) {
                         StatusBar.setBarStyle('light-content', false)
                     }
@@ -64,8 +78,8 @@ class RootScene extends Component {
                         key='home'
                         title='团购'
                         component={HomeScene}
-                        image={require('./img/tabbar/icon_tabbar_homepage@2x.png')}
-                        selectedImage={require('./img/tabbar/icon_tabbar_homepage_selected@2x.png')}
+                        image={require('./img/tabbar/pfb_tabbar_homepage@2x.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_homepage_selected@2x.png')}
 
                         icon={TabBarItem}
 
@@ -78,8 +92,8 @@ class RootScene extends Component {
                         key='merchant'
                         component={NearbyScene}
                         title='附近'
-                        image={require('./img/tabbar/icon_tabbar_merchant_normal@2x.png')}
-                        selectedImage={require('./img/tabbar/icon_tabbar_merchant_selected@2x.png')}
+                        image={require('./img/tabbar/pfb_tabbar_merchant@2x.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_merchant_selected@2x.png')}
 
                         icon={TabBarItem}
                     />
@@ -87,8 +101,8 @@ class RootScene extends Component {
                         key='order'
                         component={OrderScene}
                         title='订单'
-                        image={require('./img/tabbar/icon_tabbar_onsite@2x.png')}
-                        selectedImage={require('./img/tabbar/icon_tabbar_onsite_selected@2x.png')}
+                        image={require('./img/tabbar/pfb_tabbar_order@2x.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_order_selected@2x.png')}
 
                         icon={TabBarItem}
                     />
@@ -96,8 +110,8 @@ class RootScene extends Component {
                         key='mine'
                         component={MineScene}
                         title='我的'
-                        image={require('./img/tabbar/icon_tabbar_mine@2x.png')}
-                        selectedImage={require('./img/tabbar/icon_tabbar_mine_selected@2x.png')}
+                        image={require('./img/tabbar/pfb_tabbar_mine@2x.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_mine_selected@2x.png')}
 
                         icon={TabBarItem}
 

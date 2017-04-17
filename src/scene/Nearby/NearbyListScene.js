@@ -56,7 +56,9 @@ class NearbyListScene extends Component {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })
-                this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                setTimeout(() => {
+                    this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                }, 500);
             })
             .catch((error) => {
                 this.refs.listView.endRefreshing(RefreshState.Failure)

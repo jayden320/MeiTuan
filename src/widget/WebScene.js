@@ -6,6 +6,19 @@ import { Actions } from 'react-native-router-flux';
 // create a component
 class WebScene extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            source : {}
+        }
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({source :{url: this.props.url}})
+        }, 500);
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -13,7 +26,7 @@ class WebScene extends Component {
                     ref='webView'
                     automaticallyAdjustContentInsets={false}
                     style={styles.webView}
-                    source={{ uri: this.props.url }}
+                    source={this.state.source}
                     onLoadEnd={(e) => this.onLoadEnd(e)}
                     scalesPageToFit={true}
                 />
@@ -33,7 +46,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#2c3e50',
     },
     webView: {
-        flex:1,
+        flex: 1,
         backgroundColor: 'white',
     }
 });
