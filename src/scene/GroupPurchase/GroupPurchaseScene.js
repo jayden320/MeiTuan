@@ -7,7 +7,7 @@
 
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, InteractionManager } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import SpacingView from '../../widget/SpacingView'
@@ -52,9 +52,9 @@ class GroupPurchaseScene extends Component {
             renderRightButton: () => rightButton,
         })
 
-        setTimeout(() => {
+        InteractionManager.runAfterInteractions(() => {
             this.refs.listView.startHeaderRefreshing();
-        }, 250);
+        });
     }
 
     render() {

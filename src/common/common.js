@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan
+ */
 
 export function urlByAppendingParams(url: String, params) {
     let result = url

@@ -7,7 +7,7 @@
 
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, WebView } from 'react-native';
+import { View, Text, StyleSheet, WebView, InteractionManager } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 // create a component
@@ -21,9 +21,9 @@ class WebScene extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => {
+        InteractionManager.runAfterInteractions(() => {
             this.setState({source :{url: this.props.url}})
-        }, 500);
+        })
     }
 
     render() {

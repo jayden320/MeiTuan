@@ -6,11 +6,11 @@
  */
 
 // Dimensions
-const dimensions = require('Dimensions');
-let Platform = require('Platform');
+import Dimensions from 'Dimensions'
+import Platform from 'Platform'
 
 export default {
-    width: dimensions.get('window').width,
-    height: dimensions.get('window').height,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
     statusBarHeight:  (Platform.OS === 'ios' ? 20 : 0)
 }

@@ -6,7 +6,7 @@
  */
 
 // System
-let Platform = require('Platform');
+import Platform from 'Platform'
 
 export default {
     isIOS: Platform.OS === 'ios',
