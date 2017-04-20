@@ -2,20 +2,30 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
-import config from '../Config'
-import { urlByAppendingParams } from './CommonFunc'
+import { urlByAppendingParams } from './common'
 
 const kFirstPage = 1
 const kCurrentPageKey = 'page'
 const kPageSizeKey = 'count'
 const kPageSize = 20
 const kDefaultListNode = 'list'
+const host = ''
 
 class ListRequest {
-    constructor(requestNode: String) {
+    requestNode: string
+    isFirstLoad: boolean
+    dataList: Array<Object>
+    isReload: boolean
+    currentPage: number
+    noMoreData: boolean
+    onSuccess: function
+    onFailure: function
+
+    constructor(requestNode: string) {
         this.requestNode = requestNode
         this.isFirstLoad = true
         this.dataList = []
@@ -24,22 +34,22 @@ class ListRequest {
         this.noMoreData = false
     }
 
-    requestFirstPage(params) {
+    requestFirstPage(params: Object) {
         this.isReload = true
         this.startRequest(params, kFirstPage)
     }
 
-    requestNextPage(params) {
+    requestNextPage(params: Object) {
         this.isReload = false
         this.startRequest(params, this.currentPage + 1)
     }
 
-    startRequest(params, page) {
+    startRequest(params: Object, page: number) {
         let requestParams = { ...params }
         requestParams[kCurrentPageKey] = page
         requestParams[kPageSizeKey] = kPageSize
 
-        let url = urlByAppendingParams(config.host + this.requestNode, requestParams);
+        let url = urlByAppendingParams(host + this.requestNode, requestParams);
         fetch(url)
             .then((response) => {
                 return response.json()

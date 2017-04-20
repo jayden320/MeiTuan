@@ -2,36 +2,33 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 import React from 'react';
-import ReactNative, { StyleSheet, Dimensions, Text } from 'react-native';
-
+import ReactNative, { StyleSheet, Dimensions, Text ,ReactElement} from 'react-native';
 import color from './color'
 
-export function HeadingBig({ style, ...props }) {
+export function HeadingBig({style, ...props}: Object): ReactElement {
     return <Text style={[styles.h0, style]} {...props} />
 }
 
-
-export function Heading1({ style, ...props }) {
+export function Heading1({style, ...props}: Object): ReactElement {
     return <Text style={[styles.h1, style]} {...props} />
 }
 
-export function Heading2({ style, ...props }) {
+export function Heading2({style, ...props}: Object): ReactElement {
     return <Text style={[styles.h2, style]} {...props} />
 }
 
-export function Paragraph({ style, ...props }) {
+export function Paragraph({style, ...props}: Object): ReactElement {
     return <Text style={[styles.p, style]} {...props} />
 }
 
-export function Tip({ style, ...props }) {
+export function Tip({style, ...props}: Object): ReactElement {
     return <Text style={[styles.tip, style]} {...props} />
 }
-
-
 
 const styles = StyleSheet.create({
     h0: {

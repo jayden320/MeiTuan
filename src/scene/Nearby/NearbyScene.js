@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 //import liraries
@@ -16,7 +17,6 @@ import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import color from '../../widget/color'
 import NavigationItem from '../../widget/NavigationItem'
-import SearchBar from '../../widget/SearchBar'
 import Button from '../../widget/Button'
 
 import screen from '../../common/screen'
@@ -39,7 +39,7 @@ class NearbyScene extends Component {
     static renderLeftButton = () => {
         return (
             <NavigationItem
-                icon={require('../../img/Public/icon_food_merchant_address@2x@2x.png')}
+                icon={require('../../img/Public/icon_food_merchant_address@2x.png')}
                 iconStyle={{width: 13,height:16, marginTop: 1}}
                 title=' 福州 鼓楼'
                 onPress={() => {
@@ -47,11 +47,6 @@ class NearbyScene extends Component {
                 }}
             />
         );
-    }
-
-    constructor(props) {
-        super(props)
-
     }
 
     componentWillMount() {

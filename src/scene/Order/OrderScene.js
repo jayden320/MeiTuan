@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 //import liraries
@@ -23,7 +24,11 @@ import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 // create a component
 class OrderScene extends Component {
 
-    constructor(props) {
+    state: {
+        dataSource: ListView.DataSource
+    }
+    
+    constructor(props: Object) {
         super(props)
 
         let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })

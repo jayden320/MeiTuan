@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 //import liraries
@@ -13,7 +14,11 @@ import { Actions } from 'react-native-router-flux';
 // create a component
 class WebScene extends Component {
 
-    constructor(props) {
+    state: {
+        source: Object
+    }
+    
+    constructor(props: Object) {
         super(props)
         this.state = {
             source : {}
@@ -41,7 +46,7 @@ class WebScene extends Component {
         );
     }
 
-    onLoadEnd(e) {
+    onLoadEnd(e: any) {
         Actions.refresh({ title: e.nativeEvent.title })
     }
 }

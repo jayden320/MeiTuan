@@ -2,45 +2,40 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 import React, { Component } from 'react';
-
-import {
-    StyleSheet,
-    View,
-    TextInput,
-    TouchableOpacity,
-    Text,
-    Image,
-} from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, Image, Keyboard } from 'react-native';
 
 import system from '../common/system'
-
-const dismissKeyboard = require('dismissKeyboard');
 
 
 class SearchBar extends Component {
 
-    static propTypes = {
-        onSubmitEditing: React.PropTypes.func,
-
+    props: {
+        onSubmitEditing: Function,
+        text: string,
+        onChangeText: Function,
+        onSubmit: Function,
+        style: Object
     }
 
-    constructor(props) {
+    state: {
+        text: string
+    }
+
+    constructor(props: Object) {
         super(props);
 
         this.state = {
             text: this.props.text,
-
         };
     }
 
-    onChangeText(text) {
-        this.setState({
-            text: text
-        });
+    onChangeText(text: string) {
+        this.setState({ text: text });
 
         if (this.props.onChangeText) {
             this.props.onChangeText();
@@ -61,7 +56,7 @@ class SearchBar extends Component {
             //搜索
             this.onSubmitEditing();
         }
-        dismissKeyboard();
+        Keyboard.dismiss();
     }
 
     render() {

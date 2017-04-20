@@ -3,6 +3,7 @@
  * All rights reserved.
  *
  * https://github.com/huanxsd/MeiTuan
+ * @flow
  */
 
 import React, { Component } from 'react';

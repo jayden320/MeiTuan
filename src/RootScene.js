@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 //import liraries
@@ -11,7 +12,7 @@ import { View, Text, StyleSheet, Platform, StatusBar } from 'react-native';
 import { Router, Scene, Actions, Schema } from 'react-native-router-flux';
 
 import color from './widget/color'
-
+import screen from './common/screen'
 import system from './common/system'
 import TabBarItem from './widget/TabBarItem'
 
@@ -23,14 +24,12 @@ import MineScene from './scene/Mine/MineScene'
 import WebScene from './widget/WebScene'
 import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
 
-const Dimensions = require('Dimensions');
 const animate = props => {
     const { position, scene } = props;
-    const SCREEN_WIDTH = Dimensions.get("window").width;
 
     const index = scene.index;
     const inputRange = [index - 1, index + 1];
-    const outputRange = [SCREEN_WIDTH, -SCREEN_WIDTH];
+    const outputRange = [screen.width, -screen.width];
 
     const translateX = position.interpolate({ inputRange, outputRange });
     return { transform: [{ translateX }] };
@@ -136,7 +135,7 @@ class RootScene extends Component {
     }
 
 
-    sceneStyle = (props, computedProps) => {
+    sceneStyle = (props: Object, computedProps: Object) => {
         const style = {
             flex: 1,
             backgroundColor: color.theme,
@@ -145,6 +144,8 @@ class RootScene extends Component {
             shadowOffset: null,
             shadowOpacity: null,
             shadowRadius: null,
+            marginTop: 0,
+            marginBottom: 0,
         };
         if (computedProps.isActive) {
             style.marginTop = computedProps.hideNavBar ? (system.isIOS ? 20 : 0) : (system.isIOS ? 64 : 54);

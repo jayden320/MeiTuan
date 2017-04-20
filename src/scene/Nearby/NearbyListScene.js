@@ -1,3 +1,11 @@
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan 
+ * @flow
+ */
+
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native';
@@ -15,18 +23,17 @@ import api from '../../api'
 
 import NearbyCell from './NearbyCell'
 import NearbyHeaderView from './NearbyHeaderView'
-/**
- * Copyright (c) 2017-present, Liu Jinyong
- * All rights reserved.
- *
- * https://github.com/huanxsd/MeiTuan
- */
 
 
 // create a component
 class NearbyListScene extends Component {
 
-    constructor(props) {
+    state: {
+        dataSource: ListView.DataSource,
+        typeIndex: number
+    }
+
+    constructor(props: Object) {
         super(props)
 
         let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })

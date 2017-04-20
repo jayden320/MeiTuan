@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan 
+ * @flow
  */
 
 //import liraries
@@ -59,7 +60,12 @@ class HomeScene extends Component {
         );
     }
 
-    constructor(props) {
+    state: {
+        discounts: Array<Object>,
+        dataSource: ListView.DataSource
+    }
+
+    constructor(props: Object) {
         super(props)
 
         let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
@@ -119,7 +125,7 @@ class HomeScene extends Component {
         )
     }
 
-    onGridSelected(index) {
+    onGridSelected(index: number) {
         let discount = this.state.discounts[index]
 
         if (discount.type == 1) {
@@ -171,7 +177,7 @@ class HomeScene extends Component {
             })
     }
 
-    onMenuSelected(index) {
+    onMenuSelected(index: number) {
         alert(index)
     }
 
@@ -185,7 +191,7 @@ class HomeScene extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:color.background
+        backgroundColor: color.background
     },
     recommendHeader: {
         height: 35,

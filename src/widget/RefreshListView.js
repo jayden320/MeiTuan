@@ -30,7 +30,7 @@ class RefreshListView extends Component {
         footerNoMoreDataText: '已加载全部数据'
     }
 
-    constructor(props) {
+    constructor(props: Object) {
         super(props)
 
         this.state = {

@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan 
+ * @flow
  */
 
 //import liraries
@@ -16,11 +17,16 @@ import HomeMenuItem from './HomeMenuItem'
 
 // create a component
 class HomeMenuView extends Component {
-    constructor(props) {
+
+    state: {
+        currentPage: number
+    }
+
+    constructor(props: Object) {
         super(props)
 
         this.state = {
-            'currentPage': 0
+            currentPage: 0
         }
     }
 
@@ -85,7 +91,7 @@ class HomeMenuView extends Component {
         );
     }
 
-    onScroll(e) {
+    onScroll(e: any) {
         let x = e.nativeEvent.contentOffset.x;
         let currentPage = x / screen.width;
 

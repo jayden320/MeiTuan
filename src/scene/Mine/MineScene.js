@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan 
+ * @flow
  */
 
 //import liraries
@@ -20,7 +21,11 @@ import DetailCell from '../../widget/DetailCell'
 // create a component
 class MineScene extends Component {
 
-    constructor(props) {
+    state: {
+        isRefreshing: boolean
+    }
+
+    constructor(props: Object) {
         super(props)
 
         this.state = {
@@ -58,7 +63,7 @@ class MineScene extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.userContainer}>
-                            <Image style={styles.avatar} source={require('../../img/Mine/avatar@2x.png')} />
+                            <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
 
                             <View>
                                 <View style={{ flexDirection: 'row' }}>

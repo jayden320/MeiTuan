@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 //import liraries
@@ -24,15 +25,18 @@ import NavigationItem from '../../widget/NavigationItem'
 // create a component
 class GroupPurchaseScene extends Component {
 
-    constructor(props) {
-        super(props)
+    state: {
+        info:Object,
+        dataSource: ListView.DataSource
+    }
+    
+    constructor(props: Object) {
+        super(props);
 
         let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
 
         this.state = {
-            info: {
-
-            },
+            info: {},
             dataSource: ds.cloneWithRows([]),
         }
     }

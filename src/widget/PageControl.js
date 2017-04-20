@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 
@@ -36,8 +37,8 @@ class PageControl extends Component {
         onPageIndicatorPress: function () { }
     }
 
-    onPageIndicatorPress(idx) {
-        this.props.onPageIndicatorPress(idx);
+    onPageIndicatorPress(index: number) {
+        this.props.onPageIndicatorPress(index);
     }
 
     render() {

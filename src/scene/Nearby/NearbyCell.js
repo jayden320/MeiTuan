@@ -2,7 +2,8 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
  */
 
 //import liraries
@@ -11,7 +12,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import screen from '../../common/screen'
 import color from '../../widget/color'
-        
+
 // create a component
 class NearbyCell extends Component {
     render() {
@@ -24,8 +25,8 @@ class NearbyCell extends Component {
                 <View style={styles.rightContainer}>
                     <Heading1>{info.title}</Heading1>
 
-                    <Paragraph numberOfLines={0} style={{marginTop: 8}}>{info.subtitle}</Paragraph>
-                    <View style={{flex:1, justifyContent: 'flex-end'}}>
+                    <Paragraph numberOfLines={0} style={{ marginTop: 8 }}>{info.subtitle}</Paragraph>
+                    <View style={{ flex: 1, justifyContent: 'flex-end' }}>
                         <Heading1 style={styles.price}>{info.price}元</Heading1>
                     </View>
 
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     rightContainer: {
-        flex:1,
+        flex: 1,
         paddingLeft: 20,
         paddingRight: 10,
     },
