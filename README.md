@@ -65,8 +65,8 @@ In a separate terminal window run:
 
 ## Contact
 
-If you have any suggestions, please contact me by 
-QQ:67111677
+If you have any suggestions, welcome to give me a message here 
+[简书](http://www.jianshu.com/p/9211f42d5c25)
 
 ## At last
 
