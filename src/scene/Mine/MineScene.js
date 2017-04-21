@@ -14,7 +14,6 @@ import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import screen from '../../common/screen'
 import color from '../../widget/color'
 import SpacingView from '../../widget/SpacingView'
-
 import DetailCell from '../../widget/DetailCell'
 
 // create a component
@@ -73,16 +72,13 @@ class MineScene extends Component {
                 </View>
                 <View style={styles.userContainer}>
                     <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
-
                     <View>
                         <View style={{ flexDirection: 'row' }}>
                             <Heading1 style={{ color: 'white' }}>素敌</Heading1>
                             <Image style={{ marginLeft: 4 }} source={require('../../img/Mine/beauty_technician_v15@2x.png')} />
-
                         </View>
                         <Paragraph style={{ color: 'white', marginTop: 4 }}>个人信息 ></Paragraph>
                     </View>
-
                 </View>
             </View>
         )
