@@ -10,7 +10,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
 
-import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import screen from '../../common/screen'
 import color from '../../widget/color'
@@ -41,6 +40,54 @@ class MineScene extends Component {
         }, 2000);
     }
 
+    renderCells() {
+        let cells = []
+        let dataList = this.getDataList()
+        for (let i = 0; i < dataList.length; i++) {
+            let sublist = dataList[i]
+            for (let j = 0; j < sublist.length; j++) {
+                let data = sublist[j]
+                let cell = <DetailCell image={data.image} title={data.title} subtitle={data.subtitle} key={data.title} />
+                cells.push(cell)
+            }
+            cells.push(<SpacingView key={i} />)
+        }
+
+        return (
+            <View style={{ flex: 1 }}>
+                {cells}
+            </View>
+        )
+    }
+
+    renderHeader() {
+        return (
+            <View style={styles.header}>
+                <View style={styles.topContainer}>
+                    <TouchableOpacity>
+                        <Image style={[styles.icon, { marginRight: 15 }]} source={require('../../img/Mine/icon_navigationItem_set_white@2x.png')} />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Image style={[styles.icon, { marginRight: 10 }]} source={require('../../img/Mine/icon_navigationItem_message_white@2x.png')} />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.userContainer}>
+                    <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
+
+                    <View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Heading1 style={{ color: 'white' }}>素敌</Heading1>
+                            <Image style={{ marginLeft: 4 }} source={require('../../img/Mine/beauty_technician_v15@2x.png')} />
+
+                        </View>
+                        <Paragraph style={{ color: 'white', marginTop: 4 }}>个人信息 ></Paragraph>
+                    </View>
+
+                </View>
+            </View>
+        )
+    }
+
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: color.background }}>
@@ -53,96 +100,42 @@ class MineScene extends Component {
                             tintColor='gray'
                         />
                     }>
-                    <View style={styles.header}>
-                        <View style={styles.topContainer}>
-                            <TouchableOpacity>
-                                <Image style={[styles.icon, { marginRight: 15 }]} source={require('../../img/Mine/icon_navigationItem_set_white@2x.png')} />
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                <Image style={[styles.icon, { marginRight: 10 }]} source={require('../../img/Mine/icon_navigationItem_message_white@2x.png')} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.userContainer}>
-                            <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
-
-                            <View>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Heading1 style={{ color: 'white' }}>素敌</Heading1>
-                                    <Image style={{ marginLeft: 4 }} source={require('../../img/Mine/beauty_technician_v15@2x.png')} />
-
-                                </View>
-                                <Paragraph style={{ color: 'white', marginTop: 4 }}>个人信息 ></Paragraph>
-                            </View>
-
-                        </View>
-                    </View>
-
+                    {this.renderHeader()}
                     <SpacingView />
-
-                    <View style={{ flex: 1 }}>
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_wallet@2x.png')}
-                            title='我的钱包'
-                            subtitle='办信用卡' />
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_balance@2x.png')}
-                            title='余额'
-                            subtitle='￥95872385' />
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_voucher@2x.png')}
-                            title='抵用券'
-                            subtitle='63' />
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_membercard@2x.png')}
-                            title='会员卡'
-                            subtitle='2' />
-
-                        <SpacingView />
-
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_friends@2x.png')}
-                            title='好友去哪' />
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_comment@2x.png')}
-                            title='我的评价' />
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_collection@2x.png')}
-                            title='我的收藏' />
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_membercenter@2x.png')}
-                            title='会员中心'
-                            subtitle='v15' />
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_member@2x.png')}
-                            title='积分商城'
-                            subtitle='好礼已上线' />
-
-                        <SpacingView />
-
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_customerService@2x.png')}
-                            title='客服中心' />
-                        <DetailCell
-                            image={require('../../img/Mine/icon_mine_aboutmeituan@2x.png')}
-                            title='关于美团'
-                            subtitle='我要合作' />
-
-                        <SpacingView />
-
-                    </View>
-
-
+                    {this.renderCells()}
                 </ScrollView>
             </View>
         );
     }
+
+    getDataList() {
+        return (
+            [
+                [
+                    { title: '我的钱包', subtitle: '办信用卡', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '余额', subtitle: '￥95872385', image: require('../../img/Mine/icon_mine_balance@2x.png') },
+                    { title: '抵用券', subtitle: '63', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
+                    { title: '会员卡', subtitle: '2', image: require('../../img/Mine/icon_mine_membercard@2x.png') }
+                ],
+                [
+                    { title: '好友去哪', image: require('../../img/Mine/icon_mine_friends@2x.png') },
+                    { title: '我的评价', image: require('../../img/Mine/icon_mine_comment@2x.png') },
+                    { title: '我的收藏', image: require('../../img/Mine/icon_mine_collection@2x.png') },
+                    { title: '会员中心', subtitle: 'v15', image: require('../../img/Mine/icon_mine_membercenter@2x.png') },
+                    { title: '积分商城', subtitle: '好礼已上线', image: require('../../img/Mine/icon_mine_member@2x.png') }
+                ],
+                [
+                    { title: '客服中心', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
+                    { title: '关于美团', subtitle: '我要合作', image: require('../../img/Mine/icon_mine_aboutmeituan@2x.png') }
+                ]
+            ]
+        )
+    }
+
 }
 
 // define your styles
 const styles = StyleSheet.create({
-    container: {
-
-    },
     header: {
         backgroundColor: color.theme,
         paddingBottom: 20
