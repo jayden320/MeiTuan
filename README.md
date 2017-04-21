@@ -1,12 +1,8 @@
 # 美团客户端
 
-MeiTuan App Write In latest React-Native(0.43)
-
-**Support: Android 4.1 (API 16)+   IOS(8.0+)**
-
-## See more details:
-
-[中文说明-简书](http://www.jianshu.com/p/9211f42d5c25)
+**支持: Android 4.1 (API 16)+   IOS(8.0+)**
+Github：https://github.com/huanxsd/MeiTuan
+简书：http://www.jianshu.com/p/9211f42d5c25
 
 ##  iOS截图
 
@@ -24,6 +20,14 @@ MeiTuan App Write In latest React-Native(0.43)
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_2.png">
 
+## 简介
+
+这是一个用React-Native写的美团客户端。
+使用了React-Native 0.42版本。遵循ES6语法。
+主要实现了美团的四个一级页面（团购、附近、订单、我的），以及部分二级页面（团购详情、Web页面）。
+所有功能都是用JavaScript写的，iOS和Android的代码复用率达到了97%（别问我这个数字怎么来的，我瞎掰的）。
+这个Demo的静态类型检查工具使用了Facebook的Flow。它让我写JavaScript的时候，更有安全感。个人觉得可以用两个字形容这个工具，那就是：灰常牛逼！
+我试着让这个Demo的结构尽量接近实际项目，同时使用比较简单方式去实现功能。这样可以让刚接触ReactNative的人（比如我自己...）更够容易理解代码。
 该项目没有使用Redux。因为个人觉得目前大部分的中小型App并不需要Redux。如果盲目的将Redux添加到项目中，并不能带来太多的益处。
 鲁迅曾说过：
 > "如果你不知道是否需要 Redux，那就是不需要它。"
