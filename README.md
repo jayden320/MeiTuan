@@ -101,3 +101,59 @@ $ react-native start
 Github：https://github.com/huanxsd/MeiTuan
 
 我将持续更新这个Demo
+
+
+---
+
+Readme in English
+
+MeiTuan App Write In latest React-Native(0.43)
+
+**Support: Android 4.1 (API 16)+   IOS(8.0+)**
+
+## Setup
+
+1. **Clone the repo**
+
+```
+$ git clone https://github.com/huanxsd/MeiTuan.git
+$ cd MeiTuan
+```
+
+2. **Install dependencies** (npm v3+):
+
+```
+$ npm install
+```
+
+
+3. **Running on iOS:**
+
+```
+$ react-native run-ios
+```
+
+## Troubleshooting
+
+> Could not connect to development server
+
+In a separate terminal window run:
+
+```
+$ react-native start
+```
+
+## Dependency
+
+* [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
+* [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
+
+## Contact
+
+If you have any suggestions, welcome to give me a message here 
+[简书](http://www.jianshu.com/p/9211f42d5c25)
+
+## At last
+
+please give me a star  :)
+
