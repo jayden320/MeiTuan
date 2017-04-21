@@ -97,5 +97,7 @@ $ react-native start
 ## 最后
 
 如果你喜欢这个Demo，请给我一个star   :)
+
 Github：https://github.com/huanxsd/MeiTuan
+
 我将持续更新这个Demo
