@@ -9,8 +9,8 @@
   "dependencies": {
     "react": "~15.4.1",
     "react-native": "0.42.3",
-    "react-native-router-flux": "^3.38.0",
-    "react-native-scrollable-tab-view": "^0.6.3"
+    "react-native-router-flux": "3.38.0",
+    "react-native-scrollable-tab-view": "0.6.3"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
