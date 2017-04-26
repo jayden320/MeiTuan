@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        width: screen.width / 2 - 1,
+        width: screen.width / 2 - screen.onePixel,
         height: screen.width / 4,
         backgroundColor: 'white',
-        borderBottomWidth: 1,
-        borderRightWidth: 1,
+        borderBottomWidth: screen.onePixel,
+        borderRightWidth: screen.onePixel,
         borderColor: color.border
     },
     icon: {

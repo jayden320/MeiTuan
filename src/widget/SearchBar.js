@@ -37,9 +37,7 @@ class SearchBar extends Component {
     onChangeText(text: string) {
         this.setState({ text: text });
 
-        if (this.props.onChangeText) {
-            this.props.onChangeText();
-        }
+        this.props.onChangeText && this.props.onChangeText()
     }
 
     onSubmitEditing() {

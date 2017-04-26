@@ -35,7 +35,6 @@ const animate = props => {
     return { transform: [{ translateX }] };
 }
 
-
 // create a component
 class RootScene extends Component {
     render() {
@@ -128,8 +127,6 @@ class RootScene extends Component {
 
                 <Scene key='web' component={WebScene} title='加载中' hideTabBar clone />
                 <Scene key='groupPurchase' component={GroupPurchaseScene} title='团购详情' hideTabBar clone />
-
-
             </Router>
         );
     }

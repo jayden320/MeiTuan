@@ -12,6 +12,10 @@ import { AppRegistry } from 'react-native';
 import RootScene from './src/RootScene';
 
 export default class Demo extends Component {
+    constructor(props: Object) {
+        super(props);
+    }
+
     render() {
         return (
             <RootScene />

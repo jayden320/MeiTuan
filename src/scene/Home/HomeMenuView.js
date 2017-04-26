@@ -31,27 +31,23 @@ class HomeMenuView extends Component {
     }
 
     render() {
-        let menuItems = []
-        let menuInfos = this.props.menuInfos
-        for (let i = 0; i < menuInfos.length; i++) {
-            let menuInfo = menuInfos[i]
-            let menuItem = (
+        let { menuInfos, onMenuSelected } = this.props
+
+        let menuItems = menuInfos.map(
+            (info, i) => (
                 <HomeMenuItem
-                    key={menuInfo.title}
-                    title={menuInfo.title}
-                    icon={menuInfo.icon}
+                    key={info.title}
+                    title={info.title}
+                    icon={info.icon}
                     onPress={() => {
-                        if (this.props.onMenuSelected) {
-                            this.props.onMenuSelected(i)
-                        }
+                        onMenuSelected && onMenuSelected(i)
                     }} />
             )
-
-            menuItems.push(menuItem)
-        }
+        )
 
         let menuViews = []
         let pageCount = Math.ceil(menuItems.length / 10)
+
         for (let i = 0; i < pageCount; i++) {
             let length = menuItems.length < (i * 10) ? menuItems.length - (i * 10) : 10
             let items = menuItems.slice(i * 10, i * 10 + length)

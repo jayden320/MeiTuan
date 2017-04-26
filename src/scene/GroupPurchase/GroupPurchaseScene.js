@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     tipHeader: {
         height: 35,
         justifyContent: 'center',
-        borderWidth: 1,
+        borderWidth: screen.onePixel,
         borderColor: color.border,
         paddingVertical: 8,
         paddingLeft: 20,

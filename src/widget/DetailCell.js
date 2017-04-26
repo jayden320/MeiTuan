@@ -16,10 +16,8 @@ import screen from '../common/screen'
 // create a component
 class DetailCell extends Component {
     render() {
-        let icon = null;
-        if (this.props.image) {
-            icon = <Image style={styles.icon} source={this.props.image} />
-        }
+        let icon = this.props.image && <Image style={styles.icon} source={this.props.image} />
+        
         return (
             <View style={styles.container}>
                 <TouchableOpacity>

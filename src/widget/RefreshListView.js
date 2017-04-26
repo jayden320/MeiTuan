@@ -42,17 +42,13 @@ class RefreshListView extends Component {
     startHeaderRefreshing() {
         this.setState({ headerState: RefreshState.Refreshing })
 
-        if (this.props.onHeaderRefresh) {
-            this.props.onHeaderRefresh()
-        }
+        this.props.onHeaderRefresh && this.props.onHeaderRefresh()
     }
 
     startFooterRefreshing() {
         this.setState({ footerState: RefreshState.Refreshing })
 
-        if (this.props.onFooterRefresh) {
-            this.props.onFooterRefresh()
-        }
+        this.props.onFooterRefresh && this.props.onFooterRefresh()
     }
 
     shouldStartHeaderRefreshing() {

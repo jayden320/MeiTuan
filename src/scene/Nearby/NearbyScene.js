@@ -26,7 +26,7 @@ import NearbyListScene from './NearbyListScene'
 
 // create a component
 class NearbyScene extends Component {
-    
+
     static renderTitle = () => {
         return (
             <TouchableOpacity style={styles.searchBar}>
@@ -40,7 +40,7 @@ class NearbyScene extends Component {
         return (
             <NavigationItem
                 icon={require('../../img/Public/icon_food_merchant_address@2x.png')}
-                iconStyle={{width: 13,height:16, marginTop: 1}}
+                iconStyle={{ width: 13, height: 16, marginTop: 1 }}
                 title=' 福州 鼓楼'
                 onPress={() => {
 
@@ -62,11 +62,14 @@ class NearbyScene extends Component {
             []
         ]
 
-        let storyListViews = [];
-        for (let i = 0; i < titles.length; i++) {
-            let storyListView = <NearbyListScene tabLabel={titles[i]} key={i} types={types[i]}/>
-            storyListViews.push(storyListView)
-        }
+        let storyListViews = titles.map(
+            (title, i) => (
+                <NearbyListScene
+                    tabLabel={titles[i]}
+                    key={i}
+                    types={types[i]} />
+            )
+        )
 
         return (
             <ScrollableTabView
@@ -88,7 +91,7 @@ class NearbyScene extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:color.background
+        backgroundColor: color.background
     },
     searchBar: {
         width: screen.width * 0.65,

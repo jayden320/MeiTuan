@@ -25,7 +25,7 @@ class Separator extends Component {
 const styles = StyleSheet.create({
     line: {
         width: screen.width,
-        height: 1,
+        height: screen.onePixel,
         backgroundColor: color.border,
     },
 });

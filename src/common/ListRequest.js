@@ -63,9 +63,8 @@ class ListRequest {
                 this.currentPage = page
                 this.noMoreData = json.items.count < kPageSize
 
-                if (this.onSuccess) {
-                    this.onSuccess()
-                }
+                this.onSuccess && this.onSuccess()
+                
                 console.log(`ListRequest - Success node:${this.requestNode}`);
             }).catch((error) => {
                 if (this.onFailure) {

@@ -11,6 +11,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import color from '../../widget/color'
+import screen from '../../common/screen'
 import HomeGridItem from './HomeGridItem'
 
 // create a component
@@ -22,13 +23,14 @@ class HomeGridView extends Component {
 
     render() {
         let { infos } = this.props
-        let gridItems = []
-        for (let i = 0; i < infos.length; i++) {
-            let gridItem = (
-                <HomeGridItem info={infos[i]} key={i} onPress={() => this.props.onGridSelected(i)}/>
+        let gridItems = infos.map(
+            (info, i) => (
+                <HomeGridItem
+                    info={infos[i]}
+                    key={i}
+                    onPress={() => this.props.onGridSelected(i)} />
             )
-            gridItems.push(gridItem)
-        }
+        )
 
         return (
             <View style={styles.container}>
@@ -44,8 +46,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
-        borderTopWidth: 1,
-        borderLeftWidth: 1,
+        borderTopWidth: screen.onePixel,
+        borderLeftWidth: screen.onePixel,
         borderColor: color.border
     },
 });

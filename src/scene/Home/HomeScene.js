@@ -143,15 +143,17 @@ class HomeScene extends Component {
             .then((json) => {
                 console.log(JSON.stringify(json));
 
-                let dataList = json.data.map((info) => {
-                    return {
-                        id: info.id,
-                        imageUrl: info.squareimgurl,
-                        title: info.mname,
-                        subtitle: `[${info.range}]${info.title}`,
-                        price: info.price
+                let dataList = json.data.map(
+                    (info) => {
+                        return {
+                            id: info.id,
+                            imageUrl: info.squareimgurl,
+                            title: info.mname,
+                            subtitle: `[${info.range}]${info.title}`,
+                            price: info.price
+                        }
                     }
-                })
+                )
 
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
@@ -196,7 +198,7 @@ const styles = StyleSheet.create({
     recommendHeader: {
         height: 35,
         justifyContent: 'center',
-        borderWidth: 1,
+        borderWidth: screen.onePixel,
         borderColor: color.border,
         paddingVertical: 8,
         paddingLeft: 20,
