@@ -102,6 +102,15 @@ Github：https://github.com/huanxsd/MeiTuan
 
 我将持续更新这个Demo
 
+## Hire Me
+
+福州地区的公司欢迎联系我（全职），吃苦耐操。
+
+擅长语言：Objective-C、JavaScript
+
+擅长框架：CocoaTouch、ReactNative
+
+QQ：67111677
 
 ---
 
