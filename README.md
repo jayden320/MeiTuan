@@ -1,7 +1,5 @@
 # 美团客户端
 
-**支持: Android 4.1 (API 16)+   IOS(8.0+)**
-
 Github：https://github.com/huanxsd/MeiTuan
 
 简书：http://www.jianshu.com/p/9211f42d5c25
@@ -26,7 +24,7 @@ Github：https://github.com/huanxsd/MeiTuan
 
 这是一个用React-Native写的美团客户端。
 
-使用了React-Native 0.42版本。遵循ES6语法。
+使用了React-Native 0.44.0版本。遵循ES6语法。
 
 主要实现了美团的四个一级页面（团购、附近、订单、我的），以及部分二级页面（团购详情、Web页面）。
 
