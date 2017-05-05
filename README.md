@@ -46,13 +46,13 @@ Redux的作者 Dan Abramov 说过：
 
 哦，另外一个没有用Redux的原因，是我还不太会用。
 
-App的页面跳转、TabBar、Navigation，全部通过第三方的库[react-native-router-flux](https://github.com/aksonov/react-native-router-flux)实现。这是一个非常牛逼的库，可以实现很多自定义的跳转功能。
+App的页面跳转、TabBar、Navigation，全部通过[react-navigation](https://github.com/react-community/react-navigation)实现。这是一个非常牛逼的库，可以实现很多自定义的跳转功能。最早是通过[react-native-router-flux](https://github.com/aksonov/react-native-router-flux)实现跳转。在遇见react-navigation后，我果断放弃了react-native-router-flux。
 
 App中很多页面都使用了同一个网络接口，这不是为了让代码更加简洁，仅仅是我偷懒 >.<
 
 ## 第三方依赖
 
-* [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
+* [react-navigation](https://github.com/react-community/react-navigation)
 * [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
 
 ## 安装
@@ -147,7 +147,7 @@ $ react-native start
 
 ## Dependency
 
-* [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
+* [react-navigation](https://github.com/react-community/react-navigation)
 * [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
 
 ## Contact
