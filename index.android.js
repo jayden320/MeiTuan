@@ -2,7 +2,7 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan  
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
 
@@ -11,7 +11,7 @@ import { AppRegistry } from 'react-native';
 
 import RootScene from './src/RootScene';
 
-export default class Demo extends Component {
+export default class MeiTuan extends Component {
     render() {
         return (
             <RootScene />
@@ -19,4 +19,4 @@ export default class Demo extends Component {
     }
 }
 
-AppRegistry.registerComponent('Demo', () => Demo);
+AppRegistry.registerComponent('MeiTuan', () => MeiTuan);

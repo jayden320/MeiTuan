@@ -30,20 +30,20 @@ class NavigationItem extends Component {
 // define your styles
 const styles = StyleSheet.create({
     container: {
+        flex:1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 40,
     },
     icon: {
         width: 27,
         height: 27,
-        marginBottom: 18,
+        margin: 8,
     },
     title: {
         fontSize: 15,
-        marginBottom: 15,
-        color: '#333333'
+        color: '#333333',
+        margin: 8,
     }
 });
 

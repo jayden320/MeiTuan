@@ -9,7 +9,6 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, InteractionManager } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 
 import SpacingView from '../../widget/SpacingView'
 import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
@@ -52,9 +51,9 @@ class GroupPurchaseScene extends Component {
             />
         )
 
-        Actions.refresh({
-            renderRightButton: () => rightButton,
-        })
+        // Actions.refresh({
+        //     renderRightButton: () => rightButton,
+        // })
 
         InteractionManager.runAfterInteractions(() => {
             this.refs.listView.startHeaderRefreshing();
@@ -72,7 +71,7 @@ class GroupPurchaseScene extends Component {
                     renderRow={(rowData) =>
                         <GroupPurchaseCell
                             info={rowData}
-                            onPress={() => Actions.groupPurchase({ info: rowData })}
+                            onPress={() => this.props.navigation.navigate('GroupPurchase', {info: rowData})}
                         />
                     }
                     onHeaderRefresh={() => this.requestData()}
@@ -82,7 +81,7 @@ class GroupPurchaseScene extends Component {
     }
 
     renderHeader() {
-        let info = this.props.info
+        let info = this.props.navigation.state.params.info
 
         return (
             <View>

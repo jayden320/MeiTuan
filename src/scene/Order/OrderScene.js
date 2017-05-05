@@ -9,7 +9,6 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar, Image,ListView, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import screen from '../../common/screen'
@@ -85,7 +84,7 @@ class OrderScene extends Component {
                             info={rowData}
                             onPress={() => {
                                 StatusBar.setBarStyle('default', false)
-                                Actions.groupPurchase({ info: rowData })
+                                this.props.navigation.navigate('GroupPurchase', { info: rowData })
                             }}
                         />
                     }

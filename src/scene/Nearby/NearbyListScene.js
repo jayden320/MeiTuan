@@ -9,7 +9,6 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 
 import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
@@ -100,7 +99,7 @@ class NearbyListScene extends Component {
                     <NearbyCell
                         info={rowData}
                         onPress={() => {
-                            Actions.groupPurchase({ info: rowData })
+                            this.props.navigation.navigate('GroupPurchase', { info: rowData })
                         }}
                     />
                 }

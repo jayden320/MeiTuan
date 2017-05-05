@@ -9,7 +9,6 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, WebView, InteractionManager } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 
 // create a component
 class WebScene extends Component {
@@ -27,7 +26,7 @@ class WebScene extends Component {
 
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
-            this.setState({source :{url: this.props.url}})
+            this.setState({source :{url: this.props.navigation.state.params.url}})
         })
     }
 
@@ -47,7 +46,7 @@ class WebScene extends Component {
     }
 
     onLoadEnd(e: any) {
-        Actions.refresh({ title: e.nativeEvent.title })
+        // Actions.refresh({ title: e.nativeEvent.title })
     }
 }
 
