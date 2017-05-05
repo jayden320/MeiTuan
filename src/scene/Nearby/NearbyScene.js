@@ -17,6 +17,7 @@ import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import color from '../../widget/color'
 import NavigationItem from '../../widget/NavigationItem'
 import Button from '../../widget/Button'
+import TabBarItem from '../../widget/TabBarItem'
 
 import screen from '../../common/screen'
 import system from '../../common/system'
@@ -26,27 +27,30 @@ import NearbyListScene from './NearbyListScene'
 // create a component
 class NearbyScene extends Component {
 
-    static renderTitle = () => {
-        return (
-            <TouchableOpacity style={styles.searchBar}>
+    static navigationOptions = ({ navigation }) => ({
+        headerRight: (
+            <TouchableOpacity style={ styles.searchBar }>
                 <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
                 <Paragraph>找附近的吃喝玩乐</Paragraph>
             </TouchableOpacity>
-        );
-    }
-
-    static renderLeftButton = () => {
-        return (
-            <NavigationItem
-                icon={require('../../img/Public/icon_food_merchant_address@2x.png')}
-                iconStyle={{ width: 13, height: 16, marginTop: 1 }}
-                title=' 福州 鼓楼'
-                onPress={() => {
-
-                }}
+        ),
+        headerLeft: (
+            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' , padding: 10}}>
+                <Image style={{ width: 13, height: 16 }} source={require('../../img/Public/icon_food_merchant_address@2x.png')} />
+                <Text style={{ fontSize: 15, color: '#333333' }}> 福州 鼓楼</Text>
+            </TouchableOpacity>
+        ),
+        headerStyle: { backgroundColor: 'white' },
+        tabBarLabel: '附近',
+        tabBarIcon: ({ focused, tintColor }) => (
+            <TabBarItem
+                tintColor={tintColor}
+                focused={focused}
+                normalImage={require('../../img/tabbar/pfb_tabbar_merchant@2x.png')}
+                selectedImage={require('../../img/tabbar/pfb_tabbar_merchant_selected@2x.png')}
             />
-        );
-    }
+        )
+    });
 
     componentWillMount() {
         // this.refs.listView.startHeaderRefreshing();
@@ -101,7 +105,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#eeeeee',
         alignSelf: 'flex-end',
-        marginTop: system.isIOS ? 25 : 13,
         marginRight: 20,
     },
     searchIcon: {

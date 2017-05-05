@@ -24,6 +24,11 @@ import NavigationItem from '../../widget/NavigationItem'
 // create a component
 class GroupPurchaseScene extends Component {
 
+    static navigationOptions = ({ navigation }) => ({
+        headerTitle: '团购详情',
+        headerStyle: { backgroundColor: 'white' },
+    });
+
     state: {
         info:Object,
         dataSource: ListView.DataSource
@@ -129,7 +134,8 @@ class GroupPurchaseScene extends Component {
     }
 
     requestRecommend() {
-        fetch(recommendUrlWithId(this.props.info.id))
+        let info = this.props.navigation.state.params.info
+        fetch(recommendUrlWithId(info.id))
             .then((response) => response.json())
             .then((json) => {
                 console.log(JSON.stringify(json));

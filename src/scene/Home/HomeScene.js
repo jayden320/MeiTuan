@@ -17,6 +17,7 @@ import color from '../../widget/color'
 import NavigationItem from '../../widget/NavigationItem'
 import SearchBar from '../../widget/SearchBar'
 import Button from '../../widget/Button'
+import TabBarItem from '../../widget/TabBarItem'
 
 import screen from '../../common/screen'
 import system from '../../common/system'
@@ -54,7 +55,16 @@ class HomeScene extends Component {
                 }}
             />
         ),
-        headerStyle: { backgroundColor: color.theme }
+        headerStyle: { backgroundColor: color.theme },
+        tabBarLabel: '团购',
+        tabBarIcon: ({ focused, tintColor }) => (
+            <TabBarItem
+                tintColor={tintColor}
+                focused={focused}
+                normalImage={require('../../img/tabbar/pfb_tabbar_homepage@2x.png')}
+                selectedImage={require('../../img/tabbar/pfb_tabbar_homepage_selected@2x.png')}
+            />
+        ),
     });
 
     state: {

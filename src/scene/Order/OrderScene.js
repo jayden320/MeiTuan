@@ -8,13 +8,14 @@
 
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, StatusBar, Image,ListView, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
+import { View, Text, StyleSheet, StatusBar, Image, ListView, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
 import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import screen from '../../common/screen'
 import color from '../../widget/color'
 import SpacingView from '../../widget/SpacingView'
 import api from '../../api'
+import TabBarItem from '../../widget/TabBarItem'
 
 import DetailCell from '../../widget/DetailCell'
 import OrderMenuItem from './OrderMenuItem'
@@ -23,10 +24,23 @@ import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 // create a component
 class OrderScene extends Component {
 
+    static navigationOptions = ({ navigation }) => ({
+        title: '订单',
+        headerStyle: { backgroundColor: 'white' },
+        tabBarIcon: ({ focused, tintColor }) => (
+            <TabBarItem
+                tintColor={tintColor}
+                focused={focused}
+                normalImage={require('../../img/tabbar/pfb_tabbar_order@2x.png')}
+                selectedImage={require('../../img/tabbar/pfb_tabbar_order_selected@2x.png')}
+            />
+        )
+    });
+
     state: {
         dataSource: ListView.DataSource
     }
-    
+
     constructor(props: Object) {
         super(props)
 
@@ -59,7 +73,7 @@ class OrderScene extends Component {
 
                 // 偷懒，用同一个测试接口获取数据，然后打乱数组，造成数据来自不同接口的假象 >.<
                 dataList.sort(() => { return 0.5 - Math.random() })
-                
+
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })

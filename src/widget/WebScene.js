@@ -13,20 +13,26 @@ import { View, Text, StyleSheet, WebView, InteractionManager } from 'react-nativ
 // create a component
 class WebScene extends Component {
 
+    static navigationOptions = ({ navigation }) => ({
+        headerStyle: { backgroundColor: 'white' },
+        title: navigation.state.params.title,
+    });
+
     state: {
         source: Object
     }
-    
+
     constructor(props: Object) {
         super(props)
         this.state = {
-            source : {}
+            source: {}
         }
+        this.props.navigation.setParams({ title: '加载中'})
     }
 
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
-            this.setState({source :{url: this.props.navigation.state.params.url}})
+            this.setState({ source: { url: this.props.navigation.state.params.url } })
         })
     }
 
@@ -46,7 +52,9 @@ class WebScene extends Component {
     }
 
     onLoadEnd(e: any) {
-        // Actions.refresh({ title: e.nativeEvent.title })
+        if (e.nativeEvent.title.length > 0) {
+            this.props.navigation.setParams({ title: e.nativeEvent.title })
+        }
     }
 }
 

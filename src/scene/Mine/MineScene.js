@@ -11,13 +11,44 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
+import NavigationItem from '../../widget/NavigationItem'
 import screen from '../../common/screen'
 import color from '../../widget/color'
+import TabBarItem from '../../widget/TabBarItem'
 import SpacingView from '../../widget/SpacingView'
 import DetailCell from '../../widget/DetailCell'
 
 // create a component
 class MineScene extends Component {
+
+    static navigationOptions = ({ navigation }) => ({
+        headerRight: (
+            <View style={{flexDirection: 'row'}}>
+                <NavigationItem
+                    icon={require('../../img/Mine/icon_navigationItem_set_white@2x.png')}
+                    onPress={() => {
+
+                    }}
+                />
+                <NavigationItem
+                    icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
+                    onPress={() => {
+
+                    }}
+                />
+            </View>
+        ),
+        headerStyle: { backgroundColor: color.theme },
+        tabBarTitle: '我的',
+        tabBarIcon: ({ focused, tintColor }) => (
+            <TabBarItem
+                tintColor={tintColor}
+                focused={focused}
+                normalImage={require('../../img/tabbar/pfb_tabbar_mine@2x.png')}
+                selectedImage={require('../../img/tabbar/pfb_tabbar_mine_selected@2x.png')}
+            />
+        )
+    });
 
     state: {
         isRefreshing: boolean
@@ -62,14 +93,6 @@ class MineScene extends Component {
     renderHeader() {
         return (
             <View style={styles.header}>
-                <View style={styles.topContainer}>
-                    <TouchableOpacity>
-                        <Image style={[styles.icon, { marginRight: 15 }]} source={require('../../img/Mine/icon_navigationItem_set_white@2x.png')} />
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Image style={[styles.icon, { marginRight: 10 }]} source={require('../../img/Mine/icon_navigationItem_message_white@2x.png')} />
-                    </TouchableOpacity>
-                </View>
                 <View style={styles.userContainer}>
                     <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
                     <View>
@@ -135,12 +158,6 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: color.theme,
         paddingBottom: 20
-    },
-    topContainer: {
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        marginTop: 7,
     },
     icon: {
         width: 27,
