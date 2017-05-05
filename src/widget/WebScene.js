@@ -32,7 +32,7 @@ class WebScene extends Component {
 
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
-            this.setState({ source: { url: this.props.navigation.state.params.url } })
+            this.setState({ source: { uri: this.props.navigation.state.params.url } })
         })
     }
 
