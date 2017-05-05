@@ -27,7 +27,7 @@ class WebScene extends Component {
 
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
-            this.setState({source :{url: this.props.url}})
+            this.setState({source :{uri: this.props.url}})
         })
     }
 
