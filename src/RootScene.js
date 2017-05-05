@@ -154,7 +154,7 @@ const RootScene = StackNavigator(
             headerBackTitle: null,
             headerTintColor: '#333333',
             showIcon: true,
-        }
+        },
     }
 );
 //make this component available to the app
