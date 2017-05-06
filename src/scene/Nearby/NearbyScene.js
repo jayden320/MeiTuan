@@ -70,7 +70,8 @@ class NearbyScene extends Component {
                 <NearbyListScene
                     tabLabel={titles[i]}
                     key={i}
-                    types={types[i]} />
+                    types={types[i]} 
+                    navigation={this.props.navigation}/>
             )
         )
 

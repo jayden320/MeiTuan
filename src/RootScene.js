@@ -23,105 +23,50 @@ import MineScene from './scene/Mine/MineScene'
 import WebScene from './widget/WebScene'
 import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
 
+const lightContentScenes = ['Home', 'Mine']
+
+function getCurrentRouteName(navigationState) {
+    if (!navigationState) {
+        return null;
+    }
+    const route = navigationState.routes[navigationState.index];
+    // dive into nested navigators
+    if (route.routes) {
+        return getCurrentRouteName(route);
+    }
+    return route.routeName;
+}
+
 // create a component
-// class RootScene extends Component {
-//     render() {
-//         return (
-//             <Router
-//                 ref='router'
-//                 titleStyle={styles.navigationBarTitle}
-//                 barButtonIconStyle={styles.navigationBarButtonIcon}
-//                 navigationBarStyle={styles.navigationBarStyle}
-//                 getSceneStyle={this.sceneStyle}
-//                 panHandlers={null}
-//                 animationStyle={animate}
+class RootScene extends Component {
+    constructor() {
+        super()
 
-//                 onSelect={el => {
-//                     const { sceneKey, statusBarStyle } = el.props
-//                     if (statusBarStyle) {
-//                         StatusBar.setBarStyle(statusBarStyle, false)
-//                     } else {
-//                         StatusBar.setBarStyle('default', false)
-//                     }
-//                     Actions[sceneKey]()
-//                 }}
-//                 onBack={(el) => {
-//                     if (el.sceneKey == 'home' && el.children.length == 2) {
-//                         StatusBar.setBarStyle('light-content', false)
-//                     }
-//                     Actions.pop()
-//                 }}
-//             >
+        StatusBar.setBarStyle('light-content')
+    }
 
-//                 <Scene
-//                     initial
-//                     key='tabBar'
-//                     tabs
-//                     tabBarStyle={styles.tabBar}
-//                     tabBarSelectedItemStyle={styles.tabBarSelectedItem}
+    render() {
+        return (
+            <Navigator
+                onNavigationStateChange={
+                    (prevState, currentState) => {
+                        const currentScene = getCurrentRouteName(currentState);
+                        const previousScene = getCurrentRouteName(prevState);
+                        if (previousScene !== currentScene) {
+                            if (lightContentScenes.indexOf(currentScene) >= 0) {
+                                StatusBar.setBarStyle('light-content')
+                            } else {
+                                StatusBar.setBarStyle('dark-content')
+                            }
+                        }
+                    }
+                }
+            />
+        );
+    }
+}
 
-//                     tabBarSelectedTitleStyle={styles.tabBarSelectedTitle}
-//                     tabBarUnselectedTitleStyle={styles.tabBarUnselectedTitle}
-
-//                 // tabBarSelectedImageStyle={styles.tabBarSelectedImage}
-//                 // tabBarUnselectedImageStyle={styles.tabBarUnselectedImage}
-
-//                 >
-//                     <Scene
-//                         key='home'
-//                         title='团购'
-//                         component={HomeScene}
-//                         image={require('./img/tabbar/pfb_tabbar_homepage@2x.png')}
-//                         selectedImage={require('./img/tabbar/pfb_tabbar_homepage_selected@2x.png')}
-
-//                         icon={TabBarItem}
-
-//                         navigationBarStyle={{ backgroundColor: color.theme }}
-//                         titleStyle={{ color: 'white' }}
-//                         statusBarStyle='light-content'
-
-//                     />
-//                     <Scene
-//                         key='merchant'
-//                         component={NearbyScene}
-//                         title='附近'
-//                         image={require('./img/tabbar/pfb_tabbar_merchant@2x.png')}
-//                         selectedImage={require('./img/tabbar/pfb_tabbar_merchant_selected@2x.png')}
-
-//                         icon={TabBarItem}
-//                     />
-//                     <Scene
-//                         key='order'
-//                         component={OrderScene}
-//                         title='订单'
-//                         image={require('./img/tabbar/pfb_tabbar_order@2x.png')}
-//                         selectedImage={require('./img/tabbar/pfb_tabbar_order_selected@2x.png')}
-
-//                         icon={TabBarItem}
-//                     />
-//                     <Scene
-//                         key='mine'
-//                         component={MineScene}
-//                         title='我的'
-//                         image={require('./img/tabbar/pfb_tabbar_mine@2x.png')}
-//                         selectedImage={require('./img/tabbar/pfb_tabbar_mine_selected@2x.png')}
-
-//                         icon={TabBarItem}
-
-//                         hideNavBar
-//                         statusBarStyle='light-content'
-//                     />
-//                 </Scene>
-
-//                 <Scene key='web' component={WebScene} title='加载中' hideTabBar clone />
-//                 <Scene key='groupPurchase' component={GroupPurchaseScene} title='团购详情' hideTabBar clone />
-//             </Router>
-//         );
-//     }
-// }
-
-
-const MainTab = TabNavigator(
+const Tab = TabNavigator(
     {
         Home: { screen: HomeScene },
         Nearby: { screen: NearbyScene },
@@ -142,9 +87,9 @@ const MainTab = TabNavigator(
 
 );
 
-const RootScene = StackNavigator(
+const Navigator = StackNavigator(
     {
-        Tab: { screen: MainTab },
+        Tab: { screen: Tab },
         Web: { screen: WebScene },
         GroupPurchase: { screen: GroupPurchaseScene },
     },

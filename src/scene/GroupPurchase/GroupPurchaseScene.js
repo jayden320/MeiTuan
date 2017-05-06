@@ -27,13 +27,21 @@ class GroupPurchaseScene extends Component {
     static navigationOptions = ({ navigation }) => ({
         headerTitle: '团购详情',
         headerStyle: { backgroundColor: 'white' },
+        headerRight: (
+            <NavigationItem
+                icon={require('../../img/Public/icon_navigationItem_share@2x.png')}
+                onPress={() => {
+
+                }}
+            />
+        ),
     });
 
     state: {
-        info:Object,
+        info: Object,
         dataSource: ListView.DataSource
     }
-    
+
     constructor(props: Object) {
         super(props);
 
@@ -47,21 +55,10 @@ class GroupPurchaseScene extends Component {
 
     componentDidMount() {
 
-        let rightButton = (
-            <NavigationItem
-                icon={require('../../img/Public/icon_navigationItem_share@2x.png')}
-                onPress={() => {
-
-                }}
-            />
-        )
-
-        // Actions.refresh({
-        //     renderRightButton: () => rightButton,
-        // })
-
         InteractionManager.runAfterInteractions(() => {
-            this.refs.listView.startHeaderRefreshing();
+            if (this.refs.listView) {
+                this.refs.listView.startHeaderRefreshing();
+            }
         });
     }
 
@@ -76,7 +73,7 @@ class GroupPurchaseScene extends Component {
                     renderRow={(rowData) =>
                         <GroupPurchaseCell
                             info={rowData}
-                            onPress={() => this.props.navigation.navigate('GroupPurchase', {info: rowData})}
+                            onPress={() => this.props.navigation.navigate('GroupPurchase', { info: rowData })}
                         />
                     }
                     onHeaderRefresh={() => this.requestData()}
