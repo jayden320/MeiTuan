@@ -15,7 +15,6 @@ import screen from '../../common/screen'
 import color from '../../widget/color'
 import SpacingView from '../../widget/SpacingView'
 import api from '../../api'
-import TabBarItem from '../../widget/TabBarItem'
 
 import DetailCell from '../../widget/DetailCell'
 import OrderMenuItem from './OrderMenuItem'
@@ -27,14 +26,6 @@ class OrderScene extends Component {
     static navigationOptions = ({ navigation }) => ({
         title: '订单',
         headerStyle: { backgroundColor: 'white' },
-        tabBarIcon: ({ focused, tintColor }) => (
-            <TabBarItem
-                tintColor={tintColor}
-                focused={focused}
-                normalImage={require('../../img/tabbar/pfb_tabbar_order@2x.png')}
-                selectedImage={require('../../img/tabbar/pfb_tabbar_order_selected@2x.png')}
-            />
-        )
     });
 
     state: {

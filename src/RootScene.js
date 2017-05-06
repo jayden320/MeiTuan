@@ -8,12 +8,13 @@
 
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Platform, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import color from './widget/color'
 import screen from './common/screen'
 import system from './common/system'
+import TabBarItem from './widget/TabBarItem'
 
 import HomeScene from './scene/Home/HomeScene'
 import OrderScene from './scene/Order/OrderScene'
@@ -68,10 +69,64 @@ class RootScene extends Component {
 
 const Tab = TabNavigator(
     {
-        Home: { screen: HomeScene },
-        Nearby: { screen: NearbyScene },
-        Order: { screen: OrderScene },
-        Mine: { screen: MineScene }
+        Home: {
+            screen: HomeScene,
+            navigationOptions: ({ navigation }) => ({
+                tabBarLabel: '团购',
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./img/tabbar/pfb_tabbar_homepage@2x.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_homepage_selected@2x.png')}
+                    />
+                )
+            }),
+        },
+        Nearby: {
+            screen: NearbyScene,
+            navigationOptions: ({ navigation }) => ({
+                tabBarLabel: '附近',
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./img/tabbar/pfb_tabbar_merchant@2x.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_merchant_selected@2x.png')}
+                    />
+                )
+            }),
+        },
+
+        Order: {
+            screen: OrderScene,
+            navigationOptions: ({ navigation }) => ({
+                tabBarLabel: '订单',
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./img/tabbar/pfb_tabbar_order@2x.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_order_selected@2x.png')}
+                    />
+                )
+            }),
+        },
+        
+        Mine: {
+            screen: MineScene,
+            navigationOptions: ({ navigation }) => ({
+                tabBarLabel: '我的',
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./img/tabbar/pfb_tabbar_mine@2x.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_mine_selected@2x.png')}
+                    />
+                )
+            }),
+        },
     },
     {
         tabBarComponent: TabBarBottom,

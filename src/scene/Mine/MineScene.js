@@ -14,7 +14,6 @@ import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import NavigationItem from '../../widget/NavigationItem'
 import screen from '../../common/screen'
 import color from '../../widget/color'
-import TabBarItem from '../../widget/TabBarItem'
 import SpacingView from '../../widget/SpacingView'
 import DetailCell from '../../widget/DetailCell'
 
@@ -39,15 +38,6 @@ class MineScene extends Component {
             </View>
         ),
         headerStyle: { backgroundColor: color.theme },
-        tabBarTitle: '我的',
-        tabBarIcon: ({ focused, tintColor }) => (
-            <TabBarItem
-                tintColor={tintColor}
-                focused={focused}
-                normalImage={require('../../img/tabbar/pfb_tabbar_mine@2x.png')}
-                selectedImage={require('../../img/tabbar/pfb_tabbar_mine_selected@2x.png')}
-            />
-        )
     });
 
     state: {

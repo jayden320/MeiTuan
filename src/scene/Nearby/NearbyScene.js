@@ -17,7 +17,6 @@ import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import color from '../../widget/color'
 import NavigationItem from '../../widget/NavigationItem'
 import Button from '../../widget/Button'
-import TabBarItem from '../../widget/TabBarItem'
 
 import screen from '../../common/screen'
 import system from '../../common/system'
@@ -41,15 +40,6 @@ class NearbyScene extends Component {
             </TouchableOpacity>
         ),
         headerStyle: { backgroundColor: 'white' },
-        tabBarLabel: '附近',
-        tabBarIcon: ({ focused, tintColor }) => (
-            <TabBarItem
-                tintColor={tintColor}
-                focused={focused}
-                normalImage={require('../../img/tabbar/pfb_tabbar_merchant@2x.png')}
-                selectedImage={require('../../img/tabbar/pfb_tabbar_merchant_selected@2x.png')}
-            />
-        )
     });
 
     componentWillMount() {
