@@ -9,17 +9,11 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native';
-
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import SpacingView from '../../widget/SpacingView'
-import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
-import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import color from '../../widget/color'
-import NavigationItem from '../../widget/NavigationItem'
-import Button from '../../widget/Button'
 
-import screen from '../../common/screen'
-import system from '../../common/system'
+import { Heading1, Heading2, Paragraph } from '../../widget/Text'
+import { color, Button, NavigationItem, RefreshListView, RefreshState, SpacingView } from '../../widget'
+import { screen, system, tool } from '../../common'
 import api from '../../api'
 import NearbyListScene from './NearbyListScene'
 
@@ -28,19 +22,19 @@ class NearbyScene extends Component {
 
     static navigationOptions = ({ navigation }) => ({
         headerRight: (
-            <TouchableOpacity style={ styles.searchBar }>
+            <TouchableOpacity style={styles.searchBar}>
                 <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
                 <Paragraph>找附近的吃喝玩乐</Paragraph>
             </TouchableOpacity>
         ),
         headerLeft: (
-            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' , padding: 10}}>
+            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
                 <Image style={{ width: 13, height: 16 }} source={require('../../img/Public/icon_food_merchant_address@2x.png')} />
                 <Text style={{ fontSize: 15, color: '#333333' }}> 福州 鼓楼</Text>
             </TouchableOpacity>
         ),
         headerStyle: { backgroundColor: 'white' },
-    });
+    })
 
     componentWillMount() {
         // this.refs.listView.startHeaderRefreshing();
@@ -60,8 +54,8 @@ class NearbyScene extends Component {
                 <NearbyListScene
                     tabLabel={titles[i]}
                     key={i}
-                    types={types[i]} 
-                    navigation={this.props.navigation}/>
+                    types={types[i]}
+                    navigation={this.props.navigation} />
             )
         )
 

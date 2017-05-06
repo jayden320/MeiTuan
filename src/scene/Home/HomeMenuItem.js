@@ -10,8 +10,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-import {Heading2} from '../../widget/Text'
-import screen from '../../common/screen'
+import { Heading2 } from '../../widget/Text'
+import { screen, system, tool } from '../../common'
 
 // create a component
 class HomeMenuItem extends Component {

@@ -10,16 +10,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native';
 
-import SpacingView from '../../widget/SpacingView'
-import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import color from '../../widget/color'
-import NavigationItem from '../../widget/NavigationItem'
-import SearchBar from '../../widget/SearchBar'
-import Button from '../../widget/Button'
+import { color, Button, NavigationItem, RefreshListView, RefreshState, SearchBar, SpacingView } from '../../widget'
 
-import screen from '../../common/screen'
-import system from '../../common/system'
+import { screen, system } from '../../common'
 import api from '../../api'
 
 
@@ -55,7 +49,7 @@ class HomeScene extends Component {
             />
         ),
         headerStyle: { backgroundColor: color.theme },
-    });
+    })
 
     state: {
         discounts: Array<Object>,

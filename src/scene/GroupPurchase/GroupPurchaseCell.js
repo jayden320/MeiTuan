@@ -1,9 +1,17 @@
+/**
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * https://github.com/huanxsd/MeiTuan  
+ * @flow
+ */
+
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import screen from '../../common/screen'
-import color from '../../widget/color'
+import { screen } from '../../common'
+import { color } from '../../widget'
 
 // create a component
 class GroupPurchaseCell extends Component {

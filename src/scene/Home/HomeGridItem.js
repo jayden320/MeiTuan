@@ -10,8 +10,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Heading1, Heading2 } from '../../widget/Text'
-import screen from '../../common/screen'
-import color from '../../widget/color'
+import { screen, system, tool } from '../../common'
+import { color } from '../../widget'
 
 // create a component
 class HomeGridItem extends Component {
@@ -26,7 +26,7 @@ class HomeGridItem extends Component {
         return (
             <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
                 <View>
-                    <Heading1 style={{ color: color, marginBottom: 10}}>{title}</Heading1>
+                    <Heading1 style={{ color: color, marginBottom: 10 }}>{title}</Heading1>
                     <Heading2 >{subtitle}</Heading2>
                 </View>
 

@@ -9,9 +9,8 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
-import color from '../../widget/color'
-import screen from '../../common/screen'
+import { color } from '../../widget'
+import { screen, system, tool } from '../../common'
 import HomeGridItem from './HomeGridItem'
 
 // create a component

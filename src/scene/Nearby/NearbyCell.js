@@ -10,8 +10,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import screen from '../../common/screen'
-import color from '../../widget/color'
+import { screen, system, tool } from '../../common'
+import { color } from '../../widget'
 
 // create a component
 class NearbyCell extends Component {

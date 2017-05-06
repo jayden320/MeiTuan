@@ -6,7 +6,7 @@
  * @flow
  */
 
-import { urlByAppendingParams } from './common'
+import { urlByAppendingParams } from './tool'
 
 const kFirstPage = 1
 const kCurrentPageKey = 'page'

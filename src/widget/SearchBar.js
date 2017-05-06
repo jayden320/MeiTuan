@@ -9,7 +9,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, Image, Keyboard } from 'react-native';
 
-import system from '../common/system'
+import { screen, system, tool } from '../common'
 
 
 class SearchBar extends Component {

@@ -9,15 +9,9 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native';
-
-import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
+import {color, Button, NavigationItem, RefreshListView,RefreshState} from '../../widget'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import color from '../../widget/color'
-import NavigationItem from '../../widget/NavigationItem'
-import SearchBar from '../../widget/SearchBar'
-import Button from '../../widget/Button'
-
-import screen from '../../common/screen'
+import { screen, system, tool } from '../../common'
 import api from '../../api'
 
 import NearbyCell from './NearbyCell'

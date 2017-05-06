@@ -6,16 +6,9 @@
 //  https://github.com/huanxsd/react-native-refresh-list-view
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, RefreshControl, ListView, ActivityIndicator, TouchableOpacity } from 'react-native';
-
-
-export const RefreshState = {
-    Idle: 'Idle',
-    Refreshing: 'Refreshing',
-    NoMoreData: 'NoMoreData',
-    Failure: 'Failure'
-}
+import React, { Component } from 'react'
+import { View, Text, StyleSheet, RefreshControl, ListView, ActivityIndicator, TouchableOpacity } from 'react-native'
+import RefreshState from './RefreshState'
 
 // create a component
 class RefreshListView extends Component {

@@ -11,18 +11,15 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import NavigationItem from '../../widget/NavigationItem'
-import screen from '../../common/screen'
-import color from '../../widget/color'
-import SpacingView from '../../widget/SpacingView'
-import DetailCell from '../../widget/DetailCell'
+import { screen, system, tool } from '../../common'
+import { color, DetailCell, NavigationItem, SpacingView } from '../../widget'
 
 // create a component
 class MineScene extends Component {
 
     static navigationOptions = ({ navigation }) => ({
         headerRight: (
-            <View style={{flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
                 <NavigationItem
                     icon={require('../../img/Mine/icon_navigationItem_set_white@2x.png')}
                     onPress={() => {
@@ -38,7 +35,7 @@ class MineScene extends Component {
             </View>
         ),
         headerStyle: { backgroundColor: color.theme },
-    });
+    })
 
     state: {
         isRefreshing: boolean

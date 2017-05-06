@@ -10,9 +10,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, } from 'react-native';
 
-import screen from '../../common/screen'
-import PageControl from '../../widget/PageControl'
-import color from '../../widget/color'
+import { screen, system, tool } from '../../common'
+import { color, PageControl } from '../../widget'
 import HomeMenuItem from './HomeMenuItem'
 
 // create a component

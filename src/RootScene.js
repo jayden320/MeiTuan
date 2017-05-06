@@ -12,8 +12,7 @@ import { StatusBar } from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import color from './widget/color'
-import screen from './common/screen'
-import system from './common/system'
+import { screen, system, tool } from './common'
 import TabBarItem from './widget/TabBarItem'
 
 import HomeScene from './scene/Home/HomeScene'
@@ -112,7 +111,7 @@ const Tab = TabNavigator(
                 )
             }),
         },
-        
+
         Mine: {
             screen: MineScene,
             navigationOptions: ({ navigation }) => ({

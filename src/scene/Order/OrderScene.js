@@ -9,14 +9,12 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar, Image, ListView, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
-import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
-import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import screen from '../../common/screen'
-import color from '../../widget/color'
-import SpacingView from '../../widget/SpacingView'
-import api from '../../api'
 
-import DetailCell from '../../widget/DetailCell'
+import { Heading1, Heading2, Paragraph } from '../../widget/Text'
+import { screen, system, tool } from '../../common'
+import api from '../../api'
+import { color, DetailCell, RefreshListView, RefreshState, SpacingView } from '../../widget'
+
 import OrderMenuItem from './OrderMenuItem'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
@@ -26,7 +24,7 @@ class OrderScene extends Component {
     static navigationOptions = ({ navigation }) => ({
         title: '订单',
         headerStyle: { backgroundColor: 'white' },
-    });
+    })
 
     state: {
         dataSource: ListView.DataSource

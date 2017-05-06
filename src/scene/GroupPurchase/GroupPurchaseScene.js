@@ -9,17 +9,11 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, InteractionManager } from 'react-native';
-
-import SpacingView from '../../widget/SpacingView'
-import RefreshListView, { RefreshState } from '../../widget/RefreshListView'
+import { color, Button, NavigationItem, RefreshListView, RefreshState, Separator, SpacingView } from '../../widget'
 import { Heading1, Heading2, Paragraph, HeadingBig } from '../../widget/Text'
-import color from '../../widget/color'
-import Separator from '../../widget/Separator'
-import screen from '../../common/screen'
+import { screen, system, tool } from '../../common'
 import api, { recommendUrlWithId, groupPurchaseDetailWithId } from '../../api'
-import Button from '../../widget/Button'
 import GroupPurchaseCell from './GroupPurchaseCell'
-import NavigationItem from '../../widget/NavigationItem'
 
 // create a component
 class GroupPurchaseScene extends Component {

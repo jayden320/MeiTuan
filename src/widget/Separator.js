@@ -11,7 +11,8 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import color from './color'
-import screen from '../common/screen'
+import { screen, system, tool } from '../common'
+
 // create a component
 class Separator extends Component {
     render() {

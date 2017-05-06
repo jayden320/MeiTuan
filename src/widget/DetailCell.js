@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Heading1, Heading2, Paragraph } from './Text'
 import Separator from './Separator'
-import screen from '../common/screen'
+import { screen, system, tool } from '../common'
 
 // create a component
 class DetailCell extends Component {
