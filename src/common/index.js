@@ -6,12 +6,8 @@
  * @flow
  */
 
-import screenInner from './screen'
-export let screen = screenInner
+import screen from './screen'
+import system from './system'
+import tool from './tool'
 
-import systemInner from './system'
-export let system = systemInner
-
-import toolInner from './tool'
-export let tool = toolInner
-
+export {screen, system, tool}
