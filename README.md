@@ -100,7 +100,7 @@ Github：https://github.com/huanxsd/MeiTuan
 
 我将持续更新这个Demo
 
-福州地区的朋友欢迎联系我
+对App开发感兴趣的朋友欢迎联系我
 QQ：67111677
 
 ---
