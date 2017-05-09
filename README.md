@@ -67,6 +67,8 @@ If you have any suggestions, leave a message here
 If you like this project, please give me a star  :)
 
 
+# 高仿美团客户端 React-Native版(0.44.0)
+
 ## 简介
 
 这是一个用React-Native写的美团客户端。
@@ -139,6 +141,8 @@ $ react-native start
 
 如果对这个Demo有任何的意见或建议，或者喜欢ReactNative的朋友，欢迎在下方留言。我会在第一时间回复 :)
 
+另外，不要问我为什么英文说明那么点，中文说明这么多。怪英语老师咯
+
 ## 最后
 
 如果你喜欢这个Demo，请给我一个star   :)
@@ -147,5 +151,5 @@ Github：https://github.com/huanxsd/MeiTuan
 
 我将持续更新这个Demo
 
-对App开发感兴趣的朋友欢迎联系我
+如果你对这个Demo有任何的意见或建议，或者对App感兴趣，赶紧联系我咯
 QQ：67111677
