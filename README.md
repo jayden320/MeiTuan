@@ -1,10 +1,10 @@
-# 美团客户端
+# MeiTuan App Write In latest React-Native(0.44.0)
 
 Github：https://github.com/huanxsd/MeiTuan
 
 简书：http://www.jianshu.com/p/9211f42d5c25
 
-##  iOS截图
+##  screen shot for iOS
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_0.png">
 
@@ -12,13 +12,60 @@ Github：https://github.com/huanxsd/MeiTuan
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/iOS_2.png">
 
-## Android截图
+## screen shot for Android
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_0.png">
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_1.png">
 
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/Android_2.png">
+
+## Setup
+
+1. **Clone the repo**
+
+```
+$ git clone https://github.com/huanxsd/MeiTuan.git
+$ cd MeiTuan
+```
+
+2. **Install dependencies** (npm v3+):
+
+```
+$ npm install
+```
+
+
+3. **Running on iOS:**
+
+```
+$ react-native run-ios
+```
+
+## Troubleshooting
+
+> Could not connect to development server
+
+In a separate terminal window run:
+
+```
+$ react-native start
+```
+
+## Dependency
+
+* [react-navigation](https://github.com/react-community/react-navigation)
+* [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
+
+## Contact
+
+If you have any suggestions, leave a message here
+[简书](http://www.jianshu.com/p/9211f42d5c25)
+
+## At last
+
+If you like this project, please give me a star  :)
+
 
 ## 简介
 
@@ -102,58 +149,3 @@ Github：https://github.com/huanxsd/MeiTuan
 
 福州地区的朋友欢迎联系我
 QQ：67111677
-
----
-
-Readme in English
-
-MeiTuan App Write In latest React-Native(0.43)
-
-**Support: Android 4.1 (API 16)+   IOS(8.0+)**
-
-## Setup
-
-1. **Clone the repo**
-
-```
-$ git clone https://github.com/huanxsd/MeiTuan.git
-$ cd MeiTuan
-```
-
-2. **Install dependencies** (npm v3+):
-
-```
-$ npm install
-```
-
-
-3. **Running on iOS:**
-
-```
-$ react-native run-ios
-```
-
-## Troubleshooting
-
-> Could not connect to development server
-
-In a separate terminal window run:
-
-```
-$ react-native start
-```
-
-## Dependency
-
-* [react-navigation](https://github.com/react-community/react-navigation)
-* [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
-
-## Contact
-
-If you have any suggestions, welcome to give me a message here 
-[简书](http://www.jianshu.com/p/9211f42d5c25)
-
-## At last
-
-please give me a star  :)
-

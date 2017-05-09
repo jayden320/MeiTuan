@@ -68,7 +68,7 @@ class HomeScene extends Component {
     }
 
     componentDidMount() {
-        this.refs.listView.startHeaderRefreshing();
+        this.refs.listView.startHeaderRefreshing()
     }
 
     requestData() {
