@@ -151,5 +151,8 @@ Github：https://github.com/huanxsd/MeiTuan
 
 我将持续更新这个Demo
 
-如果你对这个Demo有任何的意见或建议，或者对App感兴趣，赶紧联系我咯
+如果你有任何的意见或建议，或者对App感兴趣，赶紧联系我
 QQ：67111677
+
+如果对这个Demo有任何疑问，欢迎加入我们的大家庭
+![ReactNative开发者群二维码.png](http://upload-images.jianshu.io/upload_images/5685774-957c90b45c8f8912.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
