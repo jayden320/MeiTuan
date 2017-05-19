@@ -21,8 +21,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		6ED8CD7A1ECC4C1C00468CB5 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8CD781ECC4C1C00468CB5 /* index.ios.jsbundle */; };
-		6ED8CD7B1ECC4C1C00468CB5 /* index.ios.jsbundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8CD791ECC4C1C00468CB5 /* index.ios.jsbundle.meta */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A5FC31B7DAB741CEB1D124A7 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEB6BF01C544C4D9F04DB83 /* libAirMaps.a */; };
 /* End PBXBuildFile section */
@@ -233,8 +231,6 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1A1C1EA17D8041F7AF4B9CFD /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		6ED8CD781ECC4C1C00468CB5 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.jsbundle; sourceTree = "<group>"; };
-		6ED8CD791ECC4C1C00468CB5 /* index.ios.jsbundle.meta */ = {isa = PBXFileReference; lastKnownFileType = file; path = index.ios.jsbundle.meta; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8DEB6BF01C544C4D9F04DB83 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
@@ -343,8 +339,6 @@
 		13B07FAE1A68108700A75B9A /* MeiTuan */ = {
 			isa = PBXGroup;
 			children = (
-				6ED8CD781ECC4C1C00468CB5 /* index.ios.jsbundle */,
-				6ED8CD791ECC4C1C00468CB5 /* index.ios.jsbundle.meta */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -738,9 +732,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ED8CD7A1ECC4C1C00468CB5 /* index.ios.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				6ED8CD7B1ECC4C1C00468CB5 /* index.ios.jsbundle.meta in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
