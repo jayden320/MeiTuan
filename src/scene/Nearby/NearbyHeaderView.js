@@ -19,23 +19,19 @@ class NearbyHeaderView extends Component {
         onSelected: () => { }
     }
     render() {
-        let items = this.props.titles.map(
-            (title, i) => (
-                <TouchableOpacity
-                    style={[{ backgroundColor: this.props.selectedIndex == i ? '#FE566D' : 'white' }, styles.item]}
-                    key={i}
-                    onPress={() => this.props.onSelected(i)}>
-                    <Paragraph
-                        style={{ color: this.props.selectedIndex == i ? 'white' : '#555555' }}>
-                        {this.props.titles[i]}
-                    </Paragraph>
-                </TouchableOpacity>
-            )
-        )
-
         return (
             <View style={styles.container}>
-                {items}
+                {this.props.titles.map((title, i) => (
+                    <TouchableOpacity
+                        style={[{ backgroundColor: this.props.selectedIndex == i ? '#FE566D' : 'white' }, styles.item]}
+                        key={i}
+                        onPress={() => this.props.onSelected(i)}>
+                        <Paragraph
+                            style={{ color: this.props.selectedIndex == i ? 'white' : '#555555' }}>
+                            {this.props.titles[i]}
+                        </Paragraph>
+                    </TouchableOpacity>
+                ))}
             </View>
         );
     }

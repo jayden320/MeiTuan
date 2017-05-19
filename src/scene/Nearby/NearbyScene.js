@@ -49,16 +49,6 @@ class NearbyScene extends Component {
             []
         ]
 
-        let storyListViews = titles.map(
-            (title, i) => (
-                <NearbyListScene
-                    tabLabel={titles[i]}
-                    key={i}
-                    types={types[i]}
-                    navigation={this.props.navigation} />
-            )
-        )
-
         return (
             <ScrollableTabView
                 style={styles.container}
@@ -69,7 +59,13 @@ class NearbyScene extends Component {
                 tabBarUnderlineStyle={styles.tabBarUnderline}
             // renderTabBar={() => <DefaultTabBar style={styles.tabBar}/>}
             >
-                {storyListViews}
+                {titles.map((title, i) => (
+                    <NearbyListScene
+                        tabLabel={titles[i]}
+                        key={i}
+                        types={types[i]}
+                        navigation={this.props.navigation} />
+                ))}
             </ScrollableTabView>
         );
     }

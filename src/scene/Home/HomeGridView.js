@@ -21,19 +21,14 @@ class HomeGridView extends Component {
     }
 
     render() {
-        let { infos } = this.props
-        let gridItems = infos.map(
-            (info, i) => (
-                <HomeGridItem
-                    info={infos[i]}
-                    key={i}
-                    onPress={() => this.props.onGridSelected(i)} />
-            )
-        )
-
         return (
             <View style={styles.container}>
-                {gridItems}
+                {this.props.infos.map((info, index) => (
+                    <HomeGridItem
+                        info={info}
+                        key={index}
+                        onPress={() => this.props.onGridSelected(index)} />
+                ))}
             </View>
         );
     }
