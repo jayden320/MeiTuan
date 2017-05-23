@@ -61,9 +61,9 @@ class HomeMenuView extends Component {
         return (
             <View style={styles.container}>
                 <ScrollView contentContainerStyle={styles.contentContainer}
-                    horizontal={true}
+                    horizontal
                     showsHorizontalScrollIndicator={false}
-                    pagingEnabled={true}
+                    pagingEnabled
                     onScroll={(e) => this.onScroll(e)}
                 >
                     <View style={styles.menuContainer}>
@@ -76,7 +76,7 @@ class HomeMenuView extends Component {
                     style={styles.pageControl}
                     numberOfPages={pageCount}
                     currentPage={this.state.currentPage}
-                    hidesForSinglePage={true}
+                    hidesForSinglePage
                     pageIndicatorTintColor='gray'
                     currentPageIndicatorTintColor={color.theme}
                     indicatorSize={{ width: 8, height: 8 }}

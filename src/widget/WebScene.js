@@ -45,7 +45,7 @@ class WebScene extends Component {
                     style={styles.webView}
                     source={this.state.source}
                     onLoadEnd={(e) => this.onLoadEnd(e)}
-                    scalesPageToFit={true}
+                    scalesPageToFit
                 />
             </View>
         );
