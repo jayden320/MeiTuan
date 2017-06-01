@@ -7,11 +7,11 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, WebView, InteractionManager } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, WebView, InteractionManager } from 'react-native'
 
 // create a component
-class WebScene extends Component {
+class WebScene extends PureComponent {
 
     static navigationOptions = ({ navigation }) => ({
         headerStyle: { backgroundColor: 'white' },
@@ -27,11 +27,11 @@ class WebScene extends Component {
         this.state = {
             source: {}
         }
-        this.props.navigation.setParams({ title: '加载中'})
     }
 
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
+            this.props.navigation.setParams({ title: '加载中' })
             this.setState({ source: { uri: this.props.navigation.state.params.url } })
         })
     }
