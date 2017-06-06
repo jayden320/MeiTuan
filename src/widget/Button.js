@@ -7,11 +7,11 @@
  */
 
 //import liraries
-import React, { Component, PropTypes } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { PureComponent, PropTypes } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 // create a component
-class Button extends Component {
+class Button extends PureComponent {
 
     static propTypes = {
         onPress: PropTypes.func,
@@ -23,13 +23,13 @@ class Button extends Component {
     }
 
     static defaultProps = {
-        onPress() { },
+        onPress:() => {},
         disabled: false,
         activeOpacity: 0.8
     }
 
     render() {
-        let   { onPress, disabled, style, containerStyle, title, activeOpacity } = this.props
+        let { onPress, disabled, style, containerStyle, title, activeOpacity } = this.props
         return (
             <TouchableOpacity
                 style={[styles.container, containerStyle]}
