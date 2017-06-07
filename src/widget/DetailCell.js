@@ -7,14 +7,14 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { Heading1, Heading2, Paragraph } from './Text'
 import Separator from './Separator'
 import { screen, system, tool } from '../common'
 
 // create a component
-class DetailCell extends Component {
+class DetailCell extends PureComponent {
     render() {
         let icon = this.props.image && <Image style={styles.icon} source={this.props.image} />
         

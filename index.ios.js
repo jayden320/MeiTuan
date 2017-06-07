@@ -6,12 +6,12 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
+import React, { PureComponent } from 'react'
+import { AppRegistry } from 'react-native'
 
 import RootScene from './src/RootScene';
 
-export default class MeiTuan extends Component {
+export default class MeiTuan extends PureComponent {
     render() {
         return (
             <RootScene />

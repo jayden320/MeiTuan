@@ -7,15 +7,15 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, ScrollView, } from 'react-native'
 
 import { screen, system, tool } from '../../common'
 import { color, PageControl } from '../../widget'
 import HomeMenuItem from './HomeMenuItem'
 
 // create a component
-class HomeMenuView extends Component {
+class HomeMenuView extends PureComponent {
 
     state: {
         currentPage: number
@@ -87,9 +87,10 @@ class HomeMenuView extends Component {
     }
 
     onScroll(e: any) {
-        let x = e.nativeEvent.contentOffset.x;
-        let currentPage = x / screen.width;
+        let x = e.nativeEvent.contentOffset.x
+        let currentPage = Math.round(x / screen.width)
 
+        console.log('onScroll  ' + e.nativeEvent.contentOffset.x + '  page ' + currentPage + '  current ' + this.state.currentPage)
         if (this.state.currentPage != currentPage) {
             this.setState({
                 currentPage: currentPage

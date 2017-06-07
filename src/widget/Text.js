@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import ReactNative, { StyleSheet, Dimensions, Text ,ReactElement} from 'react-native';
+import ReactNative, { StyleSheet, Dimensions, Text ,ReactElement} from 'react-native'
 import color from './color'
 
 export function HeadingBig({style, ...props}: Object): ReactElement {

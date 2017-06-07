@@ -7,8 +7,8 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native'
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
@@ -18,7 +18,7 @@ import api from '../../api'
 import NearbyListScene from './NearbyListScene'
 
 // create a component
-class NearbyScene extends Component {
+class NearbyScene extends PureComponent {
 
     static navigationOptions = ({ navigation }) => ({
         headerRight: (
@@ -35,10 +35,6 @@ class NearbyScene extends Component {
         ),
         headerStyle: { backgroundColor: 'white' },
     })
-
-    componentWillMount() {
-        // this.refs.listView.startHeaderRefreshing();
-    }
 
     render() {
         let titles = ['享美食', '住酒店', '爱玩乐', '全部']

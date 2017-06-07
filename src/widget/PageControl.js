@@ -7,11 +7,11 @@
  */
 
 
-import React, { Component } from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import assign from 'object-assign';
 
-class PageControl extends Component {
+class PageControl extends PureComponent {
 
     static propTypes = {
         numberOfPages: React.PropTypes.number.isRequired,

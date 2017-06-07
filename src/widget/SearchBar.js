@@ -6,13 +6,13 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, Image, Keyboard } from 'react-native';
+import React, { PureComponent } from 'react'
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, Image, Keyboard } from 'react-native'
 
 import { screen, system, tool } from '../common'
 
 
-class SearchBar extends Component {
+class SearchBar extends PureComponent {
 
     props: {
         onSubmitEditing: Function,

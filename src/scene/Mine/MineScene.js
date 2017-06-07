@@ -7,15 +7,15 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl } from 'react-native'
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
 import { color, DetailCell, NavigationItem, SpacingView } from '../../widget'
 
 // create a component
-class MineScene extends Component {
+class MineScene extends PureComponent {
 
     static navigationOptions = ({ navigation }) => ({
         headerRight: (

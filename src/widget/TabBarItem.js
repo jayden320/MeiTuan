@@ -1,9 +1,9 @@
 //import liraries
-import React, { Component } from 'react';
-import { Image } from 'react-native';
+import React, { PureComponent } from 'react'
+import { Image } from 'react-native'
 
 // create a component
-class TabBarItem extends Component {
+class TabBarItem extends PureComponent {
     render() {
         let selectedImage = this.props.selectedImage ? this.props.selectedImage : this.props.normalImage
         return (

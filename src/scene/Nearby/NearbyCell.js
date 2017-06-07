@@ -7,14 +7,14 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
 import { color } from '../../widget'
 
 // create a component
-class NearbyCell extends Component {
+class NearbyCell extends PureComponent {
     render() {
         let { info } = this.props
         let imageUrl = info.imageUrl.replace('w.h', '160.0')

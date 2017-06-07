@@ -7,14 +7,14 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
 import { Heading2 } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
 
 // create a component
-class HomeMenuItem extends Component {
+class HomeMenuItem extends PureComponent {
     render() {
         return (
             <TouchableOpacity style={styles.container}

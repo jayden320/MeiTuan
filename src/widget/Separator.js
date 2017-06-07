@@ -7,14 +7,14 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 
 import color from './color'
 import { screen, system, tool } from '../common'
 
 // create a component
-class Separator extends Component {
+class Separator extends PureComponent {
     render() {
         return (
             <View style={[styles.line, this.props.style]} />

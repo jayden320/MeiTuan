@@ -7,13 +7,13 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 
 import color from './color'
 
 // create a component
-class SpacingView extends Component {
+class SpacingView extends PureComponent {
     render() {
         return (
             <View style={styles.container}>

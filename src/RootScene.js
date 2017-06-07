@@ -7,8 +7,8 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
+import React, { PureComponent } from 'react'
+import { StatusBar } from 'react-native'
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import color from './widget/color'
@@ -38,7 +38,7 @@ function getCurrentRouteName(navigationState) {
 }
 
 // create a component
-class RootScene extends Component {
+class RootScene extends PureComponent {
     constructor() {
         super()
 

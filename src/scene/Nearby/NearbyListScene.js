@@ -7,9 +7,9 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native';
-import {color, Button, NavigationItem, RefreshListView,RefreshState} from '../../widget'
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native'
+import { color, Button, NavigationItem, RefreshListView, RefreshState } from '../../widget'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
 import api from '../../api'
@@ -19,8 +19,10 @@ import NearbyHeaderView from './NearbyHeaderView'
 
 
 // create a component
-class NearbyListScene extends Component {
+class NearbyListScene extends PureComponent {
 
+    listView: ListView
+    
     state: {
         dataSource: ListView.DataSource,
         typeIndex: number
@@ -38,7 +40,7 @@ class NearbyListScene extends Component {
     }
 
     componentDidMount() {
-        this.refs.listView.startHeaderRefreshing();
+        this.listView.startHeaderRefreshing();
     }
 
     requestData() {
@@ -64,18 +66,18 @@ class NearbyListScene extends Component {
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })
                 setTimeout(() => {
-                    this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                    this.listView.endRefreshing(RefreshState.NoMoreData)
                 }, 500);
             })
             .catch((error) => {
-                this.refs.listView.endRefreshing(RefreshState.Failure)
+                this.listView.endRefreshing(RefreshState.Failure)
             })
     }
 
     render() {
         return (
             <RefreshListView
-                ref='listView'
+                ref={(e) => this.listView = e}
                 dataSource={this.state.dataSource}
                 renderHeader={() =>
                     <NearbyHeaderView
@@ -84,7 +86,7 @@ class NearbyListScene extends Component {
                         onSelected={(index) => {
                             if (index != this.state.typeIndex) {
                                 this.setState({ typeIndex: index })
-                                this.refs.listView.startHeaderRefreshing()
+                                this.listView.startHeaderRefreshing()
                             }
                         }}
                     />

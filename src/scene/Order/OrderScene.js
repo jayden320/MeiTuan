@@ -7,8 +7,8 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, StatusBar, Image, ListView, TouchableOpacity, ScrollView, RefreshControl } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, StatusBar, Image, ListView, TouchableOpacity, ScrollView, RefreshControl } from 'react-native'
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
@@ -19,16 +19,18 @@ import OrderMenuItem from './OrderMenuItem'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
 // create a component
-class OrderScene extends Component {
+class OrderScene extends PureComponent {
+
+    listView: ListView
+
+    state: {
+        dataSource: ListView.DataSource
+    }
 
     static navigationOptions = ({ navigation }) => ({
         title: '订单',
         headerStyle: { backgroundColor: 'white' },
     })
-
-    state: {
-        dataSource: ListView.DataSource
-    }
 
     constructor(props: Object) {
         super(props)
@@ -41,7 +43,7 @@ class OrderScene extends Component {
     }
 
     componentDidMount() {
-        this.refs.listView.startHeaderRefreshing();
+        this.listView.startHeaderRefreshing();
     }
 
     requestData() {
@@ -67,11 +69,11 @@ class OrderScene extends Component {
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })
                 setTimeout(() => {
-                    this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                    this.listView.endRefreshing(RefreshState.NoMoreData)
                 }, 500);
             })
             .catch((error) => {
-                this.refs.listView.endRefreshing(RefreshState.Failure)
+                this.listView.endRefreshing(RefreshState.Failure)
             })
     }
 
@@ -79,7 +81,7 @@ class OrderScene extends Component {
         return (
             <View style={styles.container}>
                 <RefreshListView
-                    ref='listView'
+                    ref={(e) => this.listView = e}
                     dataSource={this.state.dataSource}
                     renderHeader={() => this.renderHeader()}
                     renderRow={(rowData) =>

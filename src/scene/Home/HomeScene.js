@@ -7,11 +7,11 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar, FlatList } from 'react-native'
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import { color, Button, NavigationItem, RefreshListView, RefreshState, SearchBar, SpacingView } from '../../widget'
+import { color, Button, NavigationItem, SearchBar, SpacingView } from '../../widget'
 
 import { screen, system } from '../../common'
 import api from '../../api'
@@ -22,7 +22,7 @@ import HomeGridView from './HomeGridView'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
 // create a component
-class HomeScene extends Component {
+class HomeScene extends PureComponent {
 
     static navigationOptions = ({ navigation }) => ({
         headerTitle: (
@@ -53,59 +53,103 @@ class HomeScene extends Component {
 
     state: {
         discounts: Array<Object>,
-        dataSource: ListView.DataSource
+        dataList: Array<Object>,
+        refreshing: boolean,
     }
 
     constructor(props: Object) {
         super(props)
 
-        let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
-
         this.state = {
             discounts: [],
-            dataSource: ds.cloneWithRows([]),
+            dataList: [],
+            refreshing: false,
         }
+
+        { (this: any).requestData = this.requestData.bind(this) }
+        { (this: any).renderCell = this.renderCell.bind(this) }
+        { (this: any).onCellSelected = this.onCellSelected.bind(this) }
+        { (this: any).keyExtractor = this.keyExtractor.bind(this) }
+        { (this: any).renderHeader = this.renderHeader.bind(this) }
+        { (this: any).onGridSelected = this.onGridSelected.bind(this) }
+        { (this: any).onMenuSelected = this.onMenuSelected.bind(this) }
     }
 
     componentDidMount() {
-        this.refs.listView.startHeaderRefreshing()
+        this.requestData()
     }
 
     requestData() {
+        this.setState({ refreshing: true })
+
         this.requestDiscount()
         this.requestRecommend()
     }
 
-    render() {
-        return (
-            <View style={styles.container}>
-                <RefreshListView
-                    ref='listView'
-                    dataSource={this.state.dataSource}
-                    renderHeader={() => this.renderHeader()}
-                    renderRow={(rowData) =>
-                        <GroupPurchaseCell
-                            info={rowData}
-                            onPress={() => {
-                                StatusBar.setBarStyle('default', false)
-                                this.props.navigation.navigate('GroupPurchase', { info: rowData })
-                            }}
-                        />
+    requestRecommend() {
+        fetch(api.recommend)
+            .then((response) => response.json())
+            .then((json) => {
+
+                let dataList = json.data.map(
+                    (info) => {
+                        return {
+                            id: info.id,
+                            imageUrl: info.squareimgurl,
+                            title: info.mname,
+                            subtitle: `[${info.range}]${info.title}`,
+                            price: info.price
+                        }
                     }
-                    onHeaderRefresh={() => this.requestData()}
-                />
-            </View>
-        );
+                )
+                
+                this.setState({
+                    dataList: dataList,
+                    refreshing: false,
+                })
+            })
+            .catch((error) => {
+                this.setState({ refreshing: false })
+            })
+    }
+
+    requestDiscount() {
+        fetch(api.discount)
+            .then((response) => response.json())
+            .then((json) => {
+                this.setState({ discounts: json.data })
+            })
+            .catch((error) => {
+                alert(error)
+            })
+    }
+
+    renderCell(info: Object) {
+        return (
+            <GroupPurchaseCell
+                info={info.item}
+                onPress={this.onCellSelected}
+            />
+        )
+    }
+
+    onCellSelected(info: Object) {
+        StatusBar.setBarStyle('default', false)
+        this.props.navigation.navigate('GroupPurchase', { info: info })
+    }
+
+    keyExtractor(item: Object, index: number) {
+        return item.id
     }
 
     renderHeader() {
         return (
             <View>
-                <HomeMenuView menuInfos={this.loadMenuInfos()} onMenuSelected={(index) => this.onMenuSelected(index)} />
+                <HomeMenuView menuInfos={api.menuInfo} onMenuSelected={this.onMenuSelected} />
 
                 <SpacingView />
 
-                <HomeGridView infos={this.state.discounts} onGridSelected={(index) => this.onGridSelected(index)} />
+                <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
 
                 <SpacingView />
 
@@ -128,55 +172,23 @@ class HomeScene extends Component {
         }
     }
 
-    requestRecommend() {
-        fetch(api.recommend)
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(JSON.stringify(json));
-
-                let dataList = json.data.map(
-                    (info) => {
-                        return {
-                            id: info.id,
-                            imageUrl: info.squareimgurl,
-                            title: info.mname,
-                            subtitle: `[${info.range}]${info.title}`,
-                            price: info.price
-                        }
-                    }
-                )
-
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(dataList)
-                })
-                setTimeout(() => {
-                    this.refs.listView.endRefreshing(RefreshState.NoMoreData)
-                }, 500);
-            })
-            .catch((error) => {
-                this.refs.listView.endRefreshing(RefreshState.Failure)
-            })
-    }
-
-    requestDiscount() {
-        fetch(api.discount)
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(JSON.stringify(json));
-                this.setState({ discounts: json.data })
-            })
-            .catch((error) => {
-                alert(error)
-            })
-    }
-
     onMenuSelected(index: number) {
         alert(index)
     }
 
-
-    loadMenuInfos() {
-        return api.menuInfo
+    render() {
+        return (
+            <View style={styles.container}>
+                <FlatList
+                    data={this.state.dataList}
+                    keyExtractor={this.keyExtractor}
+                    onRefresh={this.requestData}
+                    refreshing={this.state.refreshing}
+                    ListHeaderComponent={this.renderHeader}
+                    renderItem={this.renderCell}
+                />
+            </View>
+        );
     }
 }
 

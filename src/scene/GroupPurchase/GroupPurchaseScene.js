@@ -7,8 +7,8 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, InteractionManager } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, InteractionManager } from 'react-native'
 import { color, Button, NavigationItem, RefreshListView, RefreshState, Separator, SpacingView } from '../../widget'
 import { Heading1, Heading2, Paragraph, HeadingBig } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
@@ -16,7 +16,14 @@ import api, { recommendUrlWithId, groupPurchaseDetailWithId } from '../../api'
 import GroupPurchaseCell from './GroupPurchaseCell'
 
 // create a component
-class GroupPurchaseScene extends Component {
+class GroupPurchaseScene extends PureComponent {
+
+    listView: ListView
+    
+    state: {
+        info: Object,
+        dataSource: ListView.DataSource
+    }
 
     static navigationOptions = ({ navigation }) => ({
         headerTitle: '团购详情',
@@ -30,11 +37,6 @@ class GroupPurchaseScene extends Component {
             />
         ),
     });
-
-    state: {
-        info: Object,
-        dataSource: ListView.DataSource
-    }
 
     constructor(props: Object) {
         super(props);
@@ -50,9 +52,7 @@ class GroupPurchaseScene extends Component {
     componentDidMount() {
 
         InteractionManager.runAfterInteractions(() => {
-            if (this.refs.listView) {
-                this.refs.listView.startHeaderRefreshing();
-            }
+            this.listView.startHeaderRefreshing();
         });
     }
 
@@ -61,7 +61,7 @@ class GroupPurchaseScene extends Component {
             <View style={styles.container}>
 
                 <RefreshListView
-                    ref='listView'
+                    ref={(e) => this.listView = e}
                     dataSource={this.state.dataSource}
                     renderHeader={() => this.renderHeader()}
                     renderRow={(rowData) =>
@@ -89,7 +89,10 @@ class GroupPurchaseScene extends Component {
                         <HeadingBig style={{ marginBottom: -8 }}>{info.price}</HeadingBig>
                         <Paragraph style={{ marginLeft: 10 }}>门市价：￥{(info.price * 1.1).toFixed(0)}</Paragraph>
                         <View style={{ flex: 1 }} />
-                        <Button title='立即抢购' style={{ color: 'white', fontSize: 18 }} containerStyle={styles.buyButton}
+                        <Button
+                            title='立即抢购'
+                            style={{ color: 'white', fontSize: 18 }}
+                            containerStyle={styles.buyButton}
                         />
                     </View>
                 </View>
@@ -145,11 +148,11 @@ class GroupPurchaseScene extends Component {
                     dataSource: this.state.dataSource.cloneWithRows(dataList)
                 })
                 setTimeout(() => {
-                    this.refs.listView.endRefreshing(RefreshState.NoMoreData)
+                    this.listView.endRefreshing(RefreshState.NoMoreData)
                 }, 500);
             })
             .catch((error) => {
-                this.refs.listView.endRefreshing(RefreshState.Failure)
+                this.listView.endRefreshing(RefreshState.Failure)
             })
     }
 

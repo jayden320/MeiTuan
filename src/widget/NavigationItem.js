@@ -7,11 +7,11 @@
  */
 
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
 // create a component
-class NavigationItem extends Component {
+class NavigationItem extends PureComponent {
     render() {
         let icon = this.props.icon &&
             <Image style={[styles.icon, this.props.iconStyle]} source={this.props.icon} />
