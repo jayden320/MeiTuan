@@ -86,42 +86,40 @@ class HomeScene extends PureComponent {
         this.requestRecommend()
     }
 
-    requestRecommend() {
-        fetch(api.recommend)
-            .then((response) => response.json())
-            .then((json) => {
+    async requestRecommend() {
+        try {
+            let response = await fetch(api.recommend)
+            let json = await response.json()
 
-                let dataList = json.data.map(
-                    (info) => {
-                        return {
-                            id: info.id,
-                            imageUrl: info.squareimgurl,
-                            title: info.mname,
-                            subtitle: `[${info.range}]${info.title}`,
-                            price: info.price
-                        }
+            let dataList = json.data.map(
+                (info) => {
+                    return {
+                        id: info.id,
+                        imageUrl: info.squareimgurl,
+                        title: info.mname,
+                        subtitle: `[${info.range}]${info.title}`,
+                        price: info.price
                     }
-                )
-                
-                this.setState({
-                    dataList: dataList,
-                    refreshing: false,
-                })
+                }
+            )
+
+            this.setState({
+                dataList: dataList,
+                refreshing: false,
             })
-            .catch((error) => {
-                this.setState({ refreshing: false })
-            })
+        } catch (error) {
+            this.setState({ refreshing: false })
+        }
     }
 
-    requestDiscount() {
-        fetch(api.discount)
-            .then((response) => response.json())
-            .then((json) => {
-                this.setState({ discounts: json.data })
-            })
-            .catch((error) => {
-                alert(error)
-            })
+    async requestDiscount() {
+        try {
+            let response = await fetch(api.discount)
+            let json = await response.json()
+            this.setState({ discounts: json.data })
+        } catch (error) {
+            alert(error)
+        }
     }
 
     renderCell(info: Object) {
