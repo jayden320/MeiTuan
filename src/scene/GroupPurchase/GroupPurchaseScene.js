@@ -19,7 +19,7 @@ import GroupPurchaseCell from './GroupPurchaseCell'
 class GroupPurchaseScene extends PureComponent {
 
     listView: ListView
-    
+
     state: {
         info: Object,
         dataSource: ListView.DataSource
@@ -127,36 +127,34 @@ class GroupPurchaseScene extends PureComponent {
         //原详情接口已经被美团关掉，这里暂时从上一级列表中获取详情数据
     }
 
-    requestRecommend() {
-        let info = this.props.navigation.state.params.info
-        fetch(recommendUrlWithId(info.id))
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(JSON.stringify(json));
+    async requestRecommend() {
+        try {
+            let info = this.props.navigation.state.params.info
+            let response = await fetch(recommendUrlWithId(info.id))
+            let json = await response.json()
 
-                let dataList = json.data.deals.map((info) => {
-                    return {
-                        id: info.id,
-                        imageUrl: info.imgurl,
-                        title: info.brandname,
-                        subtitle: `[${info.range}]${info.title}`,
-                        price: info.price
-                    }
-                })
+            console.log(JSON.stringify(json));
 
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(dataList)
-                })
-                setTimeout(() => {
-                    this.listView.endRefreshing(RefreshState.NoMoreData)
-                }, 500);
+            let dataList = json.data.deals.map((info) => {
+                return {
+                    id: info.id,
+                    imageUrl: info.imgurl,
+                    title: info.brandname,
+                    subtitle: `[${info.range}]${info.title}`,
+                    price: info.price
+                }
             })
-            .catch((error) => {
-                this.listView.endRefreshing(RefreshState.Failure)
+
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(dataList)
             })
+            setTimeout(() => {
+                this.listView.endRefreshing(RefreshState.NoMoreData)
+            }, 500);
+        } catch (error) {
+            this.listView.endRefreshing(RefreshState.Failure)
+        }
     }
-
-
 }
 
 // define your styles
