@@ -152,5 +152,4 @@ Github：https://github.com/huanxsd/MeiTuan
 我将持续更新这个Demo
 
 如果您觉得它对您有所帮助，可以通过微信给作者捐赠。我将继续努力，开源更多源码。
-<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/wechat.png">
-
+<img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/wechat.png" width = "480" >
