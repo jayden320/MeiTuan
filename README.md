@@ -156,7 +156,11 @@ Github：https://github.com/huanxsd/MeiTuan
 <img src="https://github.com/huanxsd/MeiTuan/blob/master/screenshot/wechat.png" width = "480" >
 
 捐赠名单（按时间顺序）：
+
 Xing201314
+
 炎炎乱舞
+
 cao10liu24
+
 
