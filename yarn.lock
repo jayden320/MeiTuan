@@ -1243,7 +1243,7 @@ crc@3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/crc/-/crc-3.3.0.tgz#fa622e1bc388bf257309082d6b65200ce67090ba"
 
-create-react-class@^15.5.2:
+create-react-class@^15.5.2, create-react-class@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.2.tgz#cf1ed15f12aad7f14ef5f2dfe05e6c42f91ef02a"
   dependencies:
@@ -3338,10 +3338,12 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
 
-react-native-scrollable-tab-view@^0.6.5:
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.6.7.tgz#3a5fe8a4bd5bc7eb023f306099323bbd9cc284a2"
+react-native-scrollable-tab-view@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.8.0.tgz#5cb1fcfce07bf530a3c81ab51fc5071144edac5c"
   dependencies:
+    create-react-class "^15.6.2"
+    prop-types "^15.6.0"
     react-timer-mixin "^0.13.3"
 
 react-native-tab-view@^0.0.70:
@@ -3407,7 +3409,7 @@ react-native@0.50.1:
     xmldoc "^0.4.0"
     yargs "^9.0.0"
 
-react-navigation@^1.0.0-beta.9:
+react-navigation@^1.0.0-beta.19:
   version "1.0.0-beta.19"
   resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-1.0.0-beta.19.tgz#96e159c4b6760f51fc92d5c1c3690790cff4dbcf"
   dependencies:

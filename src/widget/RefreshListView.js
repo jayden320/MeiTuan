@@ -6,15 +6,16 @@
 //  https://github.com/huanxsd/react-native-refresh-list-view
 
 //import liraries
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, StyleSheet, RefreshControl, ListView, ActivityIndicator, TouchableOpacity } from 'react-native'
 import RefreshState from './RefreshState'
 
 // create a component
 class RefreshListView extends PureComponent {
     static propTypes = {
-        onHeaderRefresh: React.PropTypes.func,
-        onFooterRefresh: React.PropTypes.func,
+        onHeaderRefresh: PropTypes.func,
+        onFooterRefresh: PropTypes.func,
     }
 
     static defaultProps = {
