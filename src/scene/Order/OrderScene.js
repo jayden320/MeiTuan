@@ -105,10 +105,10 @@ class OrderScene extends PureComponent {
                 <DetailCell title='我的订单' subtitle='全部订单' style={{ height: 38 }} />
 
                 <View style={styles.itemContainer}>
-                    <OrderMenuItem title='待付款' icon={require('../../img/Order/order_tab_need_pay@2x.png')} />
-                    <OrderMenuItem title='待使用' icon={require('../../img/Order/order_tab_need_use@2x.png')} />
-                    <OrderMenuItem title='待评价' icon={require('../../img/Order/order_tab_need_review@2x.png')} />
-                    <OrderMenuItem title='退款/售后' icon={require('../../img/Order/order_tab_needoffer_aftersale@2x.png')} />
+                    <OrderMenuItem title='待付款' icon={require('../../img/Order/order_tab_need_pay.png')} />
+                    <OrderMenuItem title='待使用' icon={require('../../img/Order/order_tab_need_use.png')} />
+                    <OrderMenuItem title='待评价' icon={require('../../img/Order/order_tab_need_review.png')} />
+                    <OrderMenuItem title='退款/售后' icon={require('../../img/Order/order_tab_needoffer_aftersale.png')} />
                 </View>
 
                 <SpacingView />

@@ -29,7 +29,7 @@ class NearbyScene extends PureComponent {
         ),
         headerLeft: (
             <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
-                <Image style={{ width: 13, height: 16 }} source={require('../../img/Public/icon_food_merchant_address@2x.png')} />
+                <Image style={{ width: 13, height: 16 }} source={require('../../img/Public/icon_food_merchant_address.png')} />
                 <Text style={{ fontSize: 15, color: '#333333' }}> 福州 鼓楼</Text>
             </TouchableOpacity>
         ),

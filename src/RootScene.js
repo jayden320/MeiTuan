@@ -76,8 +76,8 @@ const Tab = TabNavigator(
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('./img/tabbar/pfb_tabbar_homepage@2x.png')}
-                        selectedImage={require('./img/tabbar/pfb_tabbar_homepage_selected@2x.png')}
+                        normalImage={require('./img/tabbar/pfb_tabbar_homepage.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_homepage_selected.png')}
                     />
                 )
             }),
@@ -90,8 +90,8 @@ const Tab = TabNavigator(
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('./img/tabbar/pfb_tabbar_merchant@2x.png')}
-                        selectedImage={require('./img/tabbar/pfb_tabbar_merchant_selected@2x.png')}
+                        normalImage={require('./img/tabbar/pfb_tabbar_merchant.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_merchant_selected.png')}
                     />
                 )
             }),
@@ -105,8 +105,8 @@ const Tab = TabNavigator(
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('./img/tabbar/pfb_tabbar_order@2x.png')}
-                        selectedImage={require('./img/tabbar/pfb_tabbar_order_selected@2x.png')}
+                        normalImage={require('./img/tabbar/pfb_tabbar_order.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_order_selected.png')}
                     />
                 )
             }),
@@ -120,8 +120,8 @@ const Tab = TabNavigator(
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('./img/tabbar/pfb_tabbar_mine@2x.png')}
-                        selectedImage={require('./img/tabbar/pfb_tabbar_mine_selected@2x.png')}
+                        normalImage={require('./img/tabbar/pfb_tabbar_mine.png')}
+                        selectedImage={require('./img/tabbar/pfb_tabbar_mine_selected.png')}
                     />
                 )
             }),
