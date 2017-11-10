@@ -33,7 +33,7 @@ class HomeScene extends PureComponent {
         ),
         headerRight: (
             <NavigationItem
-                icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
+                icon={require('../../img/Home/icon_navigationItem_message_white.png')}
                 onPress={() => {
 
                 }}

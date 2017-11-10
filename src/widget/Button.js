@@ -7,7 +7,8 @@
  */
 
 //import liraries
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 // create a component
