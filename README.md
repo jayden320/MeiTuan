@@ -1,4 +1,4 @@
-# MeiTuan App Write In latest React-Native(0.44.0)
+# MeiTuan App Write In latest React-Native(0.50.1)
 
 Github：https://github.com/huanxsd/MeiTuan
 
@@ -67,7 +67,7 @@ If you have any suggestions, leave a message here
 If you like this project, please give me a star  :)
 
 
-# 高仿美团客户端 React-Native版(0.44.0)
+# 高仿美团客户端 React-Native版(0.50.1)
 
 ## 简介
 

@@ -48,8 +48,7 @@ class HomeMenuView extends PureComponent {
         let pageCount = Math.ceil(menuItems.length / 10)
 
         for (let i = 0; i < pageCount; i++) {
-            let length = menuItems.length < (i * 10) ? menuItems.length - (i * 10) : 10
-            let items = menuItems.slice(i * 10, i * 10 + length)
+            let items = menuItems.slice(i * 10, i * 10 + 10)
 
             let menuView = (
                 <View style={styles.itemsView} key={i}>
