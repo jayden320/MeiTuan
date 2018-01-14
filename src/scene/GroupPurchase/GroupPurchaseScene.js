@@ -34,7 +34,7 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
         headerStyle: {backgroundColor: 'white'},
         headerRight: (
             <NavigationItem
-                icon={require('../../img/public/icon_navigationItem_share.png')}
+                icon={require('../../img/public/icon_navigation_item_share.png')}
                 onPress={() => {
 
                 }}
