@@ -6,38 +6,43 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import { screen, system, tool } from '../../common'
-import { color } from '../../widget'
 
-// create a component
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {screen, system, tool} from '../../common'
+import {color} from '../../widget'
+
+type Props = {
+    titles: Array<string>,
+    selectedIndex: number,
+    onSelected: Function,
+}
+
+
 class NearbyHeaderView extends PureComponent {
     static defaultProps = {
-        onSelected: () => { }
+        onSelected: () => {}
     }
     render() {
         return (
             <View style={styles.container}>
                 {this.props.titles.map((title, i) => (
                     <TouchableOpacity
-                        style={[{ backgroundColor: this.props.selectedIndex == i ? '#FE566D' : 'white' }, styles.item]}
                         key={i}
+                        style={[{backgroundColor: this.props.selectedIndex == i ? '#FE566D' : 'white'}, styles.item]}
                         onPress={() => this.props.onSelected(i)}>
-                        <Paragraph
-                            style={{ color: this.props.selectedIndex == i ? 'white' : '#555555' }}>
-                            {this.props.titles[i]}
+                        <Paragraph style={{color: this.props.selectedIndex == i ? 'white' : '#555555'}}>
+                            {title}
                         </Paragraph>
                     </TouchableOpacity>
                 ))}
             </View>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
@@ -55,7 +60,7 @@ const styles = StyleSheet.create({
         borderWidth: screen.onePixel,
         borderColor: color.border,
     },
-});
+})
 
-//make this component available to the app
-export default NearbyHeaderView;
+
+export default NearbyHeaderView

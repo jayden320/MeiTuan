@@ -6,14 +6,14 @@
  * @flow
  */
 
-//import liraries
+
 import React, { PureComponent } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { Heading1, Heading2, Paragraph } from './Text'
 import Separator from './Separator'
 import { screen, system, tool } from '../common'
 
-// create a component
+
 class DetailCell extends PureComponent {
     render() {
         let icon = this.props.image && <Image style={styles.icon} source={this.props.image} />
@@ -26,17 +26,17 @@ class DetailCell extends PureComponent {
                         <Heading2>{this.props.title}</Heading2>
                         <View style={{ flex: 1, backgroundColor: 'blue' }} />
                         <Paragraph style={{ color: '#999999' }}>{this.props.subtitle}</Paragraph>
-                        <Image style={styles.arrow} source={require('../img/Public/cell_arrow.png')} />
+                        <Image style={styles.arrow} source={require('../img/public/cell_arrow.png')} />
                     </View>
 
                     <Separator />
                 </TouchableOpacity>
             </View>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         height: 14,
         marginLeft: 5,
     }
-});
+})
 
-//make this component available to the app
-export default DetailCell;
+
+export default DetailCell

@@ -6,20 +6,25 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, ScrollView, } from 'react-native'
 
-import { screen, system, tool } from '../../common'
-import { color, PageControl } from '../../widget'
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, ScrollView, } from 'react-native'
+import PageControl from 'react-native-page-control'
+
+import {screen, system, tool} from '../../common'
+import {color} from '../../widget'
 import HomeMenuItem from './HomeMenuItem'
 
-// create a component
-class HomeMenuView extends PureComponent {
+type Props = {
 
-    state: {
-        currentPage: number
-    }
+}
+
+type State = {
+    currentPage: number
+}
+
+
+class HomeMenuView extends PureComponent<Props, State>  {
 
     constructor(props: Object) {
         super(props)
@@ -30,7 +35,7 @@ class HomeMenuView extends PureComponent {
     }
 
     render() {
-        let { menuInfos, onMenuSelected } = this.props
+        let {menuInfos, onMenuSelected} = this.props
 
         let menuItems = menuInfos.map(
             (info, i) => (
@@ -40,7 +45,8 @@ class HomeMenuView extends PureComponent {
                     icon={info.icon}
                     onPress={() => {
                         onMenuSelected && onMenuSelected(i)
-                    }} />
+                    }}
+                />
             )
         )
 
@@ -59,7 +65,8 @@ class HomeMenuView extends PureComponent {
         }
         return (
             <View style={styles.container}>
-                <ScrollView contentContainerStyle={styles.contentContainer}
+                <ScrollView
+                    contentContainerStyle={styles.contentContainer}
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     pagingEnabled
@@ -70,19 +77,18 @@ class HomeMenuView extends PureComponent {
                     </View>
                 </ScrollView>
 
-
                 <PageControl
                     style={styles.pageControl}
                     numberOfPages={pageCount}
                     currentPage={this.state.currentPage}
                     hidesForSinglePage
                     pageIndicatorTintColor='gray'
-                    currentPageIndicatorTintColor={color.theme}
-                    indicatorSize={{ width: 8, height: 8 }}
+                    currentPageIndicatorTintColor={color.primary}
+                    indicatorSize={{width: 8, height: 8}}
                 />
             </View>
 
-        );
+        )
     }
 
     onScroll(e: any) {
@@ -98,7 +104,7 @@ class HomeMenuView extends PureComponent {
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
@@ -116,7 +122,7 @@ const styles = StyleSheet.create({
     pageControl: {
         margin: 10,
     }
-});
+})
 
-//make this component available to the app
-export default HomeMenuView;
+
+export default HomeMenuView

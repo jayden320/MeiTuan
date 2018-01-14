@@ -6,15 +6,19 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react';
-import { View, Text, StyleSheet } from 'react-native'
-import { color } from '../../widget'
-import { screen, system, tool } from '../../common'
+
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet} from 'react-native'
+import {color} from '../../widget'
+import {screen, system, tool} from '../../common'
 import HomeGridItem from './HomeGridItem'
 
-// create a component
-class HomeGridView extends PureComponent {
+type Props = {
+    infos: Array<Object>
+}
+
+
+class HomeGridView extends PureComponent<Props> {
 
     static defaultProps = {
         infos: []
@@ -27,14 +31,15 @@ class HomeGridView extends PureComponent {
                     <HomeGridItem
                         info={info}
                         key={index}
-                        onPress={() => this.props.onGridSelected(index)} />
+                        onPress={() => this.props.onGridSelected(index)}
+                    />
                 ))}
             </View>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
@@ -44,7 +49,7 @@ const styles = StyleSheet.create({
         borderLeftWidth: screen.onePixel,
         borderColor: color.border
     },
-});
+})
 
-//make this component available to the app
-export default HomeGridView;
+
+export default HomeGridView

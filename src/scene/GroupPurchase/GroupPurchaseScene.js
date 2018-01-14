@@ -6,92 +6,113 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, InteractionManager } from 'react-native'
-import { color, Button, NavigationItem, RefreshListView, RefreshState, Separator, SpacingView } from '../../widget'
-import { Heading1, Heading2, Paragraph, HeadingBig } from '../../widget/Text'
-import { screen, system, tool } from '../../common'
-import api, { recommendUrlWithId, groupPurchaseDetailWithId } from '../../api'
+
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, InteractionManager} from 'react-native'
+import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
+import {color, Button, NavigationItem, Separator, SpacingView} from '../../widget'
+import {Heading1, Heading2, Paragraph, HeadingBig} from '../../widget/Text'
+import {screen, system, tool} from '../../common'
+import api, {recommendUrlWithId, groupPurchaseDetailWithId} from '../../api'
 import GroupPurchaseCell from './GroupPurchaseCell'
 
-// create a component
-class GroupPurchaseScene extends PureComponent {
+type Props = {
+    navigation: any,
+}
 
-    listView: ListView
+type State = {
+    info: Object,
+    data: Array<Object>,
+    refreshState: number,
+}
 
-    state: {
-        info: Object,
-        dataSource: ListView.DataSource
-    }
 
-    static navigationOptions = ({ navigation }) => ({
+class GroupPurchaseScene extends PureComponent<Props, State> {
+
+    static navigationOptions = ({navigation}) => ({
         headerTitle: '团购详情',
-        headerStyle: { backgroundColor: 'white' },
+        headerStyle: {backgroundColor: 'white'},
         headerRight: (
             <NavigationItem
-                icon={require('../../img/Public/icon_navigationItem_share.png')}
+                icon={require('../../img/public/icon_navigationItem_share.png')}
                 onPress={() => {
 
                 }}
             />
         ),
-    });
+    })
 
-    constructor(props: Object) {
-        super(props);
-
-        let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
+    constructor(props: Props) {
+        super(props)
 
         this.state = {
             info: {},
-            dataSource: ds.cloneWithRows([]),
+            data: [],
+            refreshState: RefreshState.Idle,
         }
     }
 
     componentDidMount() {
-
         InteractionManager.runAfterInteractions(() => {
-            this.listView.startHeaderRefreshing();
-        });
+            this.requestData()
+        })
     }
 
-    render() {
-        return (
-            <View style={styles.container}>
-
-                <RefreshListView
-                    ref={(e) => this.listView = e}
-                    dataSource={this.state.dataSource}
-                    renderHeader={() => this.renderHeader()}
-                    renderRow={(rowData) =>
-                        <GroupPurchaseCell
-                            info={rowData}
-                            onPress={() => this.props.navigation.navigate('GroupPurchase', { info: rowData })}
-                        />
-                    }
-                    onHeaderRefresh={() => this.requestData()}
-                />
-            </View>
-        )
+    requestData = () => {
+        this.requestRecommend()
     }
 
-    renderHeader() {
+    requestRecommend = async () => {
+        try {
+            this.setState({refreshState: RefreshState.HeaderRefreshing})
+
+            let info = this.props.navigation.state.params.info
+            let response = await fetch(recommendUrlWithId(info.id))
+            let json = await response.json()
+
+            console.log(JSON.stringify(json))
+
+            let dataList = json.data.deals.map((info) => {
+                return {
+                    id: info.id,
+                    imageUrl: info.imgurl,
+                    title: info.brandname,
+                    subtitle: `[${info.range}]${info.title}`,
+                    price: info.price
+                }
+            })
+
+            this.setState({
+                data: dataList,
+                refreshState: RefreshState.NoMoreData,
+            })
+        } catch (error) {
+            this.setState({
+                refreshState: RefreshState.Failure,
+            })
+        }
+    }
+
+    keyExtractor = (item: Object, index: number) => {
+        return item.id
+    }
+
+    renderHeader = () => {
         let info = this.props.navigation.state.params.info
 
         return (
             <View>
                 <View>
-                    <Image style={styles.banner} source={{ uri: info.imageUrl.replace('w.h', '480.0') }} />
+                    <Image style={styles.banner} source={{uri: info.imageUrl.replace('w.h', '480.0')}} />
 
                     <View style={styles.topContainer}>
-                        <Heading1 style={{ color: color.theme }}>￥</Heading1>
-                        <HeadingBig style={{ marginBottom: -8 }}>{info.price}</HeadingBig>
-                        <Paragraph style={{ marginLeft: 10 }}>门市价：￥{(info.price * 1.1).toFixed(0)}</Paragraph>
-                        <View style={{ flex: 1 }} />
+                        <Heading1 style={{color: color.primary}}>￥</Heading1>
+                        <HeadingBig style={{marginBottom: -8}}>{info.price}</HeadingBig>
+                        <Paragraph style={{marginLeft: 10}}>门市价：￥{(info.price * 1.1).toFixed(0)}</Paragraph>
+                        <View style={{flex: 1}} />
                         <Button
                             title='立即抢购'
-                            style={{ color: 'white', fontSize: 18 }}
+                            style={{color: 'white', fontSize: 18}}
                             containerStyle={styles.buyButton}
                         />
                     </View>
@@ -101,9 +122,9 @@ class GroupPurchaseScene extends PureComponent {
 
                 <View>
                     <View style={styles.tagContainer}>
-                        <Image style={{ width: 20, height: 20 }} source={require('../../img/Home/icon_deal_anytime_refund.png')} />
-                        <Paragraph style={{ color: '#89B24F' }}>  随时退</Paragraph>
-                        <View style={{ flex: 1 }} />
+                        <Image style={{width: 20, height: 20}} source={require('../../img/home/icon_deal_anytime_refund.png')} />
+                        <Paragraph style={{color: '#89B24F'}}>  随时退</Paragraph>
+                        <View style={{flex: 1}} />
                         <Paragraph>已售{1234}</Paragraph>
                     </View>
 
@@ -118,46 +139,33 @@ class GroupPurchaseScene extends PureComponent {
         )
     }
 
-    requestData() {
-        this.requestDetail()
-        this.requestRecommend()
+    renderCell = (rowData) => {
+        return (
+            <GroupPurchaseCell
+                info={rowData.item}
+                onPress={() => this.props.navigation.navigate('GroupPurchase', {info: rowData.item})}
+            />
+        )
     }
 
-    requestDetail() {
-        //原详情接口已经被美团关掉，这里暂时从上一级列表中获取详情数据
+    render() {
+        return (
+            <View style={styles.container}>
+                <RefreshListView
+                    data={this.state.data}
+                    ListHeaderComponent={this.renderHeader}
+                    renderItem={this.renderCell}
+                    keyExtractor={this.keyExtractor}
+                    refreshState={this.state.refreshState}
+                    onHeaderRefresh={this.requestData}
+                />
+            </View>
+        )
     }
 
-    async requestRecommend() {
-        try {
-            let info = this.props.navigation.state.params.info
-            let response = await fetch(recommendUrlWithId(info.id))
-            let json = await response.json()
-
-            console.log(JSON.stringify(json));
-
-            let dataList = json.data.deals.map((info) => {
-                return {
-                    id: info.id,
-                    imageUrl: info.imgurl,
-                    title: info.brandname,
-                    subtitle: `[${info.range}]${info.title}`,
-                    price: info.price
-                }
-            })
-
-            this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(dataList)
-            })
-            setTimeout(() => {
-                this.listView.endRefreshing(RefreshState.NoMoreData)
-            }, 500);
-        } catch (error) {
-            this.listView.endRefreshing(RefreshState.Failure)
-        }
-    }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -192,7 +200,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         backgroundColor: 'white'
     }
-});
+})
 
-//make this component available to the app
-export default GroupPurchaseScene;
+
+export default GroupPurchaseScene

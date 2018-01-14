@@ -6,52 +6,57 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, StatusBar, Image, ListView, TouchableOpacity, ScrollView, RefreshControl } from 'react-native'
 
-import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import { screen, system, tool } from '../../common'
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, StatusBar, Image, ListView, TouchableOpacity, ScrollView, RefreshControl} from 'react-native'
+import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
+
+import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {screen, system, tool} from '../../common'
 import api from '../../api'
-import { color, DetailCell, RefreshListView, RefreshState, SpacingView } from '../../widget'
+import {color, DetailCell, SpacingView} from '../../widget'
 
 import OrderMenuItem from './OrderMenuItem'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
-// create a component
-class OrderScene extends PureComponent {
+type Props = {
+    navigation: any,
+}
 
-    listView: ListView
+type State = {
+    data: Array<Object>,
+    refreshState: number,
+}
 
-    state: {
-        dataSource: ListView.DataSource
-    }
 
-    static navigationOptions = ({ navigation }) => ({
+class OrderScene extends PureComponent<Props, State> {
+
+    static navigationOptions = ({navigation}) => ({
         title: '订单',
-        headerStyle: { backgroundColor: 'white' },
+        headerStyle: {backgroundColor: 'white'},
     })
 
-    constructor(props: Object) {
+    constructor(props: Props) {
         super(props)
 
-        let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
-
         this.state = {
-            dataSource: ds.cloneWithRows([]),
+            data: [],
+            refreshState: RefreshState.Idle,
         }
     }
 
     componentDidMount() {
-        this.listView.startHeaderRefreshing();
+        this.requestData()
     }
 
-    async requestData() {
+    requestData = async () => {
         try {
+            this.setState({refreshState: RefreshState.HeaderRefreshing})
+
             let response = await fetch(api.recommend)
             let json = await response.json()
 
-            console.log(JSON.stringify(json));
+            console.log(JSON.stringify(json))
 
             let dataList = json.data.map((info) => {
                 return {
@@ -64,63 +69,73 @@ class OrderScene extends PureComponent {
             })
 
             // 偷懒，用同一个测试接口获取数据，然后打乱数组，造成数据来自不同接口的假象 >.<
-            dataList.sort(() => { return 0.5 - Math.random() })
+            dataList.sort(() => {return 0.5 - Math.random()})
 
             this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(dataList)
+                data: dataList,
+                refreshState: RefreshState.NoMoreData,
             })
-            setTimeout(() => {
-                this.listView.endRefreshing(RefreshState.NoMoreData)
-            }, 500)
         } catch (error) {
-            this.listView.endRefreshing(RefreshState.Failure)
+            this.setState({
+                refreshState: RefreshState.Failure,
+            })
         }
+    }
+
+    keyExtractor = (item: Object, index: number) => {
+        return item.id
+    }
+
+    renderHeader = () => {
+        return (
+            <View style={styles.container}>
+                <DetailCell title='我的订单' subtitle='全部订单' style={{height: 38}} />
+
+                <View style={styles.itemContainer}>
+                    <OrderMenuItem title='待付款' icon={require('../../img/order/order_tab_need_pay.png')} />
+                    <OrderMenuItem title='待使用' icon={require('../../img/order/order_tab_need_use.png')} />
+                    <OrderMenuItem title='待评价' icon={require('../../img/order/order_tab_need_review.png')} />
+                    <OrderMenuItem title='退款/售后' icon={require('../../img/order/order_tab_needoffer_aftersale.png')} />
+                </View>
+
+                <SpacingView />
+
+                <DetailCell title='我的收藏' subtitle='查看全部' style={{height: 38}} />
+            </View>
+        )
+    }
+
+    renderCell = (rowData) => {
+        return (
+            <GroupPurchaseCell
+                info={rowData.item}
+                onPress={() => {
+                    StatusBar.setBarStyle('default', false)
+                    this.props.navigation.navigate('GroupPurchase', {info: rowData.item})
+                }}
+            />
+        )
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <RefreshListView
-                    ref={(e) => this.listView = e}
-                    dataSource={this.state.dataSource}
-                    renderHeader={() => this.renderHeader()}
-                    renderRow={(rowData) =>
-                        <GroupPurchaseCell
-                            info={rowData}
-                            onPress={() => {
-                                StatusBar.setBarStyle('default', false)
-                                this.props.navigation.navigate('GroupPurchase', { info: rowData })
-                            }}
-                        />
-                    }
-                    onHeaderRefresh={() => this.requestData()}
+                    data={this.state.data}
+                    ListHeaderComponent={this.renderHeader}
+                    renderItem={this.renderCell}
+                    keyExtractor={this.keyExtractor}
+                    refreshState={this.state.refreshState}
+                    onHeaderRefresh={this.requestData}
                 />
-            </View>
-        );
-    }
-
-    renderHeader() {
-        return (
-            <View style={styles.container}>
-                <DetailCell title='我的订单' subtitle='全部订单' style={{ height: 38 }} />
-
-                <View style={styles.itemContainer}>
-                    <OrderMenuItem title='待付款' icon={require('../../img/Order/order_tab_need_pay.png')} />
-                    <OrderMenuItem title='待使用' icon={require('../../img/Order/order_tab_need_use.png')} />
-                    <OrderMenuItem title='待评价' icon={require('../../img/Order/order_tab_need_review.png')} />
-                    <OrderMenuItem title='退款/售后' icon={require('../../img/Order/order_tab_needoffer_aftersale.png')} />
-                </View>
-
-                <SpacingView />
-
-                <DetailCell title='我的收藏' subtitle='查看全部' style={{ height: 38 }} />
             </View>
         )
     }
 
+
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -129,7 +144,7 @@ const styles = StyleSheet.create({
     itemContainer: {
         flexDirection: 'row',
     },
-});
+})
 
-//make this component available to the app
-export default OrderScene;
+
+export default OrderScene

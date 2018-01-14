@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React from 'react';
+import React from 'react'
 import ReactNative, { StyleSheet, Dimensions, Text ,ReactElement} from 'react-native'
 import color from './color'
 
@@ -33,7 +33,7 @@ export function Tip({style, ...props}: Object): ReactElement {
 const styles = StyleSheet.create({
     h0: {
         fontSize: 40,
-        color: color.theme,
+        color: color.primary,
     },
     h1: {
         fontSize: 15,
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
         fontSize: 13,
         color: '#999999'
     }
-});
+})

@@ -6,14 +6,14 @@
  * @flow
  */
 
-//import liraries
+
 import React, { PureComponent } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
 import {Heading2} from '../../widget/Text'
 import { screen, system, tool } from '../../common'
 
-// create a component
+
 class OrderMenuItem extends PureComponent {
     render() {
         return (
@@ -24,11 +24,11 @@ class OrderMenuItem extends PureComponent {
                     {this.props.title}
                 </Heading2>
             </TouchableOpacity>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         height: 30,
         margin: 5,
     }
-});
+})
 
-//make this component available to the app
-export default OrderMenuItem;
+
+export default OrderMenuItem

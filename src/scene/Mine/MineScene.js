@@ -6,35 +6,39 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl } from 'react-native'
 
-import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import { screen, system, tool } from '../../common'
-import { color, DetailCell, NavigationItem, SpacingView } from '../../widget'
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl} from 'react-native'
 
-// create a component
+import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {screen, system, tool} from '../../common'
+import {color, DetailCell, NavigationItem, SpacingView} from '../../widget'
+
+
 class MineScene extends PureComponent {
 
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = ({navigation}) => ({
         headerRight: (
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{flexDirection: 'row'}}>
                 <NavigationItem
-                    icon={require('../../img/Mine/icon_navigationItem_set_white.png')}
+                    icon={require('../../img/mine/icon_navigation_item_set_white.png')}
                     onPress={() => {
 
                     }}
                 />
                 <NavigationItem
-                    icon={require('../../img/Home/icon_navigationItem_message_white.png')}
+                    icon={require('../../img/mine/icon_navigation_item_message_white.png')}
                     onPress={() => {
 
                     }}
                 />
             </View>
         ),
-        headerStyle: { backgroundColor: color.theme },
+        headerStyle: {
+            backgroundColor: color.primary,
+            elevation: 0,
+            borderBottomWidth: 0,
+        },
     })
 
     state: {
@@ -50,11 +54,11 @@ class MineScene extends PureComponent {
     }
 
     onHeaderRefresh() {
-        this.setState({ isRefreshing: true })
+        this.setState({isRefreshing: true})
 
         setTimeout(() => {
-            this.setState({ isRefreshing: false })
-        }, 2000);
+            this.setState({isRefreshing: false})
+        }, 2000)
     }
 
     renderCells() {
@@ -71,7 +75,7 @@ class MineScene extends PureComponent {
         }
 
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{flex: 1}}>
                 {cells}
             </View>
         )
@@ -81,13 +85,13 @@ class MineScene extends PureComponent {
         return (
             <View style={styles.header}>
                 <View style={styles.userContainer}>
-                    <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
+                    <Image style={styles.avatar} source={require('../../img/mine/avatar.png')} />
                     <View>
-                        <View style={{ flexDirection: 'row' }}>
-                            <Heading1 style={{ color: 'white' }}>素敌</Heading1>
-                            <Image style={{ marginLeft: 4 }} source={require('../../img/Mine/beauty_technician_v15.png')} />
+                        <View style={{flexDirection: 'row'}}>
+                            <Heading1 style={{color: 'white'}}>素敌</Heading1>
+                            <Image style={{marginLeft: 4}} source={require('../../img/mine/beauty_technician_v15.png')} />
                         </View>
-                        <Paragraph style={{ color: 'white', marginTop: 4 }}>个人信息 ></Paragraph>
+                        <Paragraph style={{color: 'white', marginTop: 4}}>个人信息 ></Paragraph>
                     </View>
                 </View>
             </View>
@@ -96,8 +100,8 @@ class MineScene extends PureComponent {
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: color.background }}>
-                <View style={{ position: 'absolute', width: screen.width, height: screen.height / 2, backgroundColor: color.theme }} />
+            <View style={{flex: 1, backgroundColor: color.paper}}>
+                <View style={{position: 'absolute', width: screen.width, height: screen.height / 2, backgroundColor: color.primary}} />
                 <ScrollView
                     refreshControl={
                         <RefreshControl
@@ -111,28 +115,28 @@ class MineScene extends PureComponent {
                     {this.renderCells()}
                 </ScrollView>
             </View>
-        );
+        )
     }
 
     getDataList() {
         return (
             [
                 [
-                    { title: '我的钱包', subtitle: '办信用卡', image: require('../../img/Mine/icon_mine_wallet.png') },
-                    { title: '余额', subtitle: '￥95872385', image: require('../../img/Mine/icon_mine_balance.png') },
-                    { title: '抵用券', subtitle: '63', image: require('../../img/Mine/icon_mine_voucher.png') },
-                    { title: '会员卡', subtitle: '2', image: require('../../img/Mine/icon_mine_membercard.png') }
+                    {title: '我的钱包', subtitle: '办信用卡', image: require('../../img/mine/icon_mine_wallet.png')},
+                    {title: '余额', subtitle: '￥95872385', image: require('../../img/mine/icon_mine_balance.png')},
+                    {title: '抵用券', subtitle: '63', image: require('../../img/mine/icon_mine_voucher.png')},
+                    {title: '会员卡', subtitle: '2', image: require('../../img/mine/icon_mine_membercard.png')}
                 ],
                 [
-                    { title: '好友去哪', image: require('../../img/Mine/icon_mine_friends.png') },
-                    { title: '我的评价', image: require('../../img/Mine/icon_mine_comment.png') },
-                    { title: '我的收藏', image: require('../../img/Mine/icon_mine_collection.png') },
-                    { title: '会员中心', subtitle: 'v15', image: require('../../img/Mine/icon_mine_membercenter.png') },
-                    { title: '积分商城', subtitle: '好礼已上线', image: require('../../img/Mine/icon_mine_member.png') }
+                    {title: '好友去哪', image: require('../../img/mine/icon_mine_friends.png')},
+                    {title: '我的评价', image: require('../../img/mine/icon_mine_comment.png')},
+                    {title: '我的收藏', image: require('../../img/mine/icon_mine_collection.png')},
+                    {title: '会员中心', subtitle: 'v15', image: require('../../img/mine/icon_mine_membercenter.png')},
+                    {title: '积分商城', subtitle: '好礼已上线', image: require('../../img/mine/icon_mine_member.png')}
                 ],
                 [
-                    { title: '客服中心', image: require('../../img/Mine/icon_mine_customerService.png') },
-                    { title: '关于美团', subtitle: '我要合作', image: require('../../img/Mine/icon_mine_aboutmeituan.png') }
+                    {title: '客服中心', image: require('../../img/mine/icon_mine_customerService.png')},
+                    {title: '关于美团', subtitle: '我要合作', image: require('../../img/mine/icon_mine_aboutmeituan.png')}
                 ]
             ]
         )
@@ -140,10 +144,10 @@ class MineScene extends PureComponent {
 
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: color.theme,
+        backgroundColor: color.primary,
         paddingBottom: 20
     },
     icon: {
@@ -163,7 +167,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#51D3C6'
     }
-});
+})
 
-//make this component available to the app
-export default MineScene;
+
+export default MineScene

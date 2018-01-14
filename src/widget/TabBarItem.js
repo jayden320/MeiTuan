@@ -1,9 +1,16 @@
-//import liraries
+
 import React, { PureComponent } from 'react'
 import { Image } from 'react-native'
 
-// create a component
-class TabBarItem extends PureComponent {
+type Props = {
+    tintColor: any,
+    normalImage:any,
+    selectedImage:any,
+    focused:boolean,
+}
+
+
+class TabBarItem extends PureComponent<Props> {
     render() {
         let selectedImage = this.props.selectedImage ? this.props.selectedImage : this.props.normalImage
         return (
@@ -13,9 +20,9 @@ class TabBarItem extends PureComponent {
                     : this.props.normalImage}
                 style={{ tintColor: this.props.tintColor, width: 25, height: 25 }}
             />
-        );
+        )
     }
 }
 
-//make this component available to the app
-export default TabBarItem;
+
+export default TabBarItem

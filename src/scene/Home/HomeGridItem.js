@@ -6,15 +6,21 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import { Heading1, Heading2 } from '../../widget/Text'
-import { screen, system, tool } from '../../common'
-import { color } from '../../widget'
 
-// create a component
-class HomeGridItem extends PureComponent {
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
+import {Heading1, Heading2} from '../../widget/Text'
+import {screen, system, tool} from '../../common'
+import {color} from '../../widget'
+
+type Props = {
+    infos: Object,
+    onPress: Function,
+}
+
+
+class HomeGridItem extends PureComponent<Props> {
+
     render() {
         let info = this.props.info
 
@@ -26,17 +32,17 @@ class HomeGridItem extends PureComponent {
         return (
             <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
                 <View>
-                    <Heading1 style={{ color: color, marginBottom: 10 }}>{title}</Heading1>
+                    <Heading1 style={{color: color, marginBottom: 10}}>{title}</Heading1>
                     <Heading2 >{subtitle}</Heading2>
                 </View>
 
-                <Image style={styles.icon} source={{ uri: imageUrl }} />
+                <Image style={styles.icon} source={{uri: imageUrl}} />
             </TouchableOpacity>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
@@ -53,7 +59,7 @@ const styles = StyleSheet.create({
         width: screen.width / 5,
         height: screen.width / 5,
     }
-});
+})
 
-//make this component available to the app
-export default HomeGridItem;
+
+export default HomeGridItem

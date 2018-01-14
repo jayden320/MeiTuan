@@ -6,12 +6,12 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent} from 'react';
-import PropTypes from 'prop-types';
+
+import React, { PureComponent} from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-// create a component
+
 class Button extends PureComponent {
 
     static propTypes = {
@@ -42,16 +42,16 @@ class Button extends PureComponent {
                     {title}
                 </Text>
             </TouchableOpacity>
-        );
+        )
     }
 }
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
     },
-});
+})
 
-//make this component available to the app
-export default Button;
+
+export default Button

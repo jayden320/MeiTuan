@@ -49,7 +49,7 @@ class ListRequest {
         requestParams[kCurrentPageKey] = page
         requestParams[kPageSizeKey] = kPageSize
 
-        let url = urlByAppendingParams(host + this.requestNode, requestParams);
+        let url = urlByAppendingParams(host + this.requestNode, requestParams)
         fetch(url)
             .then((response) => {
                 return response.json()
@@ -65,14 +65,14 @@ class ListRequest {
 
                 this.onSuccess && this.onSuccess()
                 
-                console.log(`ListRequest - Success node:${this.requestNode}`);
+                console.log(`ListRequest - Success node:${this.requestNode}`)
             }).catch((error) => {
                 if (this.onFailure) {
                     this.onFailure()
                 }
-                console.log(`ListRequest - Error node:${this.requestNode} error:${error}`);
-            });
+                console.log(`ListRequest - Error node:${this.requestNode} error:${error}`)
+            })
     }
 }
 
-export default ListRequest;
+export default ListRequest

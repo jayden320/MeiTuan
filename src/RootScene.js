@@ -6,13 +6,13 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { StatusBar } from 'react-native'
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
+
+import React, {PureComponent} from 'react'
+import {StatusBar} from 'react-native'
+import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation'
 
 import color from './widget/color'
-import { screen, system, tool } from './common'
+import {screen, system, tool} from './common'
 import TabBarItem from './widget/TabBarItem'
 
 import HomeScene from './scene/Home/HomeScene'
@@ -27,17 +27,17 @@ const lightContentScenes = ['Home', 'Mine']
 
 function getCurrentRouteName(navigationState) {
     if (!navigationState) {
-        return null;
+        return null
     }
-    const route = navigationState.routes[navigationState.index];
+    const route = navigationState.routes[navigationState.index]
     // dive into nested navigators
     if (route.routes) {
-        return getCurrentRouteName(route);
+        return getCurrentRouteName(route)
     }
-    return route.routeName;
+    return route.routeName
 }
 
-// create a component
+
 class RootScene extends PureComponent {
     constructor() {
         super()
@@ -50,8 +50,8 @@ class RootScene extends PureComponent {
             <Navigator
                 onNavigationStateChange={
                     (prevState, currentState) => {
-                        const currentScene = getCurrentRouteName(currentState);
-                        const previousScene = getCurrentRouteName(prevState);
+                        const currentScene = getCurrentRouteName(currentState)
+                        const previousScene = getCurrentRouteName(prevState)
                         if (previousScene !== currentScene) {
                             if (lightContentScenes.indexOf(currentScene) >= 0) {
                                 StatusBar.setBarStyle('light-content')
@@ -62,7 +62,7 @@ class RootScene extends PureComponent {
                     }
                 }
             />
-        );
+        )
     }
 }
 
@@ -70,28 +70,28 @@ const Tab = TabNavigator(
     {
         Home: {
             screen: HomeScene,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: ({navigation}) => ({
                 tabBarLabel: '团购',
-                tabBarIcon: ({ focused, tintColor }) => (
+                tabBarIcon: ({focused, tintColor}) => (
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('./img/tabbar/pfb_tabbar_homepage.png')}
-                        selectedImage={require('./img/tabbar/pfb_tabbar_homepage_selected.png')}
+                        normalImage={require('./img/tabbar/tabbar_homepage.png')}
+                        selectedImage={require('./img/tabbar/tabbar_homepage_selected.png')}
                     />
                 )
             }),
         },
         Nearby: {
             screen: NearbyScene,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: ({navigation}) => ({
                 tabBarLabel: '附近',
-                tabBarIcon: ({ focused, tintColor }) => (
+                tabBarIcon: ({focused, tintColor}) => (
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('./img/tabbar/pfb_tabbar_merchant.png')}
-                        selectedImage={require('./img/tabbar/pfb_tabbar_merchant_selected.png')}
+                        normalImage={require('./img/tabbar/tabbar_merchant.png')}
+                        selectedImage={require('./img/tabbar/tabbar_merchant_selected.png')}
                     />
                 )
             }),
@@ -99,14 +99,14 @@ const Tab = TabNavigator(
 
         Order: {
             screen: OrderScene,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: ({navigation}) => ({
                 tabBarLabel: '订单',
-                tabBarIcon: ({ focused, tintColor }) => (
+                tabBarIcon: ({focused, tintColor}) => (
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('./img/tabbar/pfb_tabbar_order.png')}
-                        selectedImage={require('./img/tabbar/pfb_tabbar_order_selected.png')}
+                        normalImage={require('./img/tabbar/tabbar_order.png')}
+                        selectedImage={require('./img/tabbar/tabbar_order_selected.png')}
                     />
                 )
             }),
@@ -114,48 +114,48 @@ const Tab = TabNavigator(
 
         Mine: {
             screen: MineScene,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: ({navigation}) => ({
                 tabBarLabel: '我的',
-                tabBarIcon: ({ focused, tintColor }) => (
+                tabBarIcon: ({focused, tintColor}) => (
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('./img/tabbar/pfb_tabbar_mine.png')}
-                        selectedImage={require('./img/tabbar/pfb_tabbar_mine_selected.png')}
+                        normalImage={require('./img/tabbar/tabbar_mine.png')}
+                        selectedImage={require('./img/tabbar/tabbar_mine_selected.png')}
                     />
                 )
             }),
         },
     },
     {
-        tabBarComponent: TabBarBottom,
+        // tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
-        swipeEnabled: true,
-        animationEnabled: true,
         lazy: true,
+        animationEnabled: false,
+        swipeEnabled: false,
         tabBarOptions: {
-            activeTintColor: color.theme,
-            inactiveTintColor: '#979797',
-            style: { backgroundColor: '#ffffff' },
+            activeTintColor: color.primary,
+            inactiveTintColor: color.gray,
+            style: {backgroundColor: '#ffffff'},
         },
     }
 
-);
+)
 
 const Navigator = StackNavigator(
     {
-        Tab: { screen: Tab },
-        Web: { screen: WebScene },
-        GroupPurchase: { screen: GroupPurchaseScene },
+        Tab: {screen: Tab},
+        Web: {screen: WebScene},
+        GroupPurchase: {screen: GroupPurchaseScene},
     },
     {
         navigationOptions: {
-            // headerStyle: { backgroundColor: color.theme }
+            // headerStyle: { backgroundColor: color.primary }
             headerBackTitle: null,
             headerTintColor: '#333333',
             showIcon: true,
         },
     }
-);
-//make this component available to the app
-export default RootScene;
+)
+
+export default RootScene

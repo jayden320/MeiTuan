@@ -6,17 +6,22 @@
  * @flow
  */
 
-//import liraries
+
 import React, { PureComponent } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { screen } from '../../common'
 import { color } from '../../widget'
 
+let count = 0
 
-let count = 0;
-// create a component
-class GroupPurchaseCell extends PureComponent {
+type Props = {
+    infos: Object,
+    onPress: Function,
+}
+
+
+class GroupPurchaseCell extends PureComponent<Props> {
 
     render() {
         let { info } = this.props
@@ -36,11 +41,11 @@ class GroupPurchaseCell extends PureComponent {
 
                 </View>
             </TouchableOpacity>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
@@ -60,9 +65,9 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     price: {
-        color: color.theme
+        color: color.primary
     }
-});
+})
 
-//make this component available to the app
-export default GroupPurchaseCell;
+
+export default GroupPurchaseCell

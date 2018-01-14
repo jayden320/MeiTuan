@@ -6,11 +6,11 @@
  * @flow
  */
 
-//import liraries
+
 import React, { PureComponent } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
-// create a component
+
 class NavigationItem extends PureComponent {
     render() {
         let icon = this.props.icon &&
@@ -23,11 +23,11 @@ class NavigationItem extends PureComponent {
                 {icon}
                 {title}
             </TouchableOpacity>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         flex:1,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         color: '#333333',
         margin: 8,
     }
-});
+})
 
-//make this component available to the app
-export default NavigationItem;
+
+export default NavigationItem

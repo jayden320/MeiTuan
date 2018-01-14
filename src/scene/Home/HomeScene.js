@@ -6,14 +6,14 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar, FlatList } from 'react-native'
 
-import { Heading1, Heading2, Paragraph } from '../../widget/Text'
-import { color, Button, NavigationItem, SearchBar, SpacingView } from '../../widget'
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar, FlatList} from 'react-native'
 
-import { screen, system } from '../../common'
+import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {color, Button, NavigationItem, SpacingView} from '../../widget'
+
+import {screen, system} from '../../common'
 import api from '../../api'
 
 
@@ -21,19 +21,29 @@ import HomeMenuView from './HomeMenuView'
 import HomeGridView from './HomeGridView'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
-// create a component
-class HomeScene extends PureComponent {
+type Props = {
 
-    static navigationOptions = ({ navigation }) => ({
+}
+
+type State = {
+    discounts: Array<Object>,
+    dataList: Array<Object>,
+    refreshing: boolean,
+}
+
+
+class HomeScene extends PureComponent<Props, State> {
+
+    static navigationOptions = ({navigation}) => ({
         headerTitle: (
             <TouchableOpacity style={styles.searchBar}>
-                <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
+                <Image source={require('../../img/home/search_icon.png')} style={styles.searchIcon} />
                 <Paragraph>一点点</Paragraph>
             </TouchableOpacity>
         ),
         headerRight: (
             <NavigationItem
-                icon={require('../../img/Home/icon_navigationItem_message_white.png')}
+                icon={require('../../img/mine/icon_navigation_item_message_white.png')}
                 onPress={() => {
 
                 }}
@@ -42,22 +52,16 @@ class HomeScene extends PureComponent {
         headerLeft: (
             <NavigationItem
                 title='福州'
-                titleStyle={{ color: 'white' }}
+                titleStyle={{color: 'white'}}
                 onPress={() => {
 
                 }}
             />
         ),
-        headerStyle: { backgroundColor: color.theme },
+        headerStyle: {backgroundColor: color.primary},
     })
 
-    state: {
-        discounts: Array<Object>,
-        dataList: Array<Object>,
-        refreshing: boolean,
-    }
-
-    constructor(props: Object) {
+    constructor(props: Props) {
         super(props)
 
         this.state = {
@@ -65,28 +69,20 @@ class HomeScene extends PureComponent {
             dataList: [],
             refreshing: false,
         }
-
-        { (this: any).requestData = this.requestData.bind(this) }
-        { (this: any).renderCell = this.renderCell.bind(this) }
-        { (this: any).onCellSelected = this.onCellSelected.bind(this) }
-        { (this: any).keyExtractor = this.keyExtractor.bind(this) }
-        { (this: any).renderHeader = this.renderHeader.bind(this) }
-        { (this: any).onGridSelected = this.onGridSelected.bind(this) }
-        { (this: any).onMenuSelected = this.onMenuSelected.bind(this) }
     }
 
     componentDidMount() {
         this.requestData()
     }
 
-    requestData() {
-        this.setState({ refreshing: true })
+    requestData = () => {
+        this.setState({refreshing: true})
 
         this.requestDiscount()
         this.requestRecommend()
     }
 
-    async requestRecommend() {
+    requestRecommend = async () => {
         try {
             let response = await fetch(api.recommend)
             let json = await response.json()
@@ -108,21 +104,21 @@ class HomeScene extends PureComponent {
                 refreshing: false,
             })
         } catch (error) {
-            this.setState({ refreshing: false })
+            this.setState({refreshing: false})
         }
     }
 
-    async requestDiscount() {
+    requestDiscount = async () => {
         try {
             let response = await fetch(api.discount)
             let json = await response.json()
-            this.setState({ discounts: json.data })
+            this.setState({discounts: json.data})
         } catch (error) {
             alert(error)
         }
     }
 
-    renderCell(info: Object) {
+    renderCell = (info: Object) => {
         return (
             <GroupPurchaseCell
                 info={info.item}
@@ -131,26 +127,22 @@ class HomeScene extends PureComponent {
         )
     }
 
-    onCellSelected(info: Object) {
+    onCellSelected = (info: Object) => {
         StatusBar.setBarStyle('default', false)
-        this.props.navigation.navigate('GroupPurchase', { info: info })
+        this.props.navigation.navigate('GroupPurchase', {info: info})
     }
 
-    keyExtractor(item: Object, index: number) {
+    keyExtractor = (item: Object, index: number) => {
         return item.id
     }
 
-    renderHeader() {
+    renderHeader = () => {
         return (
             <View>
                 <HomeMenuView menuInfos={api.menuInfo} onMenuSelected={this.onMenuSelected} />
-
                 <SpacingView />
-
                 <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
-
                 <SpacingView />
-
                 <View style={styles.recommendHeader}>
                     <Heading2>猜你喜欢</Heading2>
                 </View>
@@ -158,7 +150,7 @@ class HomeScene extends PureComponent {
         )
     }
 
-    onGridSelected(index: number) {
+    onGridSelected = (index: number) => {
         let discount = this.state.discounts[index]
 
         if (discount.type == 1) {
@@ -166,11 +158,11 @@ class HomeScene extends PureComponent {
 
             let location = discount.tplurl.indexOf('http')
             let url = discount.tplurl.slice(location)
-            this.props.navigation.navigate('Web', { url: url })
+            this.props.navigation.navigate('Web', {url: url})
         }
     }
 
-    onMenuSelected(index: number) {
+    onMenuSelected = (index: number) => {
         alert(index)
     }
 
@@ -186,15 +178,15 @@ class HomeScene extends PureComponent {
                     renderItem={this.renderCell}
                 />
             </View>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.background
+        backgroundColor: color.paper
     },
     recommendHeader: {
         height: 35,
@@ -220,7 +212,7 @@ const styles = StyleSheet.create({
         height: 20,
         margin: 5,
     }
-});
+})
 
-//make this component available to the app
-export default HomeScene;
+
+export default HomeScene
