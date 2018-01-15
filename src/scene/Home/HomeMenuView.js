@@ -11,12 +11,13 @@ import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, ScrollView, } from 'react-native'
 import PageControl from 'react-native-page-control'
 
-import {screen, system, tool} from '../../common'
+import {screen, system} from '../../common'
 import {color} from '../../widget'
 import HomeMenuItem from './HomeMenuItem'
 
 type Props = {
-
+    menuInfos: Array<Object>,
+    onMenuSelected: Function,
 }
 
 type State = {

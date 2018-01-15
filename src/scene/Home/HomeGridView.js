@@ -10,11 +10,12 @@
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import {color} from '../../widget'
-import {screen, system, tool} from '../../common'
+import {screen, system} from '../../common'
 import HomeGridItem from './HomeGridItem'
 
 type Props = {
-    infos: Array<Object>
+    infos: Array<Object>,
+    onGridSelected: Function,
 }
 
 

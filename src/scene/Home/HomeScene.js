@@ -22,7 +22,7 @@ import HomeGridView from './HomeGridView'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
 type Props = {
-
+    navigation: any,
 }
 
 type State = {
@@ -34,7 +34,7 @@ type State = {
 
 class HomeScene extends PureComponent<Props, State> {
 
-    static navigationOptions = ({navigation}) => ({
+    static navigationOptions = ({navigation}: any) => ({
         headerTitle: (
             <TouchableOpacity style={styles.searchBar}>
                 <Image source={require('../../img/home/search_icon.png')} style={styles.searchIcon} />

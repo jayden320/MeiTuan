@@ -12,14 +12,15 @@ import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, S
 import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
 import {color, Button, NavigationItem} from '../../widget'
 import {Heading1, Heading2, Paragraph} from '../../widget/Text'
-import {screen, system, tool} from '../../common'
+import {screen, system} from '../../common'
 import api from '../../api'
 
 import NearbyCell from './NearbyCell'
 import NearbyHeaderView from './NearbyHeaderView'
 
 type Props = {
-
+    types: Array<string>,
+    navigation: any,
 }
 
 type State = {
@@ -99,7 +100,7 @@ class NearbyListScene extends PureComponent<Props, State> {
         )
     }
 
-    renderCell = (rowData) => {
+    renderCell = (rowData: any) => {
         return (
             <NearbyCell
                 info={rowData.item}

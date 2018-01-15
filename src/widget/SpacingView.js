@@ -13,7 +13,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import color from './color'
 
 
-class SpacingView extends PureComponent {
+class SpacingView extends PureComponent<{}> {
     render() {
         return (
             <View style={styles.container}>

@@ -7,14 +7,19 @@
  */
 
 
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 
 import {Heading2} from '../../widget/Text'
-import { screen, system, tool } from '../../common'
+import {screen, system} from '../../common'
 
+type Props = {
+    icon: any,
+    title: string,
+    onPress?: Function,
+}
 
-class OrderMenuItem extends PureComponent {
+class OrderMenuItem extends PureComponent<Props> {
     render() {
         return (
             <TouchableOpacity style={styles.container}

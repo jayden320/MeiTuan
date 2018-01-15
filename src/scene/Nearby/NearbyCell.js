@@ -10,11 +10,11 @@
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
 import {Heading1, Heading2, Paragraph} from '../../widget/Text'
-import {screen, system, tool} from '../../common'
+import {screen, system} from '../../common'
 import {color} from '../../widget'
 
 type Props = {
-    infos: Object,
+    info: Object,
     onPress: Function,
 }
 

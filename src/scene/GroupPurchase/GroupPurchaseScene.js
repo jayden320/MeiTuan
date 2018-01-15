@@ -12,7 +12,7 @@ import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, I
 import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
 import {color, Button, NavigationItem, Separator, SpacingView} from '../../widget'
 import {Heading1, Heading2, Paragraph, HeadingBig} from '../../widget/Text'
-import {screen, system, tool} from '../../common'
+import {screen, system} from '../../common'
 import api, {recommendUrlWithId, groupPurchaseDetailWithId} from '../../api'
 import GroupPurchaseCell from './GroupPurchaseCell'
 
@@ -29,7 +29,7 @@ type State = {
 
 class GroupPurchaseScene extends PureComponent<Props, State> {
 
-    static navigationOptions = ({navigation}) => ({
+    static navigationOptions = ({navigation}: any) => ({
         headerTitle: '团购详情',
         headerStyle: {backgroundColor: 'white'},
         headerRight: (
@@ -139,7 +139,7 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
         )
     }
 
-    renderCell = (rowData) => {
+    renderCell = (rowData: any) => {
         return (
             <GroupPurchaseCell
                 info={rowData.item}

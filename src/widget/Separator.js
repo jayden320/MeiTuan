@@ -7,14 +7,17 @@
  */
 
 
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet} from 'react-native'
 
 import color from './color'
-import { screen, system, tool } from '../common'
+import {screen, system} from '../common'
 
+type Props = {
+    style?: any,
+}
 
-class Separator extends PureComponent {
+class Separator extends PureComponent<Props> {
     render() {
         return (
             <View style={[styles.line, this.props.style]} />

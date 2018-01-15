@@ -10,7 +10,7 @@
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import {Heading1, Heading2, Paragraph} from '../../widget/Text'
-import {screen, system, tool} from '../../common'
+import {screen, system} from '../../common'
 import {color} from '../../widget'
 
 type Props = {
@@ -20,7 +20,7 @@ type Props = {
 }
 
 
-class NearbyHeaderView extends PureComponent {
+class NearbyHeaderView extends PureComponent<Props> {
     static defaultProps = {
         onSelected: () => {}
     }

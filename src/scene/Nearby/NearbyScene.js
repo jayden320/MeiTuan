@@ -12,8 +12,8 @@ import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image} f
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view'
 
 import {Heading1, Heading2, Paragraph} from '../../widget/Text'
-import {color, Button, NavigationItem, RefreshListView, RefreshState, SpacingView} from '../../widget'
-import {screen, system, tool} from '../../common'
+import {color, Button, NavigationItem, SpacingView} from '../../widget'
+import {screen, system} from '../../common'
 import api from '../../api'
 import NearbyListScene from './NearbyListScene'
 
@@ -24,7 +24,7 @@ type Props = {
 
 class NearbyScene extends PureComponent<Props> {
 
-    static navigationOptions = ({navigation}) => ({
+    static navigationOptions = ({navigation}: any) => ({
         headerRight: (
             <TouchableOpacity style={styles.searchBar}>
                 <Image source={require('../../img/home/search_icon.png')} style={styles.searchIcon} />

@@ -21,7 +21,7 @@ type State = {
 
 class WebScene extends PureComponent<Props, State> {
 
-    static navigationOptions = ({navigation}) => ({
+    static navigationOptions = ({navigation}: any) => ({
         headerStyle: {backgroundColor: 'white'},
         title: navigation.state.params.title,
     })

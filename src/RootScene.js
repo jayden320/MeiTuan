@@ -12,7 +12,7 @@ import {StatusBar} from 'react-native'
 import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation'
 
 import color from './widget/color'
-import {screen, system, tool} from './common'
+import {screen, system} from './common'
 import TabBarItem from './widget/TabBarItem'
 
 import HomeScene from './scene/Home/HomeScene'
@@ -25,7 +25,7 @@ import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
 
 const lightContentScenes = ['Home', 'Mine']
 
-function getCurrentRouteName(navigationState) {
+function getCurrentRouteName(navigationState: any) {
     if (!navigationState) {
         return null
     }
@@ -38,7 +38,7 @@ function getCurrentRouteName(navigationState) {
 }
 
 
-class RootScene extends PureComponent {
+class RootScene extends PureComponent<{}> {
     constructor() {
         super()
 

@@ -16,7 +16,7 @@ import { color } from '../../widget'
 let count = 0
 
 type Props = {
-    infos: Object,
+    info: Object,
     onPress: Function,
 }
 

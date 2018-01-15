@@ -7,30 +7,29 @@
  */
 
 
-import React, { PureComponent} from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, ViewPropTypes} from 'react-native'
 
+type Props = {
+    onPress: Function,
+    disabled: boolean,
+    style: ViewPropTypes.style,
+    containerStyle: ViewPropTypes.style,
+    title: string,
+    activeOpacity: number
+}
 
-class Button extends PureComponent {
-
-    static propTypes = {
-        onPress: PropTypes.func,
-        disabled: PropTypes.bool,
-        style: Text.propTypes.style,
-        containerStyle: View.propTypes.style,
-        title: PropTypes.string,
-        activeOpacity: PropTypes.number
-    }
+class Button extends PureComponent<Props> {
 
     static defaultProps = {
-        onPress:() => {},
+        onPress: () => {},
         disabled: false,
         activeOpacity: 0.8
     }
 
     render() {
-        let { onPress, disabled, style, containerStyle, title, activeOpacity } = this.props
+        let {onPress, disabled, style, containerStyle, title, activeOpacity} = this.props
         return (
             <TouchableOpacity
                 style={[styles.container, containerStyle]}

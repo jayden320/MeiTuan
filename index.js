@@ -11,7 +11,7 @@ import { AppRegistry } from 'react-native'
 
 import RootScene from './src/RootScene';
 
-export default class MeiTuan extends PureComponent {
+export default class MeiTuan extends PureComponent<{}> {
     render() {
         return (
             <RootScene />

@@ -11,13 +11,20 @@ import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl} from 'react-native'
 
 import {Heading1, Heading2, Paragraph} from '../../widget/Text'
-import {screen, system, tool} from '../../common'
+import {screen, system} from '../../common'
 import {color, DetailCell, NavigationItem, SpacingView} from '../../widget'
 
+type Props = {
 
-class MineScene extends PureComponent {
+}
 
-    static navigationOptions = ({navigation}) => ({
+type State = {
+    isRefreshing: boolean,
+}
+
+class MineScene extends PureComponent<Props, State> {
+
+    static navigationOptions = ({navigation}: any) => ({
         headerRight: (
             <View style={{flexDirection: 'row'}}>
                 <NavigationItem

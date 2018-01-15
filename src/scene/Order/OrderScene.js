@@ -12,7 +12,7 @@ import {View, Text, StyleSheet, StatusBar, Image, ListView, TouchableOpacity, Sc
 import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
 
 import {Heading1, Heading2, Paragraph} from '../../widget/Text'
-import {screen, system, tool} from '../../common'
+import {screen, system} from '../../common'
 import api from '../../api'
 import {color, DetailCell, SpacingView} from '../../widget'
 
@@ -31,7 +31,7 @@ type State = {
 
 class OrderScene extends PureComponent<Props, State> {
 
-    static navigationOptions = ({navigation}) => ({
+    static navigationOptions = ({navigation}: any) => ({
         title: '订单',
         headerStyle: {backgroundColor: 'white'},
     })
@@ -105,7 +105,7 @@ class OrderScene extends PureComponent<Props, State> {
         )
     }
 
-    renderCell = (rowData) => {
+    renderCell = (rowData: any) => {
         return (
             <GroupPurchaseCell
                 info={rowData.item}
