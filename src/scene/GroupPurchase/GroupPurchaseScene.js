@@ -11,7 +11,7 @@ import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, InteractionManager} from 'react-native'
 import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
 import {color, Button, NavigationItem, Separator, SpacingView} from '../../widget'
-import {Heading1, Heading2, Paragraph, HeadingBig} from '../../widget/Text'
+import {Heading2, Heading3, Paragraph, Heading1} from '../../widget/Text'
 import {screen, system} from '../../common'
 import api, {recommendUrlWithId, groupPurchaseDetailWithId} from '../../api'
 import GroupPurchaseCell from './GroupPurchaseCell'
@@ -106,8 +106,8 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
                     <Image style={styles.banner} source={{uri: info.imageUrl.replace('w.h', '480.0')}} />
 
                     <View style={styles.topContainer}>
-                        <Heading1 style={{color: color.primary}}>￥</Heading1>
-                        <HeadingBig style={{marginBottom: -8}}>{info.price}</HeadingBig>
+                        <Heading2 style={{color: color.primary}}>￥</Heading2>
+                        <Heading1 style={{marginBottom: -8}}>{info.price}</Heading1>
                         <Paragraph style={{marginLeft: 10}}>门市价：￥{(info.price * 1.1).toFixed(0)}</Paragraph>
                         <View style={{flex: 1}} />
                         <Button
@@ -133,7 +133,7 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
                 <SpacingView />
 
                 <View style={styles.tipHeader}>
-                    <Heading2>看了本团购的用户还看了</Heading2>
+                    <Heading3>看了本团购的用户还看了</Heading3>
                 </View>
             </View>
         )

@@ -11,7 +11,7 @@ import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar} from 'react-native'
 import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
 import {color, Button, NavigationItem} from '../../widget'
-import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {Heading2, Heading3, Paragraph} from '../../widget/Text'
 import {screen, system} from '../../common'
 import api from '../../api'
 

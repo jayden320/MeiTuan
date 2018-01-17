@@ -9,7 +9,7 @@
 
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, Image, TouchableOpacity, ViewPropTypes} from 'react-native'
-import {Heading1, Heading2, Paragraph} from './Text'
+import {Heading2, Heading3, Paragraph} from './Text'
 import Separator from './Separator'
 import {screen, system} from '../common'
 
@@ -29,7 +29,7 @@ class DetailCell extends PureComponent<Props> {
                 <TouchableOpacity>
                     <View style={[styles.content, this.props.style]}>
                         {icon}
-                        <Heading2>{this.props.title}</Heading2>
+                        <Heading3>{this.props.title}</Heading3>
                         <View style={{flex: 1, backgroundColor: 'blue'}} />
                         <Paragraph style={{color: '#999999'}}>{this.props.subtitle}</Paragraph>
                         <Image style={styles.arrow} source={require('../img/public/cell_arrow.png')} />

@@ -10,7 +10,7 @@
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 
-import {Heading2} from '../../widget/Text'
+import {Heading3} from '../../widget/Text'
 import {screen, system} from '../../common'
 
 type Props = {
@@ -25,9 +25,9 @@ class HomeMenuItem extends PureComponent<Props> {
             <TouchableOpacity style={styles.container}
                 onPress={this.props.onPress}>
                 <Image source={this.props.icon} resizeMode='contain' style={styles.icon} />
-                <Heading2>
+                <Heading3>
                     {this.props.title}
-                </Heading2>
+                </Heading3>
             </TouchableOpacity>
         );
     }

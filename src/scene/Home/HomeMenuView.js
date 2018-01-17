@@ -67,7 +67,6 @@ class HomeMenuView extends PureComponent<Props, State>  {
         return (
             <View style={styles.container}>
                 <ScrollView
-                    contentContainerStyle={styles.contentContainer}
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     pagingEnabled
@@ -109,8 +108,6 @@ class HomeMenuView extends PureComponent<Props, State>  {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-    },
-    contentContainer: {
     },
     menuContainer: {
         flexDirection: 'row',

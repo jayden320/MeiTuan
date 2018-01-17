@@ -11,7 +11,7 @@ import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, StatusBar, Image, ListView, TouchableOpacity, ScrollView, RefreshControl} from 'react-native'
 import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
 
-import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {Heading2, Heading3, Paragraph} from '../../widget/Text'
 import {screen, system} from '../../common'
 import api from '../../api'
 import {color, DetailCell, SpacingView} from '../../widget'

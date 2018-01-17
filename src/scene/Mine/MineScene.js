@@ -10,7 +10,7 @@
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl} from 'react-native'
 
-import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {Heading2, Heading3, Paragraph} from '../../widget/Text'
 import {screen, system} from '../../common'
 import {color, DetailCell, NavigationItem, SpacingView} from '../../widget'
 
@@ -95,7 +95,7 @@ class MineScene extends PureComponent<Props, State> {
                     <Image style={styles.avatar} source={require('../../img/mine/avatar.png')} />
                     <View>
                         <View style={{flexDirection: 'row'}}>
-                            <Heading1 style={{color: 'white'}}>素敌</Heading1>
+                            <Heading2 style={{color: 'white'}}>素敌</Heading2>
                             <Image style={{marginLeft: 4}} source={require('../../img/mine/beauty_technician_v15.png')} />
                         </View>
                         <Paragraph style={{color: 'white', marginTop: 4}}>个人信息 ></Paragraph>

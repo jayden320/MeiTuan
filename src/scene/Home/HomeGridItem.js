@@ -9,7 +9,7 @@
 
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
-import {Heading1, Heading2} from '../../widget/Text'
+import {Heading2, Heading3} from '../../widget/Text'
 import {screen, system} from '../../common'
 import {color} from '../../widget'
 
@@ -32,8 +32,8 @@ class HomeGridItem extends PureComponent<Props> {
         return (
             <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
                 <View>
-                    <Heading1 style={{color: color, marginBottom: 10}}>{title}</Heading1>
-                    <Heading2 >{subtitle}</Heading2>
+                    <Heading2 style={{color: color, marginBottom: 10}}>{title}</Heading2>
+                    <Heading3 >{subtitle}</Heading3>
                 </View>
 
                 <Image style={styles.icon} source={{uri: imageUrl}} />

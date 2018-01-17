@@ -9,7 +9,7 @@
 
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
-import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {Heading2, Heading3, Paragraph} from '../../widget/Text'
 import {screen, system} from '../../common'
 import {color} from '../../widget'
 

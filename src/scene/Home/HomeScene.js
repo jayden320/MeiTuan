@@ -10,7 +10,7 @@
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar, FlatList} from 'react-native'
 
-import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {Heading2, Heading3, Paragraph} from '../../widget/Text'
 import {color, Button, NavigationItem, SpacingView} from '../../widget'
 
 import {screen, system} from '../../common'
@@ -144,7 +144,7 @@ class HomeScene extends PureComponent<Props, State> {
                 <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
                 <SpacingView />
                 <View style={styles.recommendHeader}>
-                    <Heading2>猜你喜欢</Heading2>
+                    <Heading3>猜你喜欢</Heading3>
                 </View>
             </View>
         )

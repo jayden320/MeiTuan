@@ -9,7 +9,7 @@
 
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
-import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {Heading2, Heading3, Paragraph} from '../../widget/Text'
 import {screen, system} from '../../common'
 import {color} from '../../widget'
 
@@ -28,11 +28,11 @@ class NearbyCell extends PureComponent<Props> {
                 <Image source={{uri: imageUrl}} style={styles.icon} />
 
                 <View style={styles.rightContainer}>
-                    <Heading1>{info.title}</Heading1>
+                    <Heading2>{info.title}</Heading2>
 
                     <Paragraph numberOfLines={0} style={{marginTop: 8}}>{info.subtitle}</Paragraph>
                     <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                        <Heading1 style={styles.price}>{info.price}元</Heading1>
+                        <Heading2 style={styles.price}>{info.price}元</Heading2>
                     </View>
 
                 </View>

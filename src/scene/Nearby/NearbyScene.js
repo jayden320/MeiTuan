@@ -11,7 +11,7 @@ import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image} from 'react-native'
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view'
 
-import {Heading1, Heading2, Paragraph} from '../../widget/Text'
+import {Heading2, Heading3, Paragraph} from '../../widget/Text'
 import {color, Button, NavigationItem, SpacingView} from '../../widget'
 import {screen, system} from '../../common'
 import api from '../../api'
