@@ -81,7 +81,7 @@ class HomeScene extends PureComponent<Props, State> {
         this.requestDiscount()
         this.requestRecommend()
     }
-
+    
     requestRecommend = async () => {
         try {
             let response = await fetch(api.recommend)
@@ -171,11 +171,13 @@ class HomeScene extends PureComponent<Props, State> {
             <View style={styles.container}>
                 <FlatList
                     data={this.state.dataList}
+                    renderItem={this.renderCell}
+
                     keyExtractor={this.keyExtractor}
                     onRefresh={this.requestData}
                     refreshing={this.state.refreshing}
+
                     ListHeaderComponent={this.renderHeader}
-                    renderItem={this.renderCell}
                 />
             </View>
         )

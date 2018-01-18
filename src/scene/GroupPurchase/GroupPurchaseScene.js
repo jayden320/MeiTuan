@@ -21,7 +21,6 @@ type Props = {
 }
 
 type State = {
-    info: Object,
     data: Array<Object>,
     refreshState: number,
 }
@@ -46,7 +45,6 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
         super(props)
 
         this.state = {
-            info: {},
             data: [],
             refreshState: RefreshState.Idle,
         }
@@ -112,8 +110,8 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
                         <View style={{flex: 1}} />
                         <Button
                             title='立即抢购'
-                            style={{color: 'white', fontSize: 18}}
-                            containerStyle={styles.buyButton}
+                            titleStyle={{color: 'white', fontSize: 18}}
+                            style={styles.buyButton}
                         />
                     </View>
                 </View>

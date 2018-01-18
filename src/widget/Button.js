@@ -15,8 +15,9 @@ type Props = {
     onPress: Function,
     disabled: boolean,
     style: ViewPropTypes.style,
-    containerStyle: ViewPropTypes.style,
+
     title: string,
+    titleStyle: ViewPropTypes.style,
     activeOpacity: number
 }
 
@@ -29,15 +30,15 @@ class Button extends PureComponent<Props> {
     }
 
     render() {
-        let {onPress, disabled, style, containerStyle, title, activeOpacity} = this.props
+        let {onPress, disabled, style, titleStyle, title, activeOpacity} = this.props
         return (
             <TouchableOpacity
-                style={[styles.container, containerStyle]}
+                style={[styles.container, style]}
                 onPress={onPress}
                 disabled={disabled}
                 activeOpacity={activeOpacity}
             >
-                <Text style={style}>
+                <Text style={titleStyle}>
                     {title}
                 </Text>
             </TouchableOpacity>
