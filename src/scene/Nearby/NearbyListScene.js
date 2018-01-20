@@ -15,7 +15,7 @@ import {Heading2, Heading3, Paragraph} from '../../widget/Text'
 import {screen, system} from '../../common'
 import api from '../../api'
 
-import NearbyCell from './NearbyCell'
+import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 import NearbyHeaderView from './NearbyHeaderView'
 
 type Props = {
@@ -43,37 +43,56 @@ class NearbyListScene extends PureComponent<Props, State> {
     }
 
     componentDidMount() {
-        this.requestData()
+        this.requestFirstPage()
     }
 
     requestData = async () => {
+        let response = await fetch(api.recommend)
+        let json = await response.json()
+
+        console.log(JSON.stringify(json))
+
+        let dataList = json.data.map((info) => {
+            return {
+                id: info.id,
+                imageUrl: info.squareimgurl,
+                title: info.mname,
+                subtitle: `[${info.range}]${info.title}`,
+                price: info.price
+            }
+        })
+
+        // 偷懒，用同一个测试接口获取数据，然后打乱数组，造成数据来自不同接口的假象 >.<
+        dataList.sort(() => {return 0.5 - Math.random()})
+
+        return dataList
+    }
+
+    requestFirstPage = async () => {
         try {
             this.setState({refreshState: RefreshState.HeaderRefreshing})
+            let dataList = await this.requestData()
 
-            let response = await fetch(api.recommend)
-            let json = await response.json()
-
-            console.log(JSON.stringify(json))
-
-            let dataList = json.data.map((info) => {
-                return {
-                    id: info.id,
-                    imageUrl: info.squareimgurl,
-                    title: info.mname,
-                    subtitle: `[${info.range}]${info.title}`,
-                    price: info.price
-                }
+            this.setState({
+                data: dataList,
+                refreshState: RefreshState.Idle,
             })
+        } catch (error) {
+            this.setState({
+                refreshState: RefreshState.Failure,
+            })
+        }
+    }
 
-            // 偷懒，用同一个测试接口获取数据，然后打乱数组，造成数据来自不同接口的假象 >.<
-            dataList.sort(() => {return 0.5 - Math.random()})
+    requestNextPage = async () => {
+        try {
+            this.setState({refreshState: RefreshState.FooterRefreshing})
+            let dataList = await this.requestData()
 
-            setTimeout(() => {
-                this.setState({
-                    data: dataList,
-                    refreshState: RefreshState.NoMoreData,
-                })
-            }, 500)
+            this.setState({
+                data: [...this.state.data, ...dataList],
+                refreshState: this.state.data.length > 30 ? RefreshState.NoMoreData : RefreshState.Idle,
+            })
         } catch (error) {
             this.setState({
                 refreshState: RefreshState.Failure,
@@ -82,7 +101,7 @@ class NearbyListScene extends PureComponent<Props, State> {
     }
 
     keyExtractor = (item: Object, index: number) => {
-        return item.id
+        return index
     }
 
     renderHeader = () => {
@@ -102,7 +121,7 @@ class NearbyListScene extends PureComponent<Props, State> {
 
     renderCell = (rowData: any) => {
         return (
-            <NearbyCell
+            <GroupPurchaseCell
                 info={rowData.item}
                 onPress={() => {
                     this.props.navigation.navigate('GroupPurchase', {info: rowData.item})
@@ -117,9 +136,10 @@ class NearbyListScene extends PureComponent<Props, State> {
                 data={this.state.data}
                 ListHeaderComponent={this.renderHeader}
                 renderItem={this.renderCell}
-                keyExtractor={this.keyExtractor}
+                keyExtractor={(item, index) => index}
                 refreshState={this.state.refreshState}
-                onHeaderRefresh={this.requestData}
+                onHeaderRefresh={this.requestFirstPage}
+                onFooterRefresh={this.requestNextPage}
             />
         )
     }

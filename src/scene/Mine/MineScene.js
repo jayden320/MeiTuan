@@ -91,15 +91,13 @@ class MineScene extends PureComponent<Props, State> {
     renderHeader() {
         return (
             <View style={styles.header}>
-                <View style={styles.userContainer}>
-                    <Image style={styles.avatar} source={require('../../img/mine/avatar.png')} />
-                    <View>
-                        <View style={{flexDirection: 'row'}}>
-                            <Heading2 style={{color: 'white'}}>素敌</Heading2>
-                            <Image style={{marginLeft: 4}} source={require('../../img/mine/beauty_technician_v15.png')} />
-                        </View>
-                        <Paragraph style={{color: 'white', marginTop: 4}}>个人信息 ></Paragraph>
+                <Image style={styles.avatar} source={require('../../img/mine/avatar.png')} />
+                <View>
+                    <View style={{flexDirection: 'row', alignItems: 'center',}}>
+                        <Heading2 style={{color: 'white'}}>素敌</Heading2>
+                        <Image style={{marginLeft: 4}} source={require('../../img/mine/beauty_technician_v15.png')} />
                     </View>
+                    <Paragraph style={{color: 'white', marginTop: 4}}>个人信息 ></Paragraph>
                 </View>
             </View>
         )
@@ -153,15 +151,13 @@ class MineScene extends PureComponent<Props, State> {
 
 
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: color.primary,
-        paddingBottom: 20
-    },
     icon: {
         width: 27,
         height: 27,
     },
-    userContainer: {
+    header: {
+        backgroundColor: color.primary,
+        paddingBottom: 20,
         flexDirection: 'row',
         alignItems: 'center',
         margin: 10,

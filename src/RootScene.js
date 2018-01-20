@@ -128,7 +128,7 @@ const Tab = TabNavigator(
         },
     },
     {
-        // tabBarComponent: TabBarBottom,
+        tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
         lazy: true,
         animationEnabled: false,
