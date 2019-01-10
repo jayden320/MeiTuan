@@ -7,31 +7,31 @@
  */
 
 
-import React, {PureComponent} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 
 import color from './color'
-import {screen, system} from '../common'
+import { screen, system } from '../common'
 
 type Props = {
-    style?: any,
+  style?: any,
 }
 
 class Separator extends PureComponent<Props> {
-    render() {
-        return (
-            <View style={[styles.line, this.props.style]} />
-        )
-    }
+  render() {
+    return (
+      <View style={[styles.line, this.props.style]} />
+    )
+  }
 }
 
 
 const styles = StyleSheet.create({
-    line: {
-        width: screen.width,
-        height: screen.onePixel,
-        backgroundColor: color.border,
-    },
+  line: {
+    width: screen.width,
+    height: screen.onePixel,
+    backgroundColor: color.border,
+  },
 })
 
 

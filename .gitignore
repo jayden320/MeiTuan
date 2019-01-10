@@ -21,11 +21,10 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-ios/Pods
-ios/F8v2.xcworkspace
 
-# Android/IJ
+# Android/IntelliJ
 #
+build/
 .idea
 .gradle
 local.properties
@@ -35,13 +34,15 @@ local.properties
 #
 node_modules/
 npm-debug.log
+yarn-error.log
 
-# F8
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+
+# fastlane
 #
-
-/release
-/logs
-
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
@@ -51,3 +52,5 @@ npm-debug.log
 */fastlane/Preview.html
 */fastlane/screenshots
 
+# Bundle artifact
+*.jsbundle

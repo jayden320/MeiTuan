@@ -14,20 +14,20 @@ import color from './color'
 
 
 class SpacingView extends PureComponent<{}> {
-    render() {
-        return (
-            <View style={styles.container}>
-            </View>
-        )
-    }
+  render() {
+    return (
+      <View style={styles.container}>
+      </View>
+    )
+  }
 }
 
 
 const styles = StyleSheet.create({
-    container: {
-        height: 14,
-        backgroundColor: color.paper,
-    },
+  container: {
+    height: 14,
+    backgroundColor: color.paper,
+  },
 })
 
 

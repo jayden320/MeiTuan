@@ -1,4 +1,4 @@
-# MeiTuan App Write In latest React-Native(0.50.1)
+# MeiTuan App Write In latest React-Native(0.57.8)
 
 ## 视频教程
 **现已推出全套视频教程，从创建工程讲起，一行一行编写代码，直至完成整个项目。**
@@ -73,13 +73,13 @@ If you have any suggestions, leave a message here
 If you like this project, please give me a star  :)
 
 
-# 高仿美团客户端 React-Native版(0.50.1)
+# 高仿美团客户端 React-Native版(0.57.8)
 
 ## 简介
 
 这是一个用React-Native写的美团客户端。
 
-使用了React-Native 0.44.0版本。遵循ES6语法。
+使用了React-Native 0.57.8版本。遵循ES6语法。
 
 主要实现了美团的四个一级页面（团购、附近、订单、我的），以及部分二级页面（团购详情、Web页面）。
 

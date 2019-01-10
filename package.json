@@ -4,25 +4,25 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "ios": "react-native run-ios",
-    "android": "react-native run-android"
+    "test": "jest"
   },
   "dependencies": {
-    "prop-types": "^15.6.0",
-    "react": "16.0.0",
-    "react-native": "0.50.1",
+    "prop-types": "^15.6.2",
+    "react": "16.6.3",
+    "react-native": "0.57.8",
+    "react-native-gesture-handler": "^1.0.12",
     "react-native-page-control": "^1.1.1",
-    "react-native-refresh-list-view": "^1.0.6",
-    "react-native-scrollable-tab-view": "^0.8.0",
-    "react-navigation": "^1.0.0-beta.19"
+    "react-native-refresh-list-view": "^1.0.10",
+    "react-native-scrollable-tab-view": "^0.10.0",
+    "react-navigation": "^3.0.9"
   },
   "devDependencies": {
-    "babel-jest": "19.0.0",
-    "babel-preset-react-native": "1.9.1",
-    "flow-bin": "^0.45.0",
-    "jest": "19.0.2",
-    "react-test-renderer": "16.0.0-alpha.6"
+    "babel-cli": "^6.26.0",
+    "babel-jest": "23.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.51.1",
+    "react-test-renderer": "16.6.3"
   },
   "jest": {
     "preset": "react-native"

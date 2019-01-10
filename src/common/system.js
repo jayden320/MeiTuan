@@ -10,6 +10,6 @@
 import { Platform } from 'react-native'
 
 export default {
-    isIOS: Platform.OS === 'ios',
+  isIOS: Platform.OS === 'ios',
 
 }

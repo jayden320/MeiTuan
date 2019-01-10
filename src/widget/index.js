@@ -27,12 +27,12 @@ import TabBarItem from './TabBarItem'
 import WebScene from './WebScene'
 
 export {
-    DetailCell,
-    NavigationItem,
-    Separator,
-    SpacingView,
-    TabBarItem,
-    WebScene
+  DetailCell,
+  NavigationItem,
+  Separator,
+  SpacingView,
+  TabBarItem,
+  WebScene
 }
 
 
