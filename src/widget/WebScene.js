@@ -8,7 +8,8 @@
 
 
 import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, WebView, InteractionManager } from 'react-native'
+import { View, Text, StyleSheet, InteractionManager } from 'react-native'
+import { WebView } from 'react-native-webview'
 
 type Props = {
   navigation: any,

@@ -9,7 +9,9 @@
 
 import React, { PureComponent } from 'react'
 import { StatusBar } from 'react-native'
-import { createStackNavigator, createBottomTabNavigator, createAppContainer, TabBarBottom } from 'react-navigation'
+import { createAppContainer } from 'react-navigation'
+import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs'
+import { createStackNavigator } from 'react-navigation-stack'
 
 import color from './widget/color'
 import { screen, system } from './common'
@@ -127,7 +129,7 @@ const Tab = createBottomTabNavigator(
     },
   },
   {
-    tabBarComponent: TabBarBottom,
+    tabBarComponent: BottomTabBar,
     tabBarPosition: 'bottom',
     lazy: true,
     animationEnabled: false,
@@ -141,7 +143,7 @@ const Tab = createBottomTabNavigator(
 )
 
 Tab.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
 
 const AppNavigator = createStackNavigator(
@@ -152,7 +154,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerBackTitle: null,
+      headerBackTitle: ' ',
       headerTintColor: '#333333',
       showIcon: true,
     },

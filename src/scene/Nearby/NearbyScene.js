@@ -14,7 +14,7 @@ import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-vi
 import { Heading2, Heading3, Paragraph } from '../../widget/Text'
 import { color, Button, NavigationItem, SpacingView } from '../../widget'
 import { screen, system } from '../../common'
-import api from '../../api'
+import * as api from '../../api'
 import NearbyListScene from './NearbyListScene'
 
 type Props = {
@@ -25,13 +25,13 @@ type Props = {
 class NearbyScene extends PureComponent<Props> {
 
   static navigationOptions = ({ navigation }: any) => ({
-    headerRight: (
+    headerRight: () => (
       <TouchableOpacity style={styles.searchBar}>
         <Image source={require('../../img/home/search_icon.png')} style={styles.searchIcon} />
         <Paragraph>找附近的吃喝玩乐</Paragraph>
       </TouchableOpacity>
     ),
-    headerLeft: (
+    headerLeft: () => (
       <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
         <Image style={{ width: 13, height: 16 }} source={require('../../img/public/icon_food_merchant_address.png')} />
         <Text style={{ fontSize: 15, color: '#333333' }}> 福州 鼓楼</Text>

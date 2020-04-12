@@ -13,7 +13,7 @@ import RefreshListView, { RefreshState } from 'react-native-refresh-list-view'
 import { color, Button, NavigationItem } from '../../widget'
 import { Heading2, Heading3, Paragraph } from '../../widget/Text'
 import { screen, system } from '../../common'
-import api from '../../api'
+import * as api from '../../api'
 
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 import NearbyHeaderView from './NearbyHeaderView'
@@ -47,12 +47,7 @@ class NearbyListScene extends PureComponent<Props, State> {
   }
 
   requestData = async () => {
-    let response = await fetch(api.recommend)
-    let json = await response.json()
-
-    console.log(JSON.stringify(json))
-
-    let dataList = json.data.map((info) => {
+    let dataList = api.recommend.data.map((info) => {
       return {
         id: info.id,
         imageUrl: info.squareimgurl,

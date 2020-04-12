@@ -1,22 +1,9 @@
 /**
- * Copyright (c) 2017-present, Liu Jinyong
- * All rights reserved.
- *
- * https://github.com/huanxsd/MeiTuan
- * @flow
+ * @format
  */
 
-import React, { PureComponent } from 'react'
-import { AppRegistry } from 'react-native'
+import {AppRegistry} from 'react-native'
+import {name as appName} from './app.json'
+import RootScene from './src/RootScene'
 
-import RootScene from './src/RootScene';
-
-export default class MeiTuan extends PureComponent<{}> {
-  render() {
-    return (
-      <RootScene />
-    );
-  }
-}
-
-AppRegistry.registerComponent('MeiTuan', () => MeiTuan);
+AppRegistry.registerComponent(appName, () => RootScene)

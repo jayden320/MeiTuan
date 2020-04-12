@@ -25,7 +25,8 @@ type State = {
 class MineScene extends PureComponent<Props, State> {
 
   static navigationOptions = ({ navigation }: any) => ({
-    headerRight: (
+    title: ' ',
+    headerRight: () => (
       <View style={{ flexDirection: 'row' }}>
         <NavigationItem
           icon={require('../../img/mine/icon_navigation_item_set_white.png')}

@@ -14,8 +14,7 @@ import { Heading2, Heading3, Paragraph } from '../../widget/Text'
 import { color, Button, NavigationItem, SpacingView } from '../../widget'
 
 import { screen, system } from '../../common'
-import api from '../../api'
-
+import * as api from '../../api'
 
 import HomeMenuView from './HomeMenuView'
 import HomeGridView from './HomeGridView'
@@ -35,13 +34,13 @@ type State = {
 class HomeScene extends PureComponent<Props, State> {
 
   static navigationOptions = ({ navigation }: any) => ({
-    headerTitle: (
+    headerTitle: () => (
       <TouchableOpacity style={styles.searchBar}>
         <Image source={require('../../img/home/search_icon.png')} style={styles.searchIcon} />
         <Paragraph>搜索</Paragraph>
       </TouchableOpacity>
     ),
-    headerRight: (
+    headerRight: () => (
       <NavigationItem
         icon={require('../../img/mine/icon_navigation_item_message_white.png')}
         onPress={() => {
@@ -49,7 +48,7 @@ class HomeScene extends PureComponent<Props, State> {
         }}
       />
     ),
-    headerLeft: (
+    headerLeft: () => (
       <NavigationItem
         title='福州'
         titleStyle={{ color: 'white' }}
@@ -84,10 +83,7 @@ class HomeScene extends PureComponent<Props, State> {
 
   requestRecommend = async () => {
     try {
-      let response = await fetch(api.recommend)
-      let json = await response.json()
-
-      let dataList = json.data.map(
+      let dataList = api.recommend.data.map(
         (info) => {
           return {
             id: info.id,
@@ -135,20 +131,6 @@ class HomeScene extends PureComponent<Props, State> {
     return item.id.toString()
   }
 
-  renderHeader = () => {
-    return (
-      <View>
-        <HomeMenuView menuInfos={api.menuInfo} onMenuSelected={this.onMenuSelected} />
-        <SpacingView />
-        <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
-        <SpacingView />
-        <View style={styles.recommendHeader}>
-          <Heading3>猜你喜欢</Heading3>
-        </View>
-      </View>
-    )
-  }
-
   onGridSelected = (index: number) => {
     let discount = this.state.discounts[index]
 
@@ -163,6 +145,20 @@ class HomeScene extends PureComponent<Props, State> {
 
   onMenuSelected = (index: number) => {
     alert(index)
+  }
+
+  renderHeader = () => {
+    return (
+      <View>
+        <HomeMenuView menuInfos={api.menuInfos} onMenuSelected={this.onMenuSelected} />
+        <SpacingView />
+        <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
+        <SpacingView />
+        <View style={styles.recommendHeader}>
+          <Heading3>猜你喜欢</Heading3>
+        </View>
+      </View>
+    )
   }
 
   render() {

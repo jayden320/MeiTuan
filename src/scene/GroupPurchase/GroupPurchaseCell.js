@@ -29,14 +29,12 @@ class GroupPurchaseCell extends PureComponent<Props> {
     return (
       <TouchableOpacity style={styles.container} onPress={() => this.props.onPress(info)}>
         <Image source={{ uri: imageUrl }} style={styles.icon} />
-
         <View style={styles.rightContainer}>
           <Heading2>{info.title}</Heading2>
           <Paragraph numberOfLines={0} style={{ marginTop: 8 }}>{info.subtitle}</Paragraph>
           <View style={{ flex: 1, justifyContent: 'flex-end' }}>
             <Heading2 style={styles.price}>{info.price}元</Heading2>
           </View>
-
         </View>
       </TouchableOpacity>
     )

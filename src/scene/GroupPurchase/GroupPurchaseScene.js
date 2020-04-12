@@ -13,7 +13,7 @@ import RefreshListView, { RefreshState } from 'react-native-refresh-list-view'
 import { color, Button, NavigationItem, Separator, SpacingView } from '../../widget'
 import { Heading2, Heading3, Paragraph, Heading1 } from '../../widget/Text'
 import { screen, system } from '../../common'
-import api, { recommendUrlWithId, groupPurchaseDetailWithId } from '../../api'
+import * as api from '../../api'
 import GroupPurchaseCell from './GroupPurchaseCell'
 
 type Props = {
@@ -29,9 +29,9 @@ type State = {
 class GroupPurchaseScene extends PureComponent<Props, State> {
 
   static navigationOptions = ({ navigation }: any) => ({
-    headerTitle: '团购详情',
+    title: '团购详情',
     headerStyle: { backgroundColor: 'white' },
-    headerRight: (
+    headerRight: () => (
       <NavigationItem
         icon={require('../../img/public/icon_navigation_item_share.png')}
         onPress={() => {
@@ -63,14 +63,7 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
   requestRecommend = async () => {
     try {
       this.setState({ refreshState: RefreshState.HeaderRefreshing })
-
-      let info = this.props.navigation.state.params.info
-      let response = await fetch(recommendUrlWithId(info.id))
-      let json = await response.json()
-
-      console.log(JSON.stringify(json))
-
-      let dataList = json.data.deals.map((info) => {
+      let dataList = api.recommend.data.map((info) => {
         return {
           id: info.id,
           imageUrl: info.imgurl,
@@ -102,7 +95,6 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
       <View>
         <View>
           <Image style={styles.banner} source={{ uri: info.imageUrl.replace('w.h', '480.0') }} />
-
           <View style={styles.topContainer}>
             <Heading2 style={{ color: color.primary }}>￥</Heading2>
             <Heading1 style={{ marginBottom: -8 }}>{info.price}</Heading1>
@@ -115,9 +107,7 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
             />
           </View>
         </View>
-
         <Separator />
-
         <View>
           <View style={styles.tagContainer}>
             <Image style={{ width: 20, height: 20 }} source={require('../../img/home/icon_deal_anytime_refund.png')} />
@@ -125,11 +115,8 @@ class GroupPurchaseScene extends PureComponent<Props, State> {
             <View style={{ flex: 1 }} />
             <Paragraph>已售{1234}</Paragraph>
           </View>
-
         </View>
-
         <SpacingView />
-
         <View style={styles.tipHeader}>
           <Heading3>看了本团购的用户还看了</Heading3>
         </View>
