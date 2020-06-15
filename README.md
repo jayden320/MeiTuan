@@ -40,8 +40,6 @@ $ cd MeiTuan
 
 ```
 $ npm install
-
-# 安装iOS原生依赖
 $ cd ios && pod install && cd ..
 ```
 
@@ -125,12 +123,13 @@ $ cd MeiTuan
 
 ```
 $ npm install
+$ cd ios && pod install && cd ..
 ```
 
 3. **Running on iOS**
 
 ```
-$ react-native run-ios
+$ yarn react-native run-ios
 ```
 
 ## 常见问题
